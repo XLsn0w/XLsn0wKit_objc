@@ -1,0 +1,32 @@
+
+Pod::Spec.new do |s|
+
+  s.version      = "6.0.0"
+
+  s.summary      = "XLsn0wKit -> Objective-C Version"
+
+  s.requires_arc = true
+  s.license      = 'MIT'
+  s.platform     = :ios, "8.0"
+  s.author       = { "XLsn0w" => "xlsn0w@outlook.com" }
+
+  s.name         = "XLsn0wKit_objc"
+  s.homepage     = "https://github.com/XLsn0w/XLsn0wKit_objc"
+  s.source       = { :git => "https://github.com/XLsn0w/XLsn0wKit_objc.git", :tag => s.version.to_s }
+
+  s.source_files = "XLsn0wKit/**/*.{h,m}"
+
+  s.resources    = "XLsn0wKit/Resources/Resources.bundle"
+
+  s.frameworks   = "ImageIO", "QuartzCore", "AssetsLibrary", "MediaPlayer"
+
+  s.weak_frameworks = "Photos"
+
+  s.dependency "AFNetworking"
+  s.dependency "SDWebImage"
+  s.dependency "Masonry"
+  s.dependency "FMDB"
+  s.dependency "Aspects"
+  s.dependency "MBProgressHUD"
+
+end
