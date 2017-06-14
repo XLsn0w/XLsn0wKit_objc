@@ -77,53 +77,32 @@
 
 @end
 
+///枚举
 typedef enum {
-	/** Progress is shown using an UIActivityIndicatorView. This is the default. */
-	XYQProgressHUDModeIndeterminate,
-	/** Progress is shown using a round, pie-chart like, progress view. */
-	XYQProgressHUDModeDeterminate,
-	/** Progress is shown using a horizontal progress bar */
-	XYQProgressHUDModeDeterminateHorizontalBar,
-	/** Progress is shown using a ring-shaped progress view. */
-	XYQProgressHUDModeAnnularDeterminate,
-	
-	XYQProgressHUDModeCustomView,/** Shows a custom view */
-	XYQProgressHUDModeText/** Shows only labels */
-} XYQProgressHUDMode;
+	XLsn0wLoadingToastModeIndeterminate,/** Progress is shown using an UIActivityIndicatorView. This is the default. */
+	XLsn0wLoadingToastModeDeterminate,
+	XLsn0wLoadingToastModeDeterminateHorizontalBar,
+	XLsn0wLoadingToastModeAnnularDeterminate,
+	XLsn0wLoadingToastModeCustomView,/** Shows a custom view */
+	XLsn0wLoadingToastModeText/** Shows only labels */
+} XLsn0wLoadingToastMode;
 
 typedef enum {
-	/** Opacity animation */
-	XYQProgressHUDAnimationFade,
-	/** Opacity + scale animation */
-	XYQProgressHUDAnimationZoom,
-	XYQProgressHUDAnimationZoomOut = XYQProgressHUDAnimationZoom,
-	XYQProgressHUDAnimationZoomIn
-} XYQProgressHUDAnimation;
+	XLsn0wLoadingToastAnimationFade,
+	XLsn0wLoadingToastAnimationZoom,
+	XLsn0wLoadingToastAnimationZoomOut = XLsn0wLoadingToastAnimationZoom,
+	XLsn0wLoadingToastAnimationZoomIn
+} XLsn0wLoadingToastAnimation;
 
+
+/**
+ Block callback
+ */
 #if NS_BLOCKS_AVAILABLE
-typedef void (^XYQProgressHUDCompletionBlock)();
+typedef void (^XLsn0wLoadingToastCallbackBlock)();
 #endif
 
 
-/** 
- * Displays a simple HUD window containing a progress indicator and two optional labels for short messages.
- *
- * This is a simple drop-in class for displaying a progress HUD view similar to Apple's private UIProgressHUD class.
- * The XYQProgressHUD window spans over the entire space given to it by the initWithFrame constructor and catches all
- * user input on this region, thereby preventing the user operations on components below the view. The HUD itself is
- * drawn centered as a rounded semi-transparent view which resizes depending on the user specified content.
- *
- * This view supports four modes of operation:
- * - XYQProgressHUDModeIndeterminate - shows a UIActivityIndicatorView
- * - XYQProgressHUDModeDeterminate - shows a custom round progress indicator
- * - XYQProgressHUDModeAnnularDeterminate - shows a custom annular progress indicator
- * - XYQProgressHUDModeCustomView - shows an arbitrary, user specified view (@see customView)
- *
- * All three modes can have optional labels assigned:
- * - If the labelText property is set and non-empty then a label containing the provided content is placed below the
- *   indicator view.
- * - If also the detailsLabelText property is set then another label is placed below the first label.
- */
 @interface XLsn0wLoadingToast : UIView
 
 /**
@@ -262,7 +241,7 @@ typedef void (^XYQProgressHUDCompletionBlock)();
  *
  * @see showAnimated:whileExecutingBlock:onQueue:completionBlock:
  */
-- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(XYQProgressHUDCompletionBlock)completion;
+- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(XLsn0wLoadingToastCallbackBlock)completion;
 
 /**
  * Shows the HUD while a block is executing on the specified dispatch queue, then hides the HUD.
@@ -283,12 +262,12 @@ typedef void (^XYQProgressHUDCompletionBlock)();
  * @see completionBlock
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue
-		  completionBlock:(XYQProgressHUDCompletionBlock)completion;
+		  completionBlock:(XLsn0wLoadingToastCallbackBlock)completion;
 
 /**
  * A block that gets called after the HUD was completely hidden.
  */
-@property (copy) XYQProgressHUDCompletionBlock completionBlock;
+@property (copy, nonatomic) XLsn0wLoadingToastCallbackBlock completionBlock;
 
 #endif
 
@@ -297,14 +276,14 @@ typedef void (^XYQProgressHUDCompletionBlock)();
  *
  * @see XYQProgressHUDMode
  */
-@property (assign) XYQProgressHUDMode mode;
+@property (assign, nonatomic) XLsn0wLoadingToastMode mode;
 
 /**
  * The animation type that should be used when the HUD is shown and hidden. 
  *
  * @see XYQProgressHUDAnimation
  */
-@property (assign) XYQProgressHUDAnimation animationType;
+@property (assign) XLsn0wLoadingToastAnimation animationType;
 
 /**
  * The UIView (e.g., a UIImageView) to be shown when the HUD is in XYQProgressHUDModeCustomView.

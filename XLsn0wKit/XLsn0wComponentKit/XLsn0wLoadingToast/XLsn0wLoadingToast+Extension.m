@@ -14,7 +14,7 @@
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"XLsn0wKit_objc.bundle/%@", icon]]];
     // 再设置模式
-    hud.mode = XYQProgressHUDModeCustomView;
+    hud.mode = XLsn0wLoadingToastModeCustomView;
     
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
