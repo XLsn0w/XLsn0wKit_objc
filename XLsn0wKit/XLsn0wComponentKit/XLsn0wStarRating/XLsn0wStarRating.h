@@ -21,7 +21,7 @@
 /**
  *  评分改变
  *
- *  @param ratingBar 评分控件
+ *  @param starRating 评分控件
  *  @param selectedScore 评分值
  */
 - (void)starRating:(XLsn0wStarRating *)starRating selectedScore:(NSNumber *)selectedScore;

@@ -85,8 +85,6 @@ typedef void(^btnClickBlock)(NSInteger index);
  *  @param frame      frame
  *  @param titleArray 传入数组
  *  @param block      点击后的回调
- *
- *  @return
  */
 -(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block;
 

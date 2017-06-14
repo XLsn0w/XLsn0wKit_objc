@@ -30,8 +30,6 @@
 
 #import "XLsn0wNetworkManager.h"
 #import "XLNetworkMonitor.h"
-#import "XLDataBase.h"
-#import "User.h"
 
 #import "XLsn0wVersionManager.h"
 #import "XLsn0wFilterMenu.h"
