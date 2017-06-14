@@ -198,7 +198,6 @@
 		352958611EEFD824004B717F /* UINavigationBar+JKAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956471EEFD823004B717F /* UINavigationBar+JKAwesome.m */; };
 		352958621EEFD824004B717F /* UINavigationBar+XLsn0w.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956491EEFD823004B717F /* UINavigationBar+XLsn0w.m */; };
 		352958631EEFD824004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529564C1EEFD823004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.m */; };
-		352958641EEFD824004B717F /* UINavigationController+JKKeyboardFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529564E1EEFD823004B717F /* UINavigationController+JKKeyboardFix.m */; };
 		352958651EEFD824004B717F /* UINavigationController+JKStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956501EEFD823004B717F /* UINavigationController+JKStackManager.m */; };
 		352958661EEFD824004B717F /* UINavigationController+JKTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956521EEFD823004B717F /* UINavigationController+JKTransitions.m */; };
 		352958671EEFD824004B717F /* UINavigationItem+JKLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956551EEFD823004B717F /* UINavigationItem+JKLoading.m */; };
@@ -249,7 +248,6 @@
 		352958941EEFD824004B717F /* UIViewController+JKRecursiveDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956BC1EEFD823004B717F /* UIViewController+JKRecursiveDescription.m */; };
 		352958951EEFD824004B717F /* UIViewController+JKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956BE1EEFD823004B717F /* UIViewController+JKStoreKit.m */; };
 		352958961EEFD824004B717F /* UIViewController+JKVisible.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956C01EEFD823004B717F /* UIViewController+JKVisible.m */; };
-		352958971EEFD824004B717F /* UIViewController+XLsn0w.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956C21EEFD823004B717F /* UIViewController+XLsn0w.m */; };
 		352958981EEFD824004B717F /* UIViewController+XLsn0wKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956C41EEFD823004B717F /* UIViewController+XLsn0wKit.m */; };
 		352958991EEFD824004B717F /* UIWebView+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956C71EEFD823004B717F /* UIWebView+BFKit.m */; };
 		3529589A1EEFD824004B717F /* UIWebView+JKBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 352956C91EEFD823004B717F /* UIWebView+JKBlocks.m */; };
@@ -678,8 +676,6 @@
 		352956491EEFD823004B717F /* UINavigationBar+XLsn0w.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+XLsn0w.m"; sourceTree = "<group>"; };
 		3529564B1EEFD823004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AddXLsn0wShouldAutorotate.h"; sourceTree = "<group>"; };
 		3529564C1EEFD823004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AddXLsn0wShouldAutorotate.m"; sourceTree = "<group>"; };
-		3529564D1EEFD823004B717F /* UINavigationController+JKKeyboardFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JKKeyboardFix.h"; sourceTree = "<group>"; };
-		3529564E1EEFD823004B717F /* UINavigationController+JKKeyboardFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+JKKeyboardFix.m"; sourceTree = "<group>"; };
 		3529564F1EEFD823004B717F /* UINavigationController+JKStackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JKStackManager.h"; sourceTree = "<group>"; };
 		352956501EEFD823004B717F /* UINavigationController+JKStackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+JKStackManager.m"; sourceTree = "<group>"; };
 		352956511EEFD823004B717F /* UINavigationController+JKTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JKTransitions.h"; sourceTree = "<group>"; };
@@ -780,8 +776,6 @@
 		352956BE1EEFD823004B717F /* UIViewController+JKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JKStoreKit.m"; sourceTree = "<group>"; };
 		352956BF1EEFD823004B717F /* UIViewController+JKVisible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JKVisible.h"; sourceTree = "<group>"; };
 		352956C01EEFD823004B717F /* UIViewController+JKVisible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JKVisible.m"; sourceTree = "<group>"; };
-		352956C11EEFD823004B717F /* UIViewController+XLsn0w.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLsn0w.h"; sourceTree = "<group>"; };
-		352956C21EEFD823004B717F /* UIViewController+XLsn0w.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLsn0w.m"; sourceTree = "<group>"; };
 		352956C31EEFD823004B717F /* UIViewController+XLsn0wKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLsn0wKit.h"; sourceTree = "<group>"; };
 		352956C41EEFD823004B717F /* UIViewController+XLsn0wKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLsn0wKit.m"; sourceTree = "<group>"; };
 		352956C61EEFD823004B717F /* UIWebView+BFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BFKit.h"; sourceTree = "<group>"; };
@@ -975,6 +969,7 @@
 		352954B01EEFD823004B717F /* XLsn0wCategoryKit */ = {
 			isa = PBXGroup;
 			children = (
+				352956DD1EEFD823004B717F /* XLsn0wCategoryKit.h */,
 				352954B11EEFD823004B717F /* CAAnimation */,
 				352954B41EEFD823004B717F /* CALayer */,
 				352954B71EEFD823004B717F /* CAMediaTimingFunction */,
@@ -1041,7 +1036,6 @@
 				352956B21EEFD823004B717F /* UIViewController */,
 				352956C51EEFD823004B717F /* UIWebView */,
 				352956D81EEFD823004B717F /* UIWindow */,
-				352956DD1EEFD823004B717F /* XLsn0wCategoryKit.h */,
 			);
 			path = XLsn0wCategoryKit;
 			sourceTree = "<group>";
@@ -1754,8 +1748,6 @@
 			children = (
 				3529564B1EEFD823004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.h */,
 				3529564C1EEFD823004B717F /* UINavigationController+AddXLsn0wShouldAutorotate.m */,
-				3529564D1EEFD823004B717F /* UINavigationController+JKKeyboardFix.h */,
-				3529564E1EEFD823004B717F /* UINavigationController+JKKeyboardFix.m */,
 				3529564F1EEFD823004B717F /* UINavigationController+JKStackManager.h */,
 				352956501EEFD823004B717F /* UINavigationController+JKStackManager.m */,
 				352956511EEFD823004B717F /* UINavigationController+JKTransitions.h */,
@@ -1954,8 +1946,6 @@
 				352956BE1EEFD823004B717F /* UIViewController+JKStoreKit.m */,
 				352956BF1EEFD823004B717F /* UIViewController+JKVisible.h */,
 				352956C01EEFD823004B717F /* UIViewController+JKVisible.m */,
-				352956C11EEFD823004B717F /* UIViewController+XLsn0w.h */,
-				352956C21EEFD823004B717F /* UIViewController+XLsn0w.m */,
 				352956C31EEFD823004B717F /* UIViewController+XLsn0wKit.h */,
 				352956C41EEFD823004B717F /* UIViewController+XLsn0wKit.m */,
 			);
@@ -2492,7 +2482,6 @@
 				352958BD1EEFD824004B717F /* XLsn0wShow.m in Sources */,
 				352958081EEFD824004B717F /* NSString+JKSize.m in Sources */,
 				352957B31EEFD824004B717F /* CATransaction+JKAnimateWithDuration.m in Sources */,
-				352958971EEFD824004B717F /* UIViewController+XLsn0w.m in Sources */,
 				352958B11EEFD824004B717F /* XLsn0wFilterMenu.m in Sources */,
 				352958131EEFD824004B717F /* NSURLConnection+JKSelfSigned.m in Sources */,
 				352958921EEFD824004B717F /* UIViewController+JKBackButtonTouched.m in Sources */,
@@ -2593,7 +2582,6 @@
 				352958291EEFD824004B717F /* UIButton+JKIndicator.m in Sources */,
 				352958431EEFD824004B717F /* UIImage+JKBlur.m in Sources */,
 				352958A61EEFD824004B717F /* XLButton.m in Sources */,
-				352958641EEFD824004B717F /* UINavigationController+JKKeyboardFix.m in Sources */,
 				352957C81EEFD824004B717F /* NSDate+JKFormatter.m in Sources */,
 				3529583C1EEFD824004B717F /* UIFont+BFKit.m in Sources */,
 				352958A81EEFD824004B717F /* XLDatabase.m in Sources */,
