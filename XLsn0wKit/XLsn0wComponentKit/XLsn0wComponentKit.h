@@ -40,6 +40,8 @@
 #import "XLsn0wTextView.h"
 #import "XLsn0wTopSlider.h"
 #import "XLsn0wShow.h"
+#import "XLsn0wLoadingToast+Extension.h"
+#import "XLsn0wLoadingToast.h"
 
 /**************************************************************************************************/
 

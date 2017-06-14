@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351420641EF0DF1C005C3846 /* XLsn0wKit_objc.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */; };
+		3514206A1EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 351420671EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.m */; };
+		3514206B1EF0DF3C005C3846 /* XLsn0wLoadingToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 351420691EF0DF3C005C3846 /* XLsn0wLoadingToast.m */; };
 		352954971EEFD7FB004B717F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954961EEFD7FB004B717F /* main.m */; };
 		3529549A1EEFD7FB004B717F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954991EEFD7FB004B717F /* AppDelegate.m */; };
 		3529549D1EEFD7FB004B717F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529549C1EEFD7FB004B717F /* ViewController.m */; };
@@ -291,12 +294,16 @@
 		352958C21EEFD824004B717F /* XLsn0wVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 352957301EEFD823004B717F /* XLsn0wVersionManager.m */; };
 		352958C31EEFD824004B717F /* XLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 352957331EEFD823004B717F /* XLTextField.m */; };
 		352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */; };
-		352958F91EEFD87B004B717F /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 352958F81EEFD87B004B717F /* Resources.bundle */; };
 		352958FC1EEFD8AF004B717F /* XLsn0wNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 352958FB1EEFD8AF004B717F /* XLsn0wNetworkManager.m */; };
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLsn0wKit_objc.bundle; sourceTree = "<group>"; };
+		351420661EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XLsn0wLoadingToast+Extension.h"; sourceTree = "<group>"; };
+		351420671EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XLsn0wLoadingToast+Extension.m"; sourceTree = "<group>"; };
+		351420681EF0DF3C005C3846 /* XLsn0wLoadingToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wLoadingToast.h; sourceTree = "<group>"; };
+		351420691EF0DF3C005C3846 /* XLsn0wLoadingToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wLoadingToast.m; sourceTree = "<group>"; };
 		352954921EEFD7FB004B717F /* XLsn0wKit_objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wKit_objc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352954961EEFD7FB004B717F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		352954981EEFD7FB004B717F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -861,7 +868,6 @@
 		352957331EEFD823004B717F /* XLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLTextField.m; sourceTree = "<group>"; };
 		352957341EEFD823004B717F /* XLsn0wKit_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wKit_objc.h; sourceTree = "<group>"; };
 		352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wKit_objc.podspec; sourceTree = "<group>"; };
-		352958F81EEFD87B004B717F /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		352958FA1EEFD8AF004B717F /* XLsn0wNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wNetworkManager.h; sourceTree = "<group>"; };
 		352958FB1EEFD8AF004B717F /* XLsn0wNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNetworkManager.m; sourceTree = "<group>"; };
 		62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wKit_objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -888,6 +894,17 @@
 				9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		351420651EF0DF3C005C3846 /* XLsn0wLoadingToast */ = {
+			isa = PBXGroup;
+			children = (
+				351420681EF0DF3C005C3846 /* XLsn0wLoadingToast.h */,
+				351420691EF0DF3C005C3846 /* XLsn0wLoadingToast.m */,
+				351420661EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.h */,
+				351420671EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.m */,
+			);
+			path = XLsn0wLoadingToast;
 			sourceTree = "<group>";
 		};
 		352954891EEFD7FB004B717F = {
@@ -1985,6 +2002,7 @@
 			isa = PBXGroup;
 			children = (
 				352957021EEFD823004B717F /* XLsn0wComponentKit.h */,
+				351420651EF0DF3C005C3846 /* XLsn0wLoadingToast */,
 				352956DF1EEFD823004B717F /* UploadImage */,
 				352956E41EEFD823004B717F /* XLButton */,
 				352956E71EEFD823004B717F /* XLDataBase */,
@@ -2244,7 +2262,7 @@
 		352958F71EEFD87B004B717F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				352958F81EEFD87B004B717F /* Resources.bundle */,
+				351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2321,10 +2339,10 @@
 			files = (
 				352958B51EEFD824004B717F /* ScanQR1@2x.png in Resources */,
 				352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */,
+				351420641EF0DF1C005C3846 /* XLsn0wKit_objc.bundle in Resources */,
 				352958B71EEFD824004B717F /* ScanQR3@2x.png in Resources */,
 				352958B61EEFD824004B717F /* ScanQR2@2x.png in Resources */,
 				352954A51EEFD7FB004B717F /* LaunchScreen.storyboard in Resources */,
-				352958F91EEFD87B004B717F /* Resources.bundle in Resources */,
 				352958B41EEFD824004B717F /* QRCodeScanLine@2x.png in Resources */,
 				352954A21EEFD7FB004B717F /* Assets.xcassets in Resources */,
 				352954A01EEFD7FB004B717F /* Main.storyboard in Resources */,
@@ -2405,6 +2423,7 @@
 				352958251EEFD824004B717F /* UIButton+JKBackgroundColor.m in Sources */,
 				352958B01EEFD824004B717F /* XLsn0wCollectionViewFlowLayout.m in Sources */,
 				352957E01EEFD824004B717F /* NSMutableArray+BFKit.m in Sources */,
+				3514206A1EF0DF3C005C3846 /* XLsn0wLoadingToast+Extension.m in Sources */,
 				3529582A1EEFD824004B717F /* UIButton+JKMiddleAligning.m in Sources */,
 				352958751EEFD824004B717F /* UITableView+BFKit.m in Sources */,
 				352958531EEFD824004B717F /* UIImageView+JKAddition.m in Sources */,
@@ -2510,6 +2529,7 @@
 				3529580A1EEFD824004B717F /* NSString+JKURLEncode.m in Sources */,
 				352957CD1EEFD824004B717F /* NSDate-Utilities.m in Sources */,
 				352958411EEFD824004B717F /* UIImage+JKAnimatedGIF.m in Sources */,
+				3514206B1EF0DF3C005C3846 /* XLsn0wLoadingToast.m in Sources */,
 				352954971EEFD7FB004B717F /* main.m in Sources */,
 				3529585F1EEFD824004B717F /* UILabel+XLsn0w.m in Sources */,
 				352957BF1EEFD824004B717F /* NSData+JKBase64.m in Sources */,

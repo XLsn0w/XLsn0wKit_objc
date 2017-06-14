@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version      = "6.0.1"
+  s.version      = "6.0.2"
 
   s.summary      = "XLsn0wKit -> Objective-C Version"
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "XLsn0wKit/**/*.{h,m}"
 
-  s.resources    = "XLsn0wKit/Resources/Resources.bundle"
+  s.resources    = "XLsn0wKit/Resources/XLsn0wKit_objc.bundle"
 
   s.frameworks   = "ImageIO", "QuartzCore", "AssetsLibrary", "MediaPlayer"
 
