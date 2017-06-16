@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version      = "6.0.6"
+  s.version      = "6.1.1"
 
   s.summary      = "XLsn0wKit -> Objective-C Version"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.frameworks   = "UIKit", "Foundation"
 
-  s.weak_frameworks = "Photos"
+  s.weak_frameworks = "CoreLocation"
 
   s.dependency "AFNetworking"
   s.dependency "SDWebImage"

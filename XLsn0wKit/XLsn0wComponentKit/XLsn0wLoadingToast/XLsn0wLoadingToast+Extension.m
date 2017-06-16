@@ -1,4 +1,13 @@
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *	  \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wLoadingToast.h"
 
@@ -61,12 +70,12 @@
     return [self showMessage:message toView:nil];
 }
 
-+ (void)hideHUDForView:(UIView *)view {
++ (void)hideToastForView:(UIView *)view {
     [self hideHUDForView:view animated:YES];
 }
 
-+ (void)hideHUD {
-    [self hideHUDForView:nil];
++ (void)hideToast {
+    [self hideToastForView:nil];
 }
 
 @end

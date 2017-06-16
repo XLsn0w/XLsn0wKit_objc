@@ -1,4 +1,13 @@
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *	  \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
@@ -79,19 +88,19 @@
 
 ///枚举
 typedef enum {
-	XLsn0wLoadingToastModeIndeterminate,/** Progress is shown using an UIActivityIndicatorView. This is the default. */
-	XLsn0wLoadingToastModeDeterminate,
-	XLsn0wLoadingToastModeDeterminateHorizontalBar,
-	XLsn0wLoadingToastModeAnnularDeterminate,
-	XLsn0wLoadingToastModeCustomView,/** Shows a custom view */
-	XLsn0wLoadingToastModeText/** Shows only labels */
+    XLsn0wLoadingToastModeIndeterminate,/** Progress is shown using an UIActivityIndicatorView. This is the default. */
+    XLsn0wLoadingToastModeDeterminate,
+    XLsn0wLoadingToastModeDeterminateHorizontalBar,
+    XLsn0wLoadingToastModeAnnularDeterminate,
+    XLsn0wLoadingToastModeCustomView,/** Shows a custom view */
+    XLsn0wLoadingToastModeText/** Shows only labels */
 } XLsn0wLoadingToastMode;
 
 typedef enum {
-	XLsn0wLoadingToastAnimationFade,
-	XLsn0wLoadingToastAnimationZoom,
-	XLsn0wLoadingToastAnimationZoomOut = XLsn0wLoadingToastAnimationZoom,
-	XLsn0wLoadingToastAnimationZoomIn
+    XLsn0wLoadingToastAnimationFade,
+    XLsn0wLoadingToastAnimationZoom,
+    XLsn0wLoadingToastAnimationZoomOut = XLsn0wLoadingToastAnimationZoom,
+    XLsn0wLoadingToastAnimationZoomIn
 } XLsn0wLoadingToastAnimation;
 
 
@@ -105,9 +114,127 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
 
 @interface XLsn0wLoadingToast : UIView
 
+@property (assign, nonatomic) XLsn0wLoadingToastMode mode;
+
+@property (assign) XLsn0wLoadingToastAnimation animationType;
+
+/**
+ * The UIView (e.g., a UIImageView) to be shown when the HUD is in XYQProgressHUDModeCustomView.
+ * For best results use a 37 by 37 pixel view (so the bounds match the built in indicator bounds).
+ */
+@property (strong) UIView *customView;
+
+
+@property (weak, nonatomic) id<XLsn0wLoadingToastDelegate> delegate;
+
+/**
+ * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
+ * the entire text. If the text is too long it will get clipped by displaying "..." at the end. If left unchanged or
+ * set to @"", then no message is displayed.
+ */
+@property (copy) NSString *labelText;
+
+/**
+ * An optional details message displayed below the labelText message. This message is displayed only if the labelText
+ * property is also set and is different from an empty string (@""). The details text can span multiple lines.
+ */
+@property (copy) NSString *detailsLabelText;
+
+/**
+ * The opacity of the HUD window. Defaults to 0.8 (80% opacity).
+ */
+@property (assign) float opacity;
+
+/**
+ * The color of the HUD window. Defaults to black. If this property is set, color is set using
+ * this UIColor and the opacity property is not used.  using retain because performing copy on
+ * UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.
+ */
+@property (strong) UIColor *color;
+
+/**
+ * The x-axis offset of the HUD relative to the centre of the superview.
+ */
+@property (assign) float xOffset;
+
+/**
+ * The y-axis offset of the HUD relative to the centre of the superview.
+ */
+@property (assign) float yOffset;
+
+/**
+ * The amount of space between the HUD edge and the HUD elements (labels, indicators or custom views).
+ * Defaults to 20.0
+ */
+@property (assign) float margin;
+
+/**
+ * Cover the HUD background view with a radial gradient.
+ */
+@property (assign) BOOL diXYQackground;
+
+/*
+ * Grace period is the time (in seconds) that the invoked method may be run without
+ * showing the HUD. If the task finishes before the grace time runs out, the HUD will
+ * not be shown at all.
+ * This may be used to prevent HUD display for very short tasks.
+ * Defaults to 0 (no grace time).
+ * Grace time functionality is only supported when the task status is known!
+ * @see taskInProgress
+ */
+@property (assign) float graceTime;
+
+/**
+ * The minimum time (in seconds) that the HUD is shown.
+ * This avoids the problem of the HUD being shown and than instantly hidden.
+ * Defaults to 0 (no minimum show time).
+ */
+@property (assign) float minShowTime;
+
+/**
+ * Indicates that the executed operation is in progress. Needed for correct graceTime operation.
+ * If you don't set a graceTime (different than 0.0) this does nothing.
+ * This property is automatically set when using showWhileExecuting:onTarget:withObject:animated:.
+ * When threading is done outside of the HUD (i.e., when the show: and hide: methods are used directly),
+ * you need to set this property when your task starts and completes in order to have normal graceTime
+ * functionality.
+ */
+@property (assign) BOOL taskInProgress;
+
+/**
+ * Removes the HUD from its parent view when hidden.
+ * Defaults to NO.
+ */
+@property (assign) BOOL removeFromSuperViewOnHide;
+
+/**
+ * Font to be used for the main label. Set this property if the default is not adequate.
+ */
+@property (strong) UIFont* labelFont;
+
+/**
+ * Font to be used for the details label. Set this property if the default is not adequate.
+ */
+@property (strong) UIFont* detailsLabelFont;
+
+/**
+ * The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0.
+ */
+@property (assign) float progress;
+
+/**
+ * The minimum size of the HUD bezel. Defaults to CGSizeZero (no minimum size).
+ */
+@property (assign) CGSize minSize;
+
+/**
+ * Force the HUD dimensions to be equal if possible.
+ */
+@property (assign, getter = isSquare) BOOL square;
+
 /**
  * Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
- * 
+ *
  * @param view The view that the HUD will be added to
  * @param animated If set to YES the HUD will appear using the current animationType. If set to NO the HUD will not use
  * animations while appearing.
@@ -124,7 +251,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  * @param view The view that is going to be searched for a HUD subview.
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
  * animations while disappearing.
- * @return YES if a HUD was found and removed, NO otherwise. 
+ * @return YES if a HUD was found and removed, NO otherwise.
  *
  * @see showHUDAddedTo:animated:
  * @see animationType
@@ -132,7 +259,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
 + (BOOL)hideHUDForView:(UIView *)view animated:(BOOL)animated;
 
 /**
- * Finds all the HUD subviews and hides them. 
+ * Finds all the HUD subviews and hides them.
  *
  * @param view The view that is going to be searched for HUD subviews.
  * @param animated If set to YES the HUDs will disappear using the current animationType. If set to NO the HUDs will not use
@@ -145,7 +272,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
 + (NSUInteger)hideAllHUDsForView:(UIView *)view animated:(BOOL)animated;
 
 /**
- * Finds the top-most HUD subview and returns it. 
+ * Finds the top-most HUD subview and returns it.
  *
  * @param view The view that is going to be searched.
  * @return A reference to the last HUD subview discovered.
@@ -178,7 +305,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  */
 - (id)initWithView:(UIView *)view;
 
-/** 
+/**
  * Display the HUD. You need to make sure that the main thread completes its run loop soon after this method call so
  * the user interface can be updated. Call this method when your task is already set-up to be executed in a new thread
  * (e.g., when using something like NSOperation or calling an asynchronous call like NSURLRequest).
@@ -190,7 +317,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  */
 - (void)show:(BOOL)animated;
 
-/** 
+/**
  * Hide the HUD. This still calls the hudWasHidden: delegate. This is the counterpart of the show: method. Use it to
  * hide the HUD when your task completes.
  *
@@ -201,7 +328,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  */
 - (void)hide:(BOOL)animated;
 
-/** 
+/**
  * Hide the HUD after a delay. This still calls the hudWasHidden: delegate. This is the counterpart of the show: method. Use it to
  * hide the HUD when your task completes.
  *
@@ -213,7 +340,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  */
 - (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
-/** 
+/**
  * Shows the HUD while a background task is executing in a new thread, then hides the HUD.
  *
  * This method also takes care of autorelease pools so your method does not have to be concerned with setting up a
@@ -250,7 +377,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue;
 
-/** 
+/**
  * Shows the HUD while a block is executing on the specified dispatch queue, executes completion block on the main queue, and then hides the HUD.
  *
  * @param animated If set to YES the HUD will (dis)appear using the current animationType. If set to NO the HUD will
@@ -262,7 +389,7 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
  * @see completionBlock
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue
-		  completionBlock:(XLsn0wLoadingToastCallbackBlock)completion;
+     completionBlock:(XLsn0wLoadingToastCallbackBlock)completion;
 
 /**
  * A block that gets called after the HUD was completely hidden.
@@ -270,138 +397,6 @@ typedef void (^XLsn0wLoadingToastCallbackBlock)();
 @property (copy, nonatomic) XLsn0wLoadingToastCallbackBlock completionBlock;
 
 #endif
-
-/** 
- * XYQProgressHUD operation mode. The default is XYQProgressHUDModeIndeterminate.
- *
- * @see XYQProgressHUDMode
- */
-@property (assign, nonatomic) XLsn0wLoadingToastMode mode;
-
-/**
- * The animation type that should be used when the HUD is shown and hidden. 
- *
- * @see XYQProgressHUDAnimation
- */
-@property (assign) XLsn0wLoadingToastAnimation animationType;
-
-/**
- * The UIView (e.g., a UIImageView) to be shown when the HUD is in XYQProgressHUDModeCustomView.
- * For best results use a 37 by 37 pixel view (so the bounds match the built in indicator bounds). 
- */
-@property (strong) UIView *customView;
-
-/** 
- * The HUD delegate object. 
- *
- * @see XYQProgressHUDDelegate
- */
-@property (weak) id<XLsn0wLoadingToastDelegate> delegate;
-
-/** 
- * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
- * the entire text. If the text is too long it will get clipped by displaying "..." at the end. If left unchanged or
- * set to @"", then no message is displayed.
- */
-@property (copy) NSString *labelText;
-
-/** 
- * An optional details message displayed below the labelText message. This message is displayed only if the labelText
- * property is also set and is different from an empty string (@""). The details text can span multiple lines. 
- */
-@property (copy) NSString *detailsLabelText;
-
-/** 
- * The opacity of the HUD window. Defaults to 0.8 (80% opacity). 
- */
-@property (assign) float opacity;
-
-/**
- * The color of the HUD window. Defaults to black. If this property is set, color is set using
- * this UIColor and the opacity property is not used.  using retain because performing copy on
- * UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.
- */
-@property (strong) UIColor *color;
-
-/** 
- * The x-axis offset of the HUD relative to the centre of the superview. 
- */
-@property (assign) float xOffset;
-
-/** 
- * The y-axis offset of the HUD relative to the centre of the superview. 
- */
-@property (assign) float yOffset;
-
-/**
- * The amount of space between the HUD edge and the HUD elements (labels, indicators or custom views). 
- * Defaults to 20.0
- */
-@property (assign) float margin;
-
-/** 
- * Cover the HUD background view with a radial gradient. 
- */
-@property (assign) BOOL diXYQackground;
-
-/*
- * Grace period is the time (in seconds) that the invoked method may be run without 
- * showing the HUD. If the task finishes before the grace time runs out, the HUD will
- * not be shown at all. 
- * This may be used to prevent HUD display for very short tasks.
- * Defaults to 0 (no grace time).
- * Grace time functionality is only supported when the task status is known!
- * @see taskInProgress
- */
-@property (assign) float graceTime;
-
-/**
- * The minimum time (in seconds) that the HUD is shown. 
- * This avoids the problem of the HUD being shown and than instantly hidden.
- * Defaults to 0 (no minimum show time).
- */
-@property (assign) float minShowTime;
-
-/**
- * Indicates that the executed operation is in progress. Needed for correct graceTime operation.
- * If you don't set a graceTime (different than 0.0) this does nothing.
- * This property is automatically set when using showWhileExecuting:onTarget:withObject:animated:.
- * When threading is done outside of the HUD (i.e., when the show: and hide: methods are used directly),
- * you need to set this property when your task starts and completes in order to have normal graceTime 
- * functionality.
- */
-@property (assign) BOOL taskInProgress;
-
-/**
- * Removes the HUD from its parent view when hidden. 
- * Defaults to NO. 
- */
-@property (assign) BOOL removeFromSuperViewOnHide;
-
-/** 
- * Font to be used for the main label. Set this property if the default is not adequate. 
- */
-@property (strong) UIFont* labelFont;
-
-/** 
- * Font to be used for the details label. Set this property if the default is not adequate. 
- */
-@property (strong) UIFont* detailsLabelFont;
-
-/** 
- * The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0. 
- */
-@property (assign) float progress;
-
-/**
- * The minimum size of the HUD bezel. Defaults to CGSizeZero (no minimum size).
- */
-@property (assign) CGSize minSize;
-
-/**
- * Force the HUD dimensions to be equal if possible. 
- */
-@property (assign, getter = isSquare) BOOL square;
 
 @end
 

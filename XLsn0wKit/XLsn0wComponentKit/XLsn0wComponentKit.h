@@ -42,6 +42,7 @@
 #import "XLsn0wShow.h"
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wLoadingToast.h"
+#import "XLsn0wMapGeoCoder.h"
 
 /**************************************************************************************************/
 

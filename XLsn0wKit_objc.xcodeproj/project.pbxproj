@@ -293,6 +293,7 @@
 		352958C31EEFD824004B717F /* XLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 352957331EEFD823004B717F /* XLTextField.m */; };
 		352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */; };
 		352958FC1EEFD8AF004B717F /* XLsn0wNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 352958FB1EEFD8AF004B717F /* XLsn0wNetworkManager.m */; };
+		353A48331EF3B5650069BC68 /* XLsn0wMapGeoCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A48321EF3B5650069BC68 /* XLsn0wMapGeoCoder.m */; };
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
 /* End PBXBuildFile section */
 
@@ -864,6 +865,8 @@
 		352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wKit_objc.podspec; sourceTree = "<group>"; };
 		352958FA1EEFD8AF004B717F /* XLsn0wNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wNetworkManager.h; sourceTree = "<group>"; };
 		352958FB1EEFD8AF004B717F /* XLsn0wNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNetworkManager.m; sourceTree = "<group>"; };
+		353A48311EF3B5650069BC68 /* XLsn0wMapGeoCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wMapGeoCoder.h; sourceTree = "<group>"; };
+		353A48321EF3B5650069BC68 /* XLsn0wMapGeoCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wMapGeoCoder.m; sourceTree = "<group>"; };
 		62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wKit_objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.release.xcconfig"; sourceTree = "<group>"; };
@@ -1992,6 +1995,7 @@
 			isa = PBXGroup;
 			children = (
 				352957021EEFD823004B717F /* XLsn0wComponentKit.h */,
+				353A48301EF3B5650069BC68 /* XLsn0wMapGeoCoder */,
 				351420651EF0DF3C005C3846 /* XLsn0wLoadingToast */,
 				352956DF1EEFD823004B717F /* UploadImage */,
 				352956E41EEFD823004B717F /* XLButton */,
@@ -2255,6 +2259,15 @@
 				351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		353A48301EF3B5650069BC68 /* XLsn0wMapGeoCoder */ = {
+			isa = PBXGroup;
+			children = (
+				353A48311EF3B5650069BC68 /* XLsn0wMapGeoCoder.h */,
+				353A48321EF3B5650069BC68 /* XLsn0wMapGeoCoder.m */,
+			);
+			path = XLsn0wMapGeoCoder;
 			sourceTree = "<group>";
 		};
 		9D584EC95F4E08213235695D /* Frameworks */ = {
@@ -2526,6 +2539,7 @@
 				352958471EEFD824004B717F /* UIImage+JKFXImage.m in Sources */,
 				352958051EEFD824004B717F /* NSString+JKPinyin.m in Sources */,
 				352958141EEFD824004B717F /* NSURLRequest+JKParamsFromDictionary.m in Sources */,
+				353A48331EF3B5650069BC68 /* XLsn0wMapGeoCoder.m in Sources */,
 				352958671EEFD824004B717F /* UINavigationItem+JKLoading.m in Sources */,
 				352957CC1EEFD824004B717F /* NSDate+XL.m in Sources */,
 				3529581C1EEFD824004B717F /* UIBarButtonItem+BFKit.m in Sources */,
