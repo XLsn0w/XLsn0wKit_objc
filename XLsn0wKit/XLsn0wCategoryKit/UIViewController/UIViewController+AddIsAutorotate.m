@@ -10,12 +10,24 @@
  *********************************************************************************************/
 
 #import "UIViewController+AddIsAutorotate.h"
-
 #import <objc/runtime.h>
-#import "Aspects.h"
 
 @implementation UIViewController (AddIsAutorotate)
 
+//添加属性get方法
+- (BOOL)isAutorotate {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+//添加属性set方法
+- (void)setIsAutorotate:(BOOL)isAutorotate {
+    objc_setAssociatedObject(self, @selector(isAutorotate), @(isAutorotate), OBJC_ASSOCIATION_ASSIGN);
+}
+
+@end
+
+/*      Aspects
+ 
 + (void)load {
     /// 为一个指定的类的某个方法执行前/替换/后,添加一段代码块.对这个类的所有对象都会起作用.
     ///
@@ -26,6 +38,7 @@
     ///
     /// @注意 不支持给静态方法添加钩子.
     /// @return 返回一个唯一值,用于取消此钩子.
+    
     [UIViewController aspect_hookSelector:@selector(viewDidLoad)
                               withOptions:AspectPositionAfter
                                usingBlock:^(id<AspectInfo> info) {
@@ -40,18 +53,7 @@
                                }
                                     error:NULL];
 }
-
-//添加属性get方法
-- (BOOL)isAutorotate {
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-}
-
-//添加属性set方法
-- (void)setIsAutorotate:(BOOL)isAutorotate {
-    objc_setAssociatedObject(self, @selector(isAutorotate), @(isAutorotate), OBJC_ASSOCIATION_ASSIGN);
-}
-
-@end
+*/
 
 /// 为一个指定的类的某个方法执行前/替换/后,添加一段代码块.对这个类的所有对象都会起作用.
 ///

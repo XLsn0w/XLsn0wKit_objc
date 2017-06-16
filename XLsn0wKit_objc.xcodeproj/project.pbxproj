@@ -2807,6 +2807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7L4YK5W6WP;
 				INFOPLIST_FILE = XLsn0wKit_objc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xlsn0w.XLsn0wKit-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2820,6 +2821,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7L4YK5W6WP;
 				INFOPLIST_FILE = XLsn0wKit_objc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xlsn0w.XLsn0wKit-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";

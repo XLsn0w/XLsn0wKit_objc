@@ -53,16 +53,16 @@ void ExtendNSLog(const char * _Nonnull file, int lineNumber, const char * _Nonnu
     
     NSString *fileName = [[NSString stringWithUTF8String:file] lastPathComponent].stringByDeletingPathExtension;
     NSString *log = [NSString stringWithFormat:@" %s %d %s %s ", [fileName UTF8String], lineNumber, [functionName UTF8String], [body UTF8String]];
-/*
-    -----------XLsn0wLog-----------
-    Time : 2017-06-14 09:24:36:002
-    File : ViewController
-    Line : 23
-    Func : [ViewController viewDidLoad]
-    Logs : log
-    -----------XLsn0wLog----------- 
-*///自定义格式化输出
-    fprintf(stderr, "\n-----------XLsn0wLog-----------\n Time : %s\n File : %s\n Line : %d\n Func : %s\n Logs : %s-----------XLsn0wLog-----------\n", [[NSDate dateInformationDescriptionWithInformation:[[NSDate date] dateInformation] dateSeparator:@"-" usFormat:YES nanosecond:YES] UTF8String], [fileName UTF8String], lineNumber, [functionName UTF8String], [body UTF8String]);
+    /*
+     -----------XLsn0wLog-----------
+     Time : 2017-06-14 09:24:36:002
+     File : ViewController
+     Line : 23
+     Func : [ViewController viewDidLoad]
+     Logs : log
+     -----------XLsn0wLog-----------
+     *///自定义格式化输出
+    fprintf(stderr, "\n-----------XLsn0wLog-----------\n Time : %s\n File : %s\n Line : %d\n Func : %s\n Logs : %s-----------XLsn0wLog-----------\n\n", [[NSDate dateInformationDescriptionWithInformation:[[NSDate date] dateInformation] dateSeparator:@"-" usFormat:YES nanosecond:YES] UTF8String], [fileName UTF8String], lineNumber, [functionName UTF8String], [body UTF8String]);
     
     logString = [logString stringByAppendingString:[NSString stringWithFormat:@"%@", body]];
     logDetailedString = [logDetailedString stringByAppendingString:[NSString stringWithFormat:@"%@", log]];
