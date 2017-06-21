@@ -30,7 +30,7 @@
 
 #import "XLsn0wNetworkManager.h"
 #import "XLNetworkMonitor.h"
-
+#import "XLNetManager.h"
 #import "XLsn0wVersionManager.h"
 #import "XLsn0wFilterMenu.h"
 #import "XLsn0wQRCodeReader.h"
@@ -43,6 +43,7 @@
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wLoadingToast.h"
 #import "XLsn0wMapGeoCoder.h"
+#import "XLsn0wAuthorizationManager.h"
 
 /**************************************************************************************************/
 

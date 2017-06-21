@@ -8,52 +8,55 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
+/********Objective-C Class Categories*********************************************************/
+/*********************************************************************************************/
 
-/*! Objective-C-Categories */
 #import "NSDate+XL.h"
-#import "NSString+XL.h"
-#import "NSArray+XL.h"
-#import "NSDictionary+XLsn0w.h"
-#import "NSMutableArray+XLsn0w.h"
-#import "UIView+XLsn0w.h"
-#import "UILabel+XLsn0w.h"
-#import "UIButton+XLsn0w.h"
-#import "UIImage+XLsn0w.h"
-#import "UIImageView+XLsn0w.h"
-#import "UIColor+XLsn0w.h"
-#import "UITabBarController+XLsn0w.h"
-#import "UINavigationBar+XLsn0w.h"
-#import "NSArray+JKBlock.h"
-#import "NSArray+JKSafeAccess.h"
-#import "NSBundle+JKAppIcon.h"
-#import "NSData+JKAPNSToken.h"
-#import "NSData+JKBase64.h"
-#import "NSData+JKDataCache.h"
-#import "NSData+JKEncrypt.h"
+#import "NSData+JKPCM.h"
 #import "NSData+JKGzip.h"
 #import "NSData+JKHash.h"
 #import "NSData+JKzlib.h"
-#import "NSData+JKPCM.h"
-#import "NSDate+JKCupertinoYankee.h"
+#import "NSData+JKBase64.h"
+#import "NSData+JKEncrypt.h"
 #import "NSDate+JKFormatter.h"
-#import "NSDate+JKInternetDateTime.h"
+#import "NSData+JKDataCache.h"
+#import "NSData+JKAPNSToken.h"
 #import "NSDate+JKReporting.h"
 #import "NSDate+JKUtilities.h"
 #import "NSDateFormatter+JKMake.h"
+#import "NSDate+JKCupertinoYankee.h"
+#import "NSDate+JKInternetDateTime.h"
+/*********************************************************************************************/
+
 #import "NSDecimalNumber+JKCalculatingByString.h"
 #import "NSDecimalNumber+JKExtensions.h"
+/*********************************************************************************************/
+
 #import "NSDictionary+JKBlock.h"
 #import "NSDictionary+JKJSONString.h"
 #import "NSDictionary+JKMerge.h"
 #import "NSDictionary+JKSafeAccess.h"
 #import "NSDictionary+JKURL.h"
 #import "NSDictionary+JKXML.h"
+/*********************************************************************************************/
+
 #import "NSException+JKTrace.h"
+/*********************************************************************************************/
+
 #import "NSFileHandle+JKReadLine.h"
+/*********************************************************************************************/
+
 #import "NSFileManager+JKPaths.h"
+/*********************************************************************************************/
+
 #import "NSHTTPCookieStorage+JKFreezeDry.h"
+/*********************************************************************************************/
+
 #import "NSIndexPath+JKOffset.h"
+/*********************************************************************************************/
+
 #import "NSInvocation+JKBlock.h"
+/*********************************************************************************************/
 #import "NSMutableURLRequest+JKUpload.h"
 #import "NSNotificationCenter+JKMainThread.h"
 #import "NSNumber+JKCGFloat.h"
@@ -70,10 +73,27 @@
 #import "NSObject+JKKVOBlocks.h"
 #import "NSObject+JKReflection.h"
 #import "NSObject+JKRuntime.h"
+
 #import "NSRunLoop+JKPerformBlock.h"
+#import "NSArray+XL.h"
+#import "UIView+XLsn0w.h"
+#import "UILabel+XLsn0w.h"
+#import "UIImage+XLsn0w.h"
+#import "UIColor+XLsn0w.h"
+#import "UIButton+XLsn0w.h"
+#import "UIImageView+XLsn0w.h"
+#import "NSDictionary+XLsn0w.h"
+#import "NSMutableArray+XLsn0w.h"
+#import "UITabBarController+XLsn0w.h"
+#import "UINavigationBar+XLsn0w.h"
+#import "NSArray+JKBlock.h"
+#import "NSArray+JKSafeAccess.h"
+#import "NSBundle+JKAppIcon.h"
 #import "NSSet+JKBlock.h"
+#import "NSString+XL.h"
 #import "NSString+JKBase64.h"
 #import "NSString+JKContains.h"
+#import "NSString+calculate.h"
 #import "NSString+JKDictionaryValue.h"
 #import "NSString+JKEmoji.h"
 #import "NSString+JKEncrypt.h"
@@ -102,6 +122,7 @@
 #import "MKMapView+JKZoomLevel.h"
 #import "UIAlertView+JKBlock.h"
 #import "UIApplication+JKApplicationSize.h"
+#import "UIApplication+CurrentShowedVC.h"
 #import "UIApplication+JKKeyboardFrame.h"
 #import "UIApplication+JKNetworkActivityIndicator.h"
 #import "UIApplication+JKPermissions.h"
@@ -110,9 +131,11 @@
 #import "UIBezierPath+JKLength.h"
 #import "UIBezierPath+JKSVGString.h"
 #import "UIBezierPath+JKSymbol.h"
+#import "UIBezierPath+curved.h"
 #import "UIBezierPath+JKThroughPointsBezier.h"
 #import "UIButton+JKBackgroundColor.h"
 #import "UIButton+JKBlock.h"
+#import "UIButton+TitleImagePosition.h"
 #import "UIButton+JKCountDown.h"
 #import "UIButton+JKImagePosition.h"
 #import "UIButton+JKIndicator.h"
@@ -130,6 +153,8 @@
 #import "UIFont+JKDynamicFontControl.h"
 #import "UIFont+JKTTF.h"
 #import "UIImage+JKAlpha.h"
+#import "UIImage+QRenCodeImage.h"
+#import "UIImage+JRoundRectImage.h"
 #import "UIImage+JKAnimatedGIF.h"
 #import "UIImage+JKBetterFace.h"
 #import "UIImage+JKBlur.h"
@@ -154,6 +179,7 @@
 #import "UILabel+JKAutoSize.h"
 #import "UILabel+JKSuggestSize.h"
 #import "UINavigationBar+JKAwesome.h"
+#import "UINavigationBar+BarStyle.h"
 #import "UINavigationController+JKStackManager.h"
 #import "UINavigationController+JKTransitions.h"
 #import "UINavigationItem+JKLoading.h"
@@ -181,6 +207,7 @@
 #import "UIView+JKFind.h"
 #import "UIView+JKFrame.h"
 #import "UIView+JKNib.h"
+#import "UIView+Addbadge.h"
 #import "UIView+JKRecursion.h"
 #import "UIView+JKScreenshot.h"
 #import "UIView+JKShake.h"
@@ -239,19 +266,15 @@
 #import "NSString+BFKit.h"
 #import "NSThread+BFKit.h"
 #import "NSDate-Utilities.h"
-
 #import "NSObject+XLsn0wKit.h"
 #import "UIButton+XLsn0wBadge.h"
 #import "UIButton+ImageTitleLayout.h"
 #import "UIDevice+XLsn0wKit.h"
 #import "UIImageView+XLsn0wKit.h"
 #import "UIViewController+XLsn0wKit.h"
-
 #import "NSObject+GetCurrentScreenViewController.h"
 #import "UIViewController+AddIsAutorotate.h"
 #import "UINavigationController+AddXLsn0wShouldAutorotate.h"
-
-
 /*********************************************************************************************
  *   __      __   _         _________     _ _     _    _________   __         _         __   *
  *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
@@ -262,5 +285,3 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
-
