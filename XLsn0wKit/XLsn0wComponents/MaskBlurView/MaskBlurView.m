@@ -1,16 +1,7 @@
-//
-//  MLMaskBlurView.m
-//  TestCode
-//
-//  Created by 蔡杰 on 2017/5/24.
-//  Copyright © 2017年 蔡杰. All rights reserved.
-//
 
-#import "JEasyMaskBlurView.h"
+#import "MaskBlurView.h"
 
-@implementation JEasyMaskBlurView
-
-
+@implementation MaskBlurView
 
 - (instancetype)init {
     return [self initWithFrame:[UIScreen mainScreen].bounds];

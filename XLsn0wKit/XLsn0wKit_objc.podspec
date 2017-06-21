@@ -1,9 +1,9 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "6.1.5"
+  s.version         = "6.1.6"
 
-  s.summary         = "XLsn0wKit -> Objective-C Version"
+  s.summary         = "XLsn0wKit Build Objective-C Version"
 
   s.requires_arc    = true
   s.license         = 'MIT'
@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
 
   s.weak_frameworks = "CoreLocation"
 
+  s.dependency "CocoaAsyncSocket"
   s.dependency "MBProgressHUD"
   s.dependency "AFNetworking"
   s.dependency "SDWebImage"
