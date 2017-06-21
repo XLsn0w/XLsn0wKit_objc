@@ -207,7 +207,6 @@
 		35F80E871EF4B87700031CDA /* UIResponder+JKChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D4F1EF4B87700031CDA /* UIResponder+JKChain.m */; };
 		35F80E881EF4B87700031CDA /* UIResponder+JKFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D511EF4B87700031CDA /* UIResponder+JKFirstResponder.m */; };
 		35F80E891EF4B87700031CDA /* UIScreen+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D541EF4B87700031CDA /* UIScreen+BFKit.m */; };
-		35F80E8A1EF4B87700031CDA /* UIScreen+JKFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D561EF4B87700031CDA /* UIScreen+JKFrame.m */; };
 		35F80E8B1EF4B87700031CDA /* UIScrollView+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D591EF4B87700031CDA /* UIScrollView+BFKit.m */; };
 		35F80E8C1EF4B87700031CDA /* UIScrollView+JKAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D5B1EF4B87700031CDA /* UIScrollView+JKAddition.m */; };
 		35F80E8D1EF4B87700031CDA /* UIScrollView+JKPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80D5D1EF4B87700031CDA /* UIScrollView+JKPages.m */; };
@@ -332,7 +331,7 @@
 		35E242921EFA213000D0572A /* UIImage+JRoundRectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JRoundRectImage.m"; sourceTree = "<group>"; };
 		35E242931EFA213000D0572A /* UIImage+QRenCodeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRenCodeImage.h"; sourceTree = "<group>"; };
 		35E242941EFA213000D0572A /* UIImage+QRenCodeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRenCodeImage.m"; sourceTree = "<group>"; };
-		35E242971EFA228000D0572A /* AppMacroDefinitionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacroDefinitionHeader.h; sourceTree = "<group>"; };
+		35E242971EFA228000D0572A /* XLsn0wConfigMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wConfigMacro.h; sourceTree = "<group>"; };
 		35E242991EFA22B700D0572A /* JEasyMaskBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEasyMaskBlurView.h; sourceTree = "<group>"; };
 		35E2429A1EFA22B700D0572A /* JEasyMaskBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEasyMaskBlurView.m; sourceTree = "<group>"; };
 		35E2429C1EFA241000D0572A /* UINavigationBar+BarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BarStyle.h"; sourceTree = "<group>"; };
@@ -697,8 +696,6 @@
 		35F80D511EF4B87700031CDA /* UIResponder+JKFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+JKFirstResponder.m"; sourceTree = "<group>"; };
 		35F80D531EF4B87700031CDA /* UIScreen+BFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+BFKit.h"; sourceTree = "<group>"; };
 		35F80D541EF4B87700031CDA /* UIScreen+BFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+BFKit.m"; sourceTree = "<group>"; };
-		35F80D551EF4B87700031CDA /* UIScreen+JKFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+JKFrame.h"; sourceTree = "<group>"; };
-		35F80D561EF4B87700031CDA /* UIScreen+JKFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+JKFrame.m"; sourceTree = "<group>"; };
 		35F80D581EF4B87700031CDA /* UIScrollView+BFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BFKit.h"; sourceTree = "<group>"; };
 		35F80D591EF4B87700031CDA /* UIScrollView+BFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BFKit.m"; sourceTree = "<group>"; };
 		35F80D5A1EF4B87700031CDA /* UIScrollView+JKAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JKAddition.h"; sourceTree = "<group>"; };
@@ -1754,8 +1751,6 @@
 			children = (
 				35F80D531EF4B87700031CDA /* UIScreen+BFKit.h */,
 				35F80D541EF4B87700031CDA /* UIScreen+BFKit.m */,
-				35F80D551EF4B87700031CDA /* UIScreen+JKFrame.h */,
-				35F80D561EF4B87700031CDA /* UIScreen+JKFrame.m */,
 			);
 			path = UIScreen;
 			sourceTree = "<group>";
@@ -2109,7 +2104,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EF01EF4B87E00031CDA /* XLsn0wMacro.h */,
-				35E242971EFA228000D0572A /* AppMacroDefinitionHeader.h */,
+				35E242971EFA228000D0572A /* XLsn0wConfigMacro.h */,
 			);
 			path = XLsn0wMacro;
 			sourceTree = "<group>";
@@ -2487,7 +2482,6 @@
 				35F80DDF1EF4B87700031CDA /* NSData+JKGzip.m in Sources */,
 				35F80E981EF4B87700031CDA /* UITextView+JKPinchZoom.m in Sources */,
 				35F80DFC1EF4B87700031CDA /* NSInvocation+JKBlock.m in Sources */,
-				35F80E8A1EF4B87700031CDA /* UIScreen+JKFrame.m in Sources */,
 				35F80E9C1EF4B87700031CDA /* UIView+BFKit.m in Sources */,
 				35F80EB21EF4B87700031CDA /* UIViewController+JKVisible.m in Sources */,
 				35F80E031EF4B87700031CDA /* NSNumber+JKCGFloat.m in Sources */,

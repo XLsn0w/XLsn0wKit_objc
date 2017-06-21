@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "6.1.4"
+  s.version         = "6.1.5"
 
   s.summary         = "XLsn0wKit -> Objective-C Version"
 

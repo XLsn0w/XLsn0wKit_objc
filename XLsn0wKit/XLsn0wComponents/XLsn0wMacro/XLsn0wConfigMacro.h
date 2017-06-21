@@ -1,7 +1,4 @@
 
-#ifndef AppMacroDefinitionHeader_h
-#define AppMacroDefinitionHeader_h
-
 //1.获取屏幕宽度与高度
 //#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 //#define SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -198,10 +195,3 @@ item.alpha = 0.0; \
 
 //GCD - 开启异步线程
 #define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlocl);
-
-
-
-
-
-
-#endif /* AppMacroDefinitionHeader_h */

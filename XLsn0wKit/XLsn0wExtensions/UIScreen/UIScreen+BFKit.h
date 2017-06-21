@@ -4,12 +4,6 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  Get the screen width and height
- */
-#define SCREEN_WIDTH [[UIScreen mainScreen] fixedScreenSize].width
-#define SCREEN_HEIGHT [[UIScreen mainScreen] fixedScreenSize].height
-
-/**
  *  Get the maximum & mininum screen length
  */
 #define SCREEN_MAX_LENGTH MAX(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -22,7 +16,6 @@
 #define IS_IPHONE_5 [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && SCREEN_MAX_LENGTH == 568.0
 #define IS_IPHONE_6 [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && SCREEN_MAX_LENGTH == 667.0
 #define IS_IPHONE_6P [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && SCREEN_MAX_LENGTH == 736.0
-#define IS_IPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && SCREEN_MAX_LENGTH == 1024.0
 
 /**
  *  This category adds some useful methods to UIScreen
