@@ -1,13 +1,9 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "6.1.6"
+  s.version         = "6.1.8"
 
-  s.summary         = "XLsn0wKit Build Objective-C Version"
-
-  s.requires_arc    = true
-  s.license         = 'MIT'
-  s.platform        = :ios, "8.0"
+  s.summary         = "XLsn0wKit For Objective-C"
   s.author          = { "XLsn0w" => "xlsn0w@outlook.com" }
 
   s.name            = "XLsn0wKit_objc"
@@ -18,9 +14,13 @@ Pod::Spec.new do |s|
 
   s.resources       = "XLsn0wKit/Resources/XLsn0wKit_objc.bundle"
 
+  s.libraries       = "sqlite3", "z"
+
   s.frameworks      = "UIKit", "Foundation"
 
-  s.weak_frameworks = "CoreLocation"
+  s.requires_arc    = true
+  s.license         = 'MIT'
+  s.platform        = :ios, "8.0"
 
   s.dependency "CocoaAsyncSocket"
   s.dependency "MBProgressHUD"

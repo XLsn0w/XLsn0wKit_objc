@@ -23,6 +23,7 @@
 #import "XLsn0wCityLocation.h"
 #import "XLsn0wCityAreaDataManager.h"
 #import "XLsn0wHUD.h"
+#import "XLsn0wLoop.h"
 #import "XLsn0wLoadHUD.h"
 #import "XLsn0wTextHUD.h"
 #import "XLsn0wKeychain.h"
