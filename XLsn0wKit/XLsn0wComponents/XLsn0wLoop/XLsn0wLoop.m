@@ -8,9 +8,8 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
 #import "XLsn0wLoop.h"
-
+#import "XLsn0wKit_objc.h"
 #import <ImageIO/ImageIO.h>
 
 #define DEFAULTTIME 5
@@ -20,7 +19,7 @@
 
 @interface XLsn0wLoop () <UIScrollViewDelegate>
 //轮播的图片数组
-@property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, strong) NSMutableArray *loopImageArray;
 //图片描述控件，默认在底部
 @property (nonatomic, strong) UILabel *describeLabel;
 //滚动视图
@@ -154,31 +153,32 @@ static NSString *cache;
     if (!imageArray.count) return;
     
     _imageArray = imageArray;
-    _images = [NSMutableArray array];
+    _loopImageArray = [NSMutableArray array];
     
     for (int i = 0; i < imageArray.count; i++) {
         if ([imageArray[i] isKindOfClass:[UIImage class]]) {
-            [_images addObject:imageArray[i]];
+            [_loopImageArray addObject:imageArray[i]];
         } else if ([imageArray[i] isKindOfClass:[NSString class]]){
             //如果是网络图片，则先添加占位图片，下载完成后替换
             if (_placeholderImage) {
-                [_images addObject:_placeholderImage];
+                [_loopImageArray addObject:_placeholderImage];
             } else {
-                UIImage *placeholderImage = [UIImage imageNamed:@"XLsn0wLoop"];
-                [_images addObject:placeholderImage];
+                ///创建占位符图片
+                UIImage *placeholderImage = [XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"placeholder"];
+                ///把占位符图片添加到轮播的图片数组里面
+                [_loopImageArray addObject:placeholderImage];
             }
             [self downloadImages:i];
         }
     }
     
     //防止在滚动过程中重新给imageArray赋值时报错
-    if (_currIndex >= _images.count) _currIndex = _images.count - 1;
-    self.currImageView.image = _images[_currIndex];
+    if (_currIndex >= _loopImageArray.count) _currIndex = _loopImageArray.count - 1;
+    self.currImageView.image = _loopImageArray[_currIndex];
     self.describeLabel.text = _describeArray[_currIndex];
-    self.pageControl.numberOfPages = _images.count;
+    self.pageControl.numberOfPages = _loopImageArray.count;
     [self layoutSubviews];
 }
-
 
 #pragma mark 设置描述数组
 - (void)setDescribeArray:(NSArray *)describeArray{
@@ -188,9 +188,9 @@ static NSString *cache;
         self.describeLabel.hidden = YES;
     } else {
         //如果描述的个数与图片个数不一致，则补空字符串
-        if (describeArray.count < _images.count) {
+        if (describeArray.count < _loopImageArray.count) {
             NSMutableArray *describes = [NSMutableArray arrayWithArray:describeArray];
-            for (NSInteger i = describeArray.count; i < _images.count; i++) {
+            for (NSInteger i = describeArray.count; i < _loopImageArray.count; i++) {
                 [describes addObject:@""];
             }
             _describeArray = describes;
@@ -204,7 +204,7 @@ static NSString *cache;
 
 #pragma mark 设置scrollView的contentSize
 - (void)setScrollViewContentSize {
-    if (_images.count > 1) {
+    if (_loopImageArray.count > 1) {
         self.scrollView.contentSize = CGSizeMake(self.width * 5, 0);
         self.scrollView.contentOffset = CGPointMake(self.width * 2, 0);
         self.currImageView.frame = CGRectMake(self.width * 2, 0, self.width, self.height);
@@ -287,7 +287,7 @@ static NSString *cache;
 #pragma mark- --------定时器相关方法--------
 - (void)startTimer {
     //如果只有一张图片，则直接返回，不开启定时器
-    if (_images.count <= 1) return;
+    if (_loopImageArray.count <= 1) return;
     //如果定时器已开启，先停止再重新开启
     if (self.timer) [self stopTimer];
     self.timer = [NSTimer timerWithTimeInterval:_time < 2? DEFAULTTIME: _time target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
@@ -302,8 +302,8 @@ static NSString *cache;
 - (void)nextPage {
     if (_changeMode == ChangeModeFade) {
         //淡入淡出模式，不需要修改scrollview偏移量，改变两张图片的透明度即可
-        self.nextIndex = (self.currIndex + 1) % _images.count;
-        self.otherImageView.image = _images[_nextIndex];
+        self.nextIndex = (self.currIndex + 1) % _loopImageArray.count;
+        self.otherImageView.image = _loopImageArray[_nextIndex];
         
         [UIView animateWithDuration:1.2 animations:^{
             self.currImageView.alpha = 0;
@@ -351,7 +351,7 @@ static NSString *cache;
     if (_autoCache) { //如果开启了缓存功能，先从沙盒中取图片
         NSData *data = [NSData dataWithContentsOfFile:path];
         if (data) {
-            _images[index] = getImageWithData(data);
+            _loopImageArray[index] = getImageWithData(data);
             return;
         }
     }
@@ -362,7 +362,7 @@ static NSString *cache;
         UIImage *image = getImageWithData(data);
         //取到的data有可能不是图片
         if (image) {
-            self.images[index] = image;
+            self.loopImageArray[index] = image;
             //如果下载的图片为当前要显示的图片，直接到主线程给imageView赋值，否则要等到下一轮才会显示
             if (_currIndex == index) [_currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
             if (_autoCache) [data writeToFile:path atomically:YES];
@@ -425,10 +425,10 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
 - (void)changeCurrentPageWithOffset:(CGFloat)offsetX {
     if (offsetX < self.width * 1.5) {
         NSInteger index = self.currIndex - 1;
-        if (index < 0) index = self.images.count - 1;
+        if (index < 0) index = self.loopImageArray.count - 1;
         _pageControl.currentPage = index;
     } else if (offsetX > self.width * 2.5){
-        _pageControl.currentPage = (self.currIndex + 1) % self.images.count;
+        _pageControl.currentPage = (self.currIndex + 1) % self.loopImageArray.count;
     } else {
         _pageControl.currentPage = self.currIndex;
     }
@@ -448,8 +448,8 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
         } else self.otherImageView.frame = CGRectMake(self.width, 0, self.width, self.height);
         
         self.nextIndex = self.currIndex - 1;
-        if (self.nextIndex < 0) self.nextIndex = _images.count - 1;
-        self.otherImageView.image = self.images[self.nextIndex];
+        if (self.nextIndex < 0) self.nextIndex = _loopImageArray.count - 1;
+        self.otherImageView.image = self.loopImageArray[self.nextIndex];
         if (offsetX <= self.width) [self changeToNext];
         
     //向左滚动
@@ -459,8 +459,8 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
             self.currImageView.alpha = 3 - offsetX / self.width;
         } else self.otherImageView.frame = CGRectMake(CGRectGetMaxX(_currImageView.frame), 0, self.width, self.height);
         
-        self.nextIndex = (self.currIndex + 1) % _images.count;
-        self.otherImageView.image = self.images[self.nextIndex];
+        self.nextIndex = (self.currIndex + 1) % _loopImageArray.count;
+        self.otherImageView.image = self.loopImageArray[self.nextIndex];
         if (offsetX >= self.width * 3) [self changeToNext];
     }
 }
@@ -498,7 +498,7 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
 
 @end
 
-
+///C function
 UIImage *gifImageNamed(NSString *imageName) {
     
     if (![imageName hasSuffix:@".gif"]) {
@@ -511,8 +511,3 @@ UIImage *gifImageNamed(NSString *imageName) {
     
     return [UIImage imageNamed:imageName];
 }
-
-
-
-
-

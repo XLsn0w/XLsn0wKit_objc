@@ -8,23 +8,10 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
 #import "XLsn0wCycle.h"
-
-/*********************************************************************************************
- *   __      __   _         _________     _ _     _    _________   __         _         __   *
- *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
- *	  \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
- *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
- *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
- *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
- *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
- *                                                                                           *
- *********************************************************************************************/
-
-#import "UIImageView+WebCache.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
@@ -79,7 +66,6 @@ NSString * const ID = @"cycleCell";
     _bannerImageViewContentMode = UIViewContentModeScaleToFill;
     
     self.backgroundColor = [UIColor lightGrayColor];
-    
 }
 
 + (instancetype)cycleWithFrame:(CGRect)frame imageNamesGroup:(NSArray *)imageNamesGroup {
@@ -1249,8 +1235,7 @@ static CGSize const kDefaultDotSize = {8, 8};
 #pragma mark - Getters
 
 
-- (NSMutableArray *)dots
-{
+- (NSMutableArray *)dots {
     if (!_dots) {
         _dots = [[NSMutableArray alloc] init];
     }
@@ -1259,8 +1244,7 @@ static CGSize const kDefaultDotSize = {8, 8};
 }
 
 
-- (CGSize)dotSize
-{
+- (CGSize)dotSize {
     // Dot size logic depending on the source of the dot view
     if (self.dotImage && CGSizeEqualToSize(_dotSize, CGSizeZero)) {
         _dotSize = self.dotImage.size;

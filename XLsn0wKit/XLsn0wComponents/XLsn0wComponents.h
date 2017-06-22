@@ -15,7 +15,6 @@
 
 /*********************************************************************************************/
 
-#import "XLFlowLayout.h"
 #import "UploadImageCell.h"
 #import "DisplayImageCell.h"
 #import "XLsn0wCycle.h"
@@ -55,19 +54,8 @@
 #import "XLsn0wLoadingToast.h"
 #import "XLsn0wMapGeoCoder.h"
 #import "XLsn0wAuthorizationManager.h"
-
-/**************************************************************************************************/
-
-#import "UIView+XLsn0wAutoLayout.h"
-#import "UITableView+XLsn0wAutoLayoutCellHeight.h"
-
-/**************************************************************************************************/
-
-#import "XLsn0wCollectionViewFlowLayout.h"
-
-/**************************************************************************************************/
-
 #import "XLsn0wNavigationController.h"
+#import "XLsn0wCollectionViewFlowLayout.h"
 
 /*********************************************************************************************
  *   __      __   _         _________     _ _     _    _________   __         _         __   *

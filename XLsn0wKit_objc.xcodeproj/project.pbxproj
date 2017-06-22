@@ -27,7 +27,6 @@
 		35E242961EFA213000D0572A /* UIImage+QRenCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242941EFA213000D0572A /* UIImage+QRenCodeImage.m */; };
 		35E2429B1EFA22B700D0572A /* MaskBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2429A1EFA22B700D0572A /* MaskBlurView.m */; };
 		35E2429E1EFA241000D0572A /* UINavigationBar+BarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2429D1EFA241000D0572A /* UINavigationBar+BarStyle.m */; };
-		35E242EA1EFA5F9300D0572A /* XLsn0wCycle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 35E242E71EFA5F9300D0572A /* XLsn0wCycle.bundle */; };
 		35E242EB1EFA5F9300D0572A /* XLsn0wCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */; };
 		35E2430B1EFA612500D0572A /* XLsn0wCityAreaDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242F61EFA612500D0572A /* XLsn0wCityAreaDataManager.m */; };
 		35E2430C1EFA612500D0572A /* XLsn0wCityLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242F91EFA612500D0572A /* XLsn0wCityLocation.m */; };
@@ -282,13 +281,10 @@
 		35F80F1F1EF4B87E00031CDA /* XLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EC71EF4B87E00031CDA /* XLButton.m */; };
 		35F80F201EF4B87E00031CDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECA1EF4B87E00031CDA /* User.m */; };
 		35F80F211EF4B87E00031CDA /* XLDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECC1EF4B87E00031CDA /* XLDatabase.m */; };
-		35F80F221EF4B87E00031CDA /* XLFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECF1EF4B87E00031CDA /* XLFlowLayout.m */; };
 		35F80F231EF4B87E00031CDA /* XLGuidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ED21EF4B87E00031CDA /* XLGuidePageView.m */; };
 		35F80F241EF4B87E00031CDA /* XLNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ED51EF4B87E00031CDA /* XLNavViewController.m */; };
 		35F80F251EF4B87E00031CDA /* XLNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ED81EF4B87E00031CDA /* XLNetworkMonitor.m */; };
 		35F80F261EF4B87E00031CDA /* XLsn0wNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EDA1EF4B87E00031CDA /* XLsn0wNetworkManager.m */; };
-		35F80F271EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EDD1EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.m */; };
-		35F80F281EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EDF1EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.m */; };
 		35F80F291EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EE21EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout.m */; };
 		35F80F2A1EF4B87E00031CDA /* XLsn0wFilterMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EE61EF4B87E00031CDA /* XLsn0wFilterMenu.m */; };
 		35F80F2B1EF4B87E00031CDA /* XLsn0wLoadingToast+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EE91EF4B87E00031CDA /* XLsn0wLoadingToast+Extension.m */; };
@@ -355,7 +351,6 @@
 		35E2429A1EFA22B700D0572A /* MaskBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskBlurView.m; sourceTree = "<group>"; };
 		35E2429C1EFA241000D0572A /* UINavigationBar+BarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BarStyle.h"; sourceTree = "<group>"; };
 		35E2429D1EFA241000D0572A /* UINavigationBar+BarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BarStyle.m"; sourceTree = "<group>"; };
-		35E242E71EFA5F9300D0572A /* XLsn0wCycle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLsn0wCycle.bundle; sourceTree = "<group>"; };
 		35E242E81EFA5F9300D0572A /* XLsn0wCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCycle.h; sourceTree = "<group>"; };
 		35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCycle.m; sourceTree = "<group>"; };
 		35E242F51EFA612500D0572A /* XLsn0wCityAreaDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCityAreaDataManager.h; sourceTree = "<group>"; };
@@ -864,8 +859,6 @@
 		35F80ECA1EF4B87E00031CDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		35F80ECB1EF4B87E00031CDA /* XLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLDatabase.h; sourceTree = "<group>"; };
 		35F80ECC1EF4B87E00031CDA /* XLDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLDatabase.m; sourceTree = "<group>"; };
-		35F80ECE1EF4B87E00031CDA /* XLFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFlowLayout.h; sourceTree = "<group>"; };
-		35F80ECF1EF4B87E00031CDA /* XLFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFlowLayout.m; sourceTree = "<group>"; };
 		35F80ED11EF4B87E00031CDA /* XLGuidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLGuidePageView.h; sourceTree = "<group>"; };
 		35F80ED21EF4B87E00031CDA /* XLGuidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLGuidePageView.m; sourceTree = "<group>"; };
 		35F80ED41EF4B87E00031CDA /* XLNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNavViewController.h; sourceTree = "<group>"; };
@@ -874,10 +867,6 @@
 		35F80ED81EF4B87E00031CDA /* XLNetworkMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLNetworkMonitor.m; sourceTree = "<group>"; };
 		35F80ED91EF4B87E00031CDA /* XLsn0wNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wNetworkManager.h; sourceTree = "<group>"; };
 		35F80EDA1EF4B87E00031CDA /* XLsn0wNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNetworkManager.m; sourceTree = "<group>"; };
-		35F80EDC1EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XLsn0wAutoLayoutCellHeight.h"; sourceTree = "<group>"; };
-		35F80EDD1EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XLsn0wAutoLayoutCellHeight.m"; sourceTree = "<group>"; };
-		35F80EDE1EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLsn0wAutoLayout.h"; sourceTree = "<group>"; };
-		35F80EDF1EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLsn0wAutoLayout.m"; sourceTree = "<group>"; };
 		35F80EE11EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		35F80EE21EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wComponents.h; sourceTree = "<group>"; };
@@ -1043,7 +1032,6 @@
 		35E242E61EFA5F9300D0572A /* XLsn0wCycle */ = {
 			isa = PBXGroup;
 			children = (
-				35E242E71EFA5F9300D0572A /* XLsn0wCycle.bundle */,
 				35E242E81EFA5F9300D0572A /* XLsn0wCycle.h */,
 				35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */,
 			);
@@ -1053,12 +1041,12 @@
 		35E242F31EFA612500D0572A /* XLsn0wCityChooser */ = {
 			isa = PBXGroup;
 			children = (
+				35E243091EFA612500D0572A /* XLsn0wCityChooser.h */,
+				35E2430A1EFA612500D0572A /* XLsn0wCityChooser.m */,
 				35E242F41EFA612500D0572A /* AreaDataManager */,
 				35E242F71EFA612500D0572A /* Location */,
 				35E242FA1EFA612500D0572A /* Resources */,
 				35E242FC1EFA612500D0572A /* View */,
-				35E243091EFA612500D0572A /* XLsn0wCityChooser.h */,
-				35E2430A1EFA612500D0572A /* XLsn0wCityChooser.m */,
 			);
 			path = XLsn0wCityChooser;
 			sourceTree = "<group>";
@@ -2112,23 +2100,21 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				35E242E61EFA5F9300D0572A /* XLsn0wCycle */,
 				35FC05911EFB4C1F00DA1EF0 /* XLsn0wLoop */,
 				35E243271EFA66D100D0572A /* XLsn0wLocation */,
 				35E243231EFA64D000D0572A /* XLsn0wUdpSocket */,
 				35E2431F1EFA61DC00D0572A /* XLsn0wKeychain */,
 				35E243151EFA617300D0572A /* XLsn0wHUD */,
 				35E242F31EFA612500D0572A /* XLsn0wCityChooser */,
-				35E242E61EFA5F9300D0572A /* XLsn0wCycle */,
 				35E242981EFA22B700D0572A /* MaskBlurView */,
 				35E2427B1EFA1CF700D0572A /* XLsn0wAuthorizationManager */,
 				35F80EC01EF4B87E00031CDA /* UploadImage */,
 				35F80EC51EF4B87E00031CDA /* XLButton */,
 				35F80EC81EF4B87E00031CDA /* XLDataBase */,
-				35F80ECD1EF4B87E00031CDA /* XLFlowLayout */,
 				35F80ED01EF4B87E00031CDA /* XLGuidePageView */,
 				35F80ED31EF4B87E00031CDA /* XLNavViewController */,
 				35F80ED61EF4B87E00031CDA /* XLNetwork */,
-				35F80EDB1EF4B87E00031CDA /* XLsn0wAutoLayout */,
 				35F80EE01EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout */,
 				35F80EE41EF4B87E00031CDA /* XLsn0wFilterMenu */,
 				35F80EE71EF4B87E00031CDA /* XLsn0wLoadingToast */,
@@ -2181,15 +2167,6 @@
 			path = XLDataBase;
 			sourceTree = "<group>";
 		};
-		35F80ECD1EF4B87E00031CDA /* XLFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				35F80ECE1EF4B87E00031CDA /* XLFlowLayout.h */,
-				35F80ECF1EF4B87E00031CDA /* XLFlowLayout.m */,
-			);
-			path = XLFlowLayout;
-			sourceTree = "<group>";
-		};
 		35F80ED01EF4B87E00031CDA /* XLGuidePageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2219,17 +2196,6 @@
 				35F80EDA1EF4B87E00031CDA /* XLsn0wNetworkManager.m */,
 			);
 			path = XLNetwork;
-			sourceTree = "<group>";
-		};
-		35F80EDB1EF4B87E00031CDA /* XLsn0wAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				35F80EDC1EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.h */,
-				35F80EDD1EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.m */,
-				35F80EDE1EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.h */,
-				35F80EDF1EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.m */,
-			);
-			path = XLsn0wAutoLayout;
 			sourceTree = "<group>";
 		};
 		35F80EE01EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout */ = {
@@ -2491,7 +2457,6 @@
 				35F80F331EF4B87E00031CDA /* ScanQR3@2x.png in Resources */,
 				35F80F341EF4B87E00031CDA /* ScanQR4@2x.png in Resources */,
 				35F80F301EF4B87E00031CDA /* QRCodeScanLine@2x.png in Resources */,
-				35E242EA1EFA5F9300D0572A /* XLsn0wCycle.bundle in Resources */,
 				35F80F311EF4B87E00031CDA /* ScanQR1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2560,7 +2525,6 @@
 				35F80E3F1EF4B87700031CDA /* UIBezierPath+JKThroughPointsBezier.m in Sources */,
 				35F80E531EF4B87700031CDA /* UIColor+XLsn0w.m in Sources */,
 				35F80E621EF4B87700031CDA /* UIImage+JKColor.m in Sources */,
-				35F80F281EF4B87E00031CDA /* UIView+XLsn0wAutoLayout.m in Sources */,
 				35E2429E1EFA241000D0572A /* UINavigationBar+BarStyle.m in Sources */,
 				35F80DE21EF4B87700031CDA /* NSData+JKzlib.m in Sources */,
 				35F80E4F1EF4B87700031CDA /* UIColor+JKHEX.m in Sources */,
@@ -2718,7 +2682,6 @@
 				35F80F231EF4B87E00031CDA /* XLGuidePageView.m in Sources */,
 				35F80EAD1EF4B87700031CDA /* UIViewController+JKBackButtonItemTitle.m in Sources */,
 				35F80E041EF4B87700031CDA /* NSNumber+JKRomanNumerals.m in Sources */,
-				35F80F221EF4B87E00031CDA /* XLFlowLayout.m in Sources */,
 				35F80DEF1EF4B87700031CDA /* NSDictionary+JKBlock.m in Sources */,
 				35F80E7D1EF4B87700031CDA /* UINavigationBar+BFKit.m in Sources */,
 				35F80E771EF4B87700031CDA /* UILabel+BFKit.m in Sources */,
@@ -2832,7 +2795,6 @@
 				35F80EAC1EF4B87700031CDA /* UIViewController+AddIsAutorotate.m in Sources */,
 				35F80E631EF4B87700031CDA /* UIImage+JKFileName.m in Sources */,
 				35F80F3F1EF4B87E00031CDA /* XLTextField.m in Sources */,
-				35F80F271EF4B87E00031CDA /* UITableView+XLsn0wAutoLayoutCellHeight.m in Sources */,
 				35F80E6F1EF4B87700031CDA /* UIImageView+BFKit.m in Sources */,
 				35F80E021EF4B87700031CDA /* NSNumber+BFKit.m in Sources */,
 				35F80E3B1EF4B87700031CDA /* UIBezierPath+JKBasicShapes.m in Sources */,

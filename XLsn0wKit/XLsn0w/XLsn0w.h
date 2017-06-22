@@ -565,6 +565,8 @@ typedef NS_ENUM(NSInteger, AudioID) {
 
 @interface XLsn0w : NSObject
 
++ (UIImage *_Nonnull)getCustomBundleWithFileName:(NSString *_Nullable)fileName;
++ (UIImage *_Nullable)getCustomBundleWithFileName:(NSString *_Nullable)fileName bundleImageName:(NSString *_Nullable)bundleImageName;
 /**
  *  Check the password strength level
  *

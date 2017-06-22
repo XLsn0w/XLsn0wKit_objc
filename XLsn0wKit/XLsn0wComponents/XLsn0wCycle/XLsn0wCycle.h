@@ -8,7 +8,6 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
 #import <UIKit/UIKit.h>
 
 typedef enum {
@@ -89,7 +88,6 @@ typedef enum {
 - (void)adjustWhenControllerViewWillAppera;
 
 //////////////////////  自定义样式接口  //////////////////////
-
 
 /** 轮播图片的ContentMode，默认为 UIViewContentModeScaleToFill */
 @property (nonatomic, assign) UIViewContentMode bannerImageViewContentMode;

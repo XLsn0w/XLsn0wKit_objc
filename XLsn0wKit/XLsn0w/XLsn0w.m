@@ -18,6 +18,19 @@
 
 @implementation XLsn0w
 
++ (NSBundle *)getCustomBundleWithFileName:(NSString *)fileName {
+    NSBundle *customBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:fileName ofType :@"bundle"]];
+    return customBundle;
+}
+
++ (UIImage *)getCustomBundleWithFileName:(NSString *)fileName bundleImageName:(NSString *)bundleImageName {
+    NSBundle *customBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:fileName ofType :@"bundle"]];
+    UIImage *bundleImage  = [UIImage imageWithContentsOfFile: [customBundle pathForResource:bundleImageName ofType: @"png"]];
+    //UIImage *image = [UIImage imageWithContentsOfFile: [[customBundle resourcePath] stringByAppendingPathComponent:bundleImageName]];//绝对路径
+    //UIImage *image = [UIImage imageNamed:@"XLsn0wKit_objc.bundle/placeholder.png"];//写死纯路径
+    return bundleImage;
+}
+
 + (NSData *)xl_receiveStringDataWithString:(NSString *)string encoding:(NSStringEncoding)encoding {
     NSData *stringData = [string dataUsingEncoding:encoding];
     return stringData;

@@ -10,6 +10,7 @@
  *********************************************************************************************/
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wLoadingToast.h"
+#import "XLsn0wKit_objc.h"
 
 @implementation XLsn0wLoadingToast (Extension)
 
@@ -20,8 +21,11 @@
     XLsn0wLoadingToast *hud = [XLsn0wLoadingToast showHUDAddedTo:view animated:YES];
     hud.labelText = text;
     hud.labelFont = [UIFont systemFontOfSize:14];
+    
     // 设置图片
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"XLsn0wKit_objc.bundle/%@", icon]]];
+    UIImage *customImage = [XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:icon];
+    hud.customView = [[UIImageView alloc] initWithImage:customImage];
+
     // 再设置模式
     hud.mode = XLsn0wLoadingToastModeCustomView;
     
@@ -34,11 +38,11 @@
 
 #pragma mark 显示错误信息
 + (void)showError:(NSString *)error toView:(UIView *)view {
-    [self show:error icon:@"error.png" view:view];
+    [self show:error icon:@"error" view:view];
 }
 
 + (void)showSuccess:(NSString *)success toView:(UIView *)view {
-    [self show:success icon:@"success.png" view:view];
+    [self show:success icon:@"success" view:view];
 }
 
 #pragma mark 显示一些信息
