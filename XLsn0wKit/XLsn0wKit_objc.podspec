@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "6.2.0"
+  s.version         = "6.2.1"
 
   s.summary         = "XLsn0wKit For Objective-C"
   s.author          = { "XLsn0w" => "xlsn0w@outlook.com" }
