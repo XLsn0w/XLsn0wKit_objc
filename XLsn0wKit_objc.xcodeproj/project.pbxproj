@@ -16,6 +16,12 @@
 		352954A51EEFD7FB004B717F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352954A31EEFD7FB004B717F /* LaunchScreen.storyboard */; };
 		352957AE1EEFD824004B717F /* XLsn0w.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954AF1EEFD823004B717F /* XLsn0w.m */; };
 		352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */; };
+		3594D4EA1EFD394E00DF291D /* MiddleTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4E91EFD394E00DF291D /* MiddleTabBar.m */; };
+		3594D4EE1EFD396700DF291D /* MiddleTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4ED1EFD396700DF291D /* MiddleTabBarController.m */; };
+		3594D4F21EFD39CE00DF291D /* XLsn0wKitNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F11EFD39CE00DF291D /* XLsn0wKitNavigationController.m */; };
+		3594D4F71EFD3A7E00DF291D /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F61EFD3A7E00DF291D /* UIBarButtonItem+Extension.m */; };
+		3594D4FA1EFD3AAC00DF291D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F91EFD3AAC00DF291D /* UIView+Extension.m */; };
+		3594D4FD1EFD3B8300DF291D /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */; };
 		35E2427E1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2427D1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m */; };
 		35E242811EFA1D7600D0572A /* XLNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242801EFA1D7600D0572A /* XLNetManager.m */; };
 		35E242841EFA1F5300D0572A /* NSString+calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242831EFA1F5300D0572A /* NSString+calculate.m */; };
@@ -328,6 +334,18 @@
 		352954AF1EEFD823004B717F /* XLsn0w.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0w.m; sourceTree = "<group>"; };
 		352957341EEFD823004B717F /* XLsn0wKit_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wKit_objc.h; sourceTree = "<group>"; };
 		352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wKit_objc.podspec; sourceTree = "<group>"; };
+		3594D4E81EFD394E00DF291D /* MiddleTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleTabBar.h; sourceTree = "<group>"; };
+		3594D4E91EFD394E00DF291D /* MiddleTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleTabBar.m; sourceTree = "<group>"; };
+		3594D4EC1EFD396700DF291D /* MiddleTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleTabBarController.h; sourceTree = "<group>"; };
+		3594D4ED1EFD396700DF291D /* MiddleTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleTabBarController.m; sourceTree = "<group>"; };
+		3594D4F01EFD39CE00DF291D /* XLsn0wKitNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wKitNavigationController.h; sourceTree = "<group>"; };
+		3594D4F11EFD39CE00DF291D /* XLsn0wKitNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wKitNavigationController.m; sourceTree = "<group>"; };
+		3594D4F51EFD3A7E00DF291D /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		3594D4F61EFD3A7E00DF291D /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		3594D4F81EFD3AAC00DF291D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		3594D4F91EFD3AAC00DF291D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		3594D4FB1EFD3B8300DF291D /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
+		3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
 		35E2427C1EFA1CF700D0572A /* XLsn0wAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wAuthorizationManager.h; sourceTree = "<group>"; };
 		35E2427D1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wAuthorizationManager.m; sourceTree = "<group>"; };
 		35E2427F1EFA1D7600D0572A /* XLNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNetManager.h; sourceTree = "<group>"; };
@@ -1009,6 +1027,39 @@
 				351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3594D4E71EFD394E00DF291D /* MiddleTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3594D4E81EFD394E00DF291D /* MiddleTabBar.h */,
+				3594D4E91EFD394E00DF291D /* MiddleTabBar.m */,
+			);
+			path = MiddleTabBar;
+			sourceTree = "<group>";
+		};
+		3594D4EB1EFD396700DF291D /* MiddleTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				3594D4EC1EFD396700DF291D /* MiddleTabBarController.h */,
+				3594D4ED1EFD396700DF291D /* MiddleTabBarController.m */,
+			);
+			path = MiddleTabBarController;
+			sourceTree = "<group>";
+		};
+		3594D4EF1EFD39CE00DF291D /* XLsn0wKitNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				3594D4F01EFD39CE00DF291D /* XLsn0wKitNavigationController.h */,
+				3594D4F11EFD39CE00DF291D /* XLsn0wKitNavigationController.m */,
+				3594D4F51EFD3A7E00DF291D /* UIBarButtonItem+Extension.h */,
+				3594D4F61EFD3A7E00DF291D /* UIBarButtonItem+Extension.m */,
+				3594D4F81EFD3AAC00DF291D /* UIView+Extension.h */,
+				3594D4F91EFD3AAC00DF291D /* UIView+Extension.m */,
+				3594D4FB1EFD3B8300DF291D /* UIFont+Extension.h */,
+				3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */,
+			);
+			path = XLsn0wKitNavigationController;
 			sourceTree = "<group>";
 		};
 		35E2427B1EFA1CF700D0572A /* XLsn0wAuthorizationManager */ = {
@@ -2100,6 +2151,9 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				3594D4EF1EFD39CE00DF291D /* XLsn0wKitNavigationController */,
+				3594D4EB1EFD396700DF291D /* MiddleTabBarController */,
+				3594D4E71EFD394E00DF291D /* MiddleTabBar */,
 				35E242E61EFA5F9300D0572A /* XLsn0wCycle */,
 				35FC05911EFB4C1F00DA1EF0 /* XLsn0wLoop */,
 				35E243271EFA66D100D0572A /* XLsn0wLocation */,
@@ -2580,6 +2634,7 @@
 				35F80DFA1EF4B87700031CDA /* NSHTTPCookieStorage+JKFreezeDry.m in Sources */,
 				35F80F1F1EF4B87E00031CDA /* XLButton.m in Sources */,
 				35F80E661EF4B87700031CDA /* UIImage+JKMerge.m in Sources */,
+				3594D4F71EFD3A7E00DF291D /* UIBarButtonItem+Extension.m in Sources */,
 				35F80E6E1EF4B87700031CDA /* UIImage+XLsn0wKit.m in Sources */,
 				35F80EBE1EF4B87700031CDA /* UIWindow+JKHierarchy.m in Sources */,
 				35E243221EFA61DC00D0572A /* XLsn0wKeychain.m in Sources */,
@@ -2592,6 +2647,7 @@
 				35F80F201EF4B87E00031CDA /* User.m in Sources */,
 				35F80E5F1EF4B87700031CDA /* UIImage+JKBetterFace.m in Sources */,
 				35F80E2E1EF4B87700031CDA /* NSURL+JKParam.m in Sources */,
+				3594D4F21EFD39CE00DF291D /* XLsn0wKitNavigationController.m in Sources */,
 				35F80DFF1EF4B87700031CDA /* NSMutableDictionary+BFKit.m in Sources */,
 				35F80F1E1EF4B87E00031CDA /* UploadImageCell.m in Sources */,
 				35F80E131EF4B87700031CDA /* NSObject+XLsn0w.m in Sources */,
@@ -2618,6 +2674,7 @@
 				35E2431C1EFA617300D0572A /* XLsn0wHUD.m in Sources */,
 				35F80E561EF4B87700031CDA /* UIDevice+BFKit.m in Sources */,
 				35F80DDE1EF4B87700031CDA /* NSData+JKEncrypt.m in Sources */,
+				3594D4FD1EFD3B8300DF291D /* UIFont+Extension.m in Sources */,
 				35F80E161EF4B87700031CDA /* NSRunLoop+JKPerformBlock.m in Sources */,
 				35F80E291EF4B87700031CDA /* NSString+JKXMLDictionary.m in Sources */,
 				35F80E5D1EF4B87700031CDA /* UIImage+JKAlpha.m in Sources */,
@@ -2676,6 +2733,7 @@
 				35F80E391EF4B87700031CDA /* UIBarButtonItem+BFKit.m in Sources */,
 				35F80E501EF4B87700031CDA /* UIColor+JKModify.m in Sources */,
 				35F80EBA1EF4B87700031CDA /* UIWebView+JKStyle.m in Sources */,
+				3594D4EA1EFD394E00DF291D /* MiddleTabBar.m in Sources */,
 				35F80E081EF4B87700031CDA /* NSObject+JKAddProperty.m in Sources */,
 				35F80DCD1EF4B87700031CDA /* CALayer+XLsn0w.m in Sources */,
 				35F80E451EF4B87700031CDA /* UIButton+JKImagePosition.m in Sources */,
@@ -2706,6 +2764,7 @@
 				35F80E681EF4B87700031CDA /* UIImage+JKRemoteSize.m in Sources */,
 				35F80E721EF4B87700031CDA /* UIImageView+JKGeometryConversion.m in Sources */,
 				35F80E0A1EF4B87700031CDA /* NSObject+JKAssociatedObject.m in Sources */,
+				3594D4EE1EFD396700DF291D /* MiddleTabBarController.m in Sources */,
 				35F80E651EF4B87700031CDA /* UIImage+JKGIF.m in Sources */,
 				35F80F291EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout.m in Sources */,
 				35F80E331EF4B87700031CDA /* NSUserDefaults+JKSafeAccess.m in Sources */,
@@ -2742,6 +2801,7 @@
 				35F80E361EF4B87700031CDA /* UIApplication+JKKeyboardFrame.m in Sources */,
 				35F80EA01EF4B87700031CDA /* UIView+JKCustomBorder.m in Sources */,
 				35F80EA21EF4B87700031CDA /* UIView+JKFind.m in Sources */,
+				3594D4FA1EFD3AAC00DF291D /* UIView+Extension.m in Sources */,
 				35F80DE11EF4B87700031CDA /* NSData+JKPCM.m in Sources */,
 				35F80E211EF4B87700031CDA /* NSString+JKNormalRegex.m in Sources */,
 				35E242871EFA1FA800D0572A /* UIApplication+CurrentShowedVC.m in Sources */,

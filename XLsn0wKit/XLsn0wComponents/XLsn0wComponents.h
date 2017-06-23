@@ -30,6 +30,9 @@
 
 /*********************************************************************************************/
 
+#import "XLsn0wKitNavigationController.h"
+#import "MiddleTabBarController.h"
+#import "MiddleTabBar.h"
 #import "XLNavViewController.h"
 #import "XLGuidePageView.h"
 #import "XLsn0wTouchID.h"
