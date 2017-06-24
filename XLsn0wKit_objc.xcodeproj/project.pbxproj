@@ -16,6 +16,7 @@
 		352954A51EEFD7FB004B717F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352954A31EEFD7FB004B717F /* LaunchScreen.storyboard */; };
 		352957AE1EEFD824004B717F /* XLsn0w.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954AF1EEFD823004B717F /* XLsn0w.m */; };
 		352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */; };
+		354881B11EFE31E7003858C4 /* XLsn0wSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 354881B01EFE31E7003858C4 /* XLsn0wSocketManager.m */; };
 		3594D4EA1EFD394E00DF291D /* MiddleTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4E91EFD394E00DF291D /* MiddleTabBar.m */; };
 		3594D4EE1EFD396700DF291D /* MiddleTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4ED1EFD396700DF291D /* MiddleTabBarController.m */; };
 		3594D4F21EFD39CE00DF291D /* XLsn0wKitNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F11EFD39CE00DF291D /* XLsn0wKitNavigationController.m */; };
@@ -334,6 +335,8 @@
 		352954AF1EEFD823004B717F /* XLsn0w.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0w.m; sourceTree = "<group>"; };
 		352957341EEFD823004B717F /* XLsn0wKit_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wKit_objc.h; sourceTree = "<group>"; };
 		352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wKit_objc.podspec; sourceTree = "<group>"; };
+		354881AF1EFE31E7003858C4 /* XLsn0wSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wSocketManager.h; sourceTree = "<group>"; };
+		354881B01EFE31E7003858C4 /* XLsn0wSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wSocketManager.m; sourceTree = "<group>"; };
 		3594D4E81EFD394E00DF291D /* MiddleTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleTabBar.h; sourceTree = "<group>"; };
 		3594D4E91EFD394E00DF291D /* MiddleTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleTabBar.m; sourceTree = "<group>"; };
 		3594D4EC1EFD396700DF291D /* MiddleTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleTabBarController.h; sourceTree = "<group>"; };
@@ -1027,6 +1030,15 @@
 				351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		354881AE1EFE31A9003858C4 /* XLsn0wSocketManager */ = {
+			isa = PBXGroup;
+			children = (
+				354881AF1EFE31E7003858C4 /* XLsn0wSocketManager.h */,
+				354881B01EFE31E7003858C4 /* XLsn0wSocketManager.m */,
+			);
+			path = XLsn0wSocketManager;
 			sourceTree = "<group>";
 		};
 		3594D4E71EFD394E00DF291D /* MiddleTabBar */ = {
@@ -2151,6 +2163,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				354881AE1EFE31A9003858C4 /* XLsn0wSocketManager */,
 				3594D4EF1EFD39CE00DF291D /* XLsn0wKitNavigationController */,
 				3594D4EB1EFD396700DF291D /* MiddleTabBarController */,
 				3594D4E71EFD394E00DF291D /* MiddleTabBar */,
@@ -2756,6 +2769,7 @@
 				352957AE1EEFD824004B717F /* XLsn0w.m in Sources */,
 				35F80E431EF4B87700031CDA /* UIButton+JKBlock.m in Sources */,
 				35F80E791EF4B87700031CDA /* UILabel+JKAutoSize.m in Sources */,
+				354881B11EFE31E7003858C4 /* XLsn0wSocketManager.m in Sources */,
 				35F80F3A1EF4B87E00031CDA /* XLsn0wStarRating.m in Sources */,
 				35F80E611EF4B87700031CDA /* UIImage+JKCapture.m in Sources */,
 				35F80E8F1EF4B87700031CDA /* UISplitViewController+JKQuickAccess.m in Sources */,

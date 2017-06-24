@@ -12,6 +12,7 @@
 #import "XLsn0wLog.h"
 #import "XLsn0wMacro.h"
 #import "XLsn0wUdpSocket.h"
+#import "XLsn0wSocketManager.h"
 
 /*********************************************************************************************/
 
