@@ -16,6 +16,8 @@
 		352954A51EEFD7FB004B717F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352954A31EEFD7FB004B717F /* LaunchScreen.storyboard */; };
 		352957AE1EEFD824004B717F /* XLsn0w.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954AF1EEFD823004B717F /* XLsn0w.m */; };
 		352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */; };
+		353594AE1F1F5DC700678022 /* XLsn0wDrawQRCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 353594AB1F1F5DC700678022 /* XLsn0wDrawQRCoder.m */; };
+		353594B01F1F5DC700678022 /* 绘制二维码代码.png in Resources */ = {isa = PBXBuildFile; fileRef = 353594AD1F1F5DC700678022 /* 绘制二维码代码.png */; };
 		354881B11EFE31E7003858C4 /* XLsn0wSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 354881B01EFE31E7003858C4 /* XLsn0wSocketManager.m */; };
 		3594D4EA1EFD394E00DF291D /* MiddleTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4E91EFD394E00DF291D /* MiddleTabBar.m */; };
 		3594D4EE1EFD396700DF291D /* MiddleTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4ED1EFD396700DF291D /* MiddleTabBarController.m */; };
@@ -335,6 +337,9 @@
 		352954AF1EEFD823004B717F /* XLsn0w.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0w.m; sourceTree = "<group>"; };
 		352957341EEFD823004B717F /* XLsn0wKit_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wKit_objc.h; sourceTree = "<group>"; };
 		352958F51EEFD85B004B717F /* XLsn0wKit_objc.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wKit_objc.podspec; sourceTree = "<group>"; };
+		353594AA1F1F5DC700678022 /* XLsn0wDrawQRCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wDrawQRCoder.h; sourceTree = "<group>"; };
+		353594AB1F1F5DC700678022 /* XLsn0wDrawQRCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wDrawQRCoder.m; sourceTree = "<group>"; };
+		353594AD1F1F5DC700678022 /* 绘制二维码代码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "绘制二维码代码.png"; sourceTree = "<group>"; };
 		354881AF1EFE31E7003858C4 /* XLsn0wSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wSocketManager.h; sourceTree = "<group>"; };
 		354881B01EFE31E7003858C4 /* XLsn0wSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wSocketManager.m; sourceTree = "<group>"; };
 		3594D4E81EFD394E00DF291D /* MiddleTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleTabBar.h; sourceTree = "<group>"; };
@@ -1030,6 +1035,16 @@
 				351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		353594A91F1F5DC700678022 /* XLsn0wDrawQRCoder */ = {
+			isa = PBXGroup;
+			children = (
+				353594AA1F1F5DC700678022 /* XLsn0wDrawQRCoder.h */,
+				353594AB1F1F5DC700678022 /* XLsn0wDrawQRCoder.m */,
+				353594AD1F1F5DC700678022 /* 绘制二维码代码.png */,
+			);
+			path = XLsn0wDrawQRCoder;
 			sourceTree = "<group>";
 		};
 		354881AE1EFE31A9003858C4 /* XLsn0wSocketManager */ = {
@@ -2163,6 +2178,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				353594A91F1F5DC700678022 /* XLsn0wDrawQRCoder */,
 				354881AE1EFE31A9003858C4 /* XLsn0wSocketManager */,
 				3594D4EF1EFD39CE00DF291D /* XLsn0wKitNavigationController */,
 				3594D4EB1EFD396700DF291D /* MiddleTabBarController */,
@@ -2518,6 +2534,7 @@
 				352958F61EEFD85B004B717F /* XLsn0wKit_objc.podspec in Resources */,
 				351420641EF0DF1C005C3846 /* XLsn0wKit_objc.bundle in Resources */,
 				352954A51EEFD7FB004B717F /* LaunchScreen.storyboard in Resources */,
+				353594B01F1F5DC700678022 /* 绘制二维码代码.png in Resources */,
 				352954A21EEFD7FB004B717F /* Assets.xcassets in Resources */,
 				352954A01EEFD7FB004B717F /* Main.storyboard in Resources */,
 				35F80F321EF4B87E00031CDA /* ScanQR2@2x.png in Resources */,
@@ -2681,6 +2698,7 @@
 				35E243131EFA612500D0572A /* XLsn0wCityTableViewCell.m in Sources */,
 				35F80E101EF4B87700031CDA /* NSObject+JKKVOBlocks.m in Sources */,
 				35F80E011EF4B87700031CDA /* NSNotificationCenter+JKMainThread.m in Sources */,
+				353594AE1F1F5DC700678022 /* XLsn0wDrawQRCoder.m in Sources */,
 				3529549A1EEFD7FB004B717F /* AppDelegate.m in Sources */,
 				35F80E1A1EF4B87700031CDA /* NSString+JKContains.m in Sources */,
 				35F80EB61EF4B87700031CDA /* UIWebView+JKCanvas.m in Sources */,

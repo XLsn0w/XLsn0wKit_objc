@@ -28,6 +28,7 @@
 #import "XLsn0wTextHUD.h"
 #import "XLsn0wKeychain.h"
 #import "XLsn0wLocation.h"
+#import "XLsn0wDrawQRCoder.h"
 
 /*********************************************************************************************/
 
