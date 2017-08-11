@@ -29,6 +29,9 @@
 #import "XLsn0wKeychain.h"
 #import "XLsn0wLocation.h"
 #import "XLsn0wDrawQRCoder.h"
+#import "XLsn0wCacher.h"
+#import "XLsn0wWebImager.h"
+#import "XLsn0wImageLoader.h"
 
 /*********************************************************************************************/
 

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30B0E6791F3D70DD00FB1949 /* XLsn0wCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6661F3D70DD00FB1949 /* XLsn0wCacher.m */; };
+		30B0E67A1F3D70DD00FB1949 /* XLsn0wFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6691F3D70DD00FB1949 /* XLsn0wFileManager.m */; };
+		30B0E67B1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E66C1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.m */; };
+		30B0E67C1F3D70DD00FB1949 /* XLsn0wFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E66E1F3D70DD00FB1949 /* XLsn0wFileDownload.m */; };
+		30B0E67D1F3D70DD00FB1949 /* XLsn0wFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6701F3D70DD00FB1949 /* XLsn0wFileHandle.m */; };
+		30B0E67E1F3D70DD00FB1949 /* XLsn0wImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6721F3D70DD00FB1949 /* XLsn0wImageCache.m */; };
+		30B0E67F1F3D70DD00FB1949 /* XLsn0wImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6751F3D70DD00FB1949 /* XLsn0wImageLoader.m */; };
+		30B0E6801F3D70DD00FB1949 /* XLsn0wWebImager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E6781F3D70DD00FB1949 /* XLsn0wWebImager.m */; };
 		351420641EF0DF1C005C3846 /* XLsn0wKit_objc.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */; };
 		352954971EEFD7FB004B717F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954961EEFD7FB004B717F /* main.m */; };
 		3529549A1EEFD7FB004B717F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352954991EEFD7FB004B717F /* AppDelegate.m */; };
@@ -322,6 +330,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30B0E6651F3D70DD00FB1949 /* XLsn0wCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCacher.h; sourceTree = "<group>"; };
+		30B0E6661F3D70DD00FB1949 /* XLsn0wCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCacher.m; sourceTree = "<group>"; };
+		30B0E6681F3D70DD00FB1949 /* XLsn0wFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileManager.h; sourceTree = "<group>"; };
+		30B0E6691F3D70DD00FB1949 /* XLsn0wFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileManager.m; sourceTree = "<group>"; };
+		30B0E66B1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLsn0wWebImage.h"; sourceTree = "<group>"; };
+		30B0E66C1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLsn0wWebImage.m"; sourceTree = "<group>"; };
+		30B0E66D1F3D70DD00FB1949 /* XLsn0wFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileDownload.h; sourceTree = "<group>"; };
+		30B0E66E1F3D70DD00FB1949 /* XLsn0wFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileDownload.m; sourceTree = "<group>"; };
+		30B0E66F1F3D70DD00FB1949 /* XLsn0wFileHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileHandle.h; sourceTree = "<group>"; };
+		30B0E6701F3D70DD00FB1949 /* XLsn0wFileHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileHandle.m; sourceTree = "<group>"; };
+		30B0E6711F3D70DD00FB1949 /* XLsn0wImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wImageCache.h; sourceTree = "<group>"; };
+		30B0E6721F3D70DD00FB1949 /* XLsn0wImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wImageCache.m; sourceTree = "<group>"; };
+		30B0E6741F3D70DD00FB1949 /* XLsn0wImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wImageLoader.h; sourceTree = "<group>"; };
+		30B0E6751F3D70DD00FB1949 /* XLsn0wImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wImageLoader.m; sourceTree = "<group>"; };
+		30B0E6771F3D70DD00FB1949 /* XLsn0wWebImager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wWebImager.h; sourceTree = "<group>"; };
+		30B0E6781F3D70DD00FB1949 /* XLsn0wWebImager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wWebImager.m; sourceTree = "<group>"; };
 		351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLsn0wKit_objc.bundle; sourceTree = "<group>"; };
 		352954921EEFD7FB004B717F /* XLsn0wKit_objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wKit_objc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352954961EEFD7FB004B717F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -962,6 +986,69 @@
 				9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		30B0E6631F3D70DD00FB1949 /* XLsn0wWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E6641F3D70DD00FB1949 /* XLsn0wCacher */,
+				30B0E6671F3D70DD00FB1949 /* XLsn0wFileManager */,
+				30B0E66A1F3D70DD00FB1949 /* XLsn0wImageCache */,
+				30B0E6731F3D70DD00FB1949 /* XLsn0wImageLoader */,
+				30B0E6761F3D70DD00FB1949 /* XLsn0wWebImager */,
+			);
+			path = XLsn0wWebImage;
+			sourceTree = "<group>";
+		};
+		30B0E6641F3D70DD00FB1949 /* XLsn0wCacher */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E6651F3D70DD00FB1949 /* XLsn0wCacher.h */,
+				30B0E6661F3D70DD00FB1949 /* XLsn0wCacher.m */,
+			);
+			path = XLsn0wCacher;
+			sourceTree = "<group>";
+		};
+		30B0E6671F3D70DD00FB1949 /* XLsn0wFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E6681F3D70DD00FB1949 /* XLsn0wFileManager.h */,
+				30B0E6691F3D70DD00FB1949 /* XLsn0wFileManager.m */,
+			);
+			path = XLsn0wFileManager;
+			sourceTree = "<group>";
+		};
+		30B0E66A1F3D70DD00FB1949 /* XLsn0wImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E66B1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.h */,
+				30B0E66C1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.m */,
+				30B0E66D1F3D70DD00FB1949 /* XLsn0wFileDownload.h */,
+				30B0E66E1F3D70DD00FB1949 /* XLsn0wFileDownload.m */,
+				30B0E66F1F3D70DD00FB1949 /* XLsn0wFileHandle.h */,
+				30B0E6701F3D70DD00FB1949 /* XLsn0wFileHandle.m */,
+				30B0E6711F3D70DD00FB1949 /* XLsn0wImageCache.h */,
+				30B0E6721F3D70DD00FB1949 /* XLsn0wImageCache.m */,
+			);
+			path = XLsn0wImageCache;
+			sourceTree = "<group>";
+		};
+		30B0E6731F3D70DD00FB1949 /* XLsn0wImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E6741F3D70DD00FB1949 /* XLsn0wImageLoader.h */,
+				30B0E6751F3D70DD00FB1949 /* XLsn0wImageLoader.m */,
+			);
+			path = XLsn0wImageLoader;
+			sourceTree = "<group>";
+		};
+		30B0E6761F3D70DD00FB1949 /* XLsn0wWebImager */ = {
+			isa = PBXGroup;
+			children = (
+				30B0E6771F3D70DD00FB1949 /* XLsn0wWebImager.h */,
+				30B0E6781F3D70DD00FB1949 /* XLsn0wWebImager.m */,
+			);
+			path = XLsn0wWebImager;
 			sourceTree = "<group>";
 		};
 		352954891EEFD7FB004B717F = {
@@ -2178,6 +2265,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				30B0E6631F3D70DD00FB1949 /* XLsn0wWebImage */,
 				353594A91F1F5DC700678022 /* XLsn0wDrawQRCoder */,
 				354881AE1EFE31A9003858C4 /* XLsn0wSocketManager */,
 				3594D4EF1EFD39CE00DF291D /* XLsn0wKitNavigationController */,
@@ -2635,6 +2723,7 @@
 				35F80EAF1EF4B87700031CDA /* UIViewController+JKBlockSegue.m in Sources */,
 				35F80E801EF4B87700031CDA /* UINavigationController+AddXLsn0wShouldAutorotate.m in Sources */,
 				35F80E811EF4B87700031CDA /* UINavigationController+JKStackManager.m in Sources */,
+				30B0E6791F3D70DD00FB1949 /* XLsn0wCacher.m in Sources */,
 				35F80EAB1EF4B87700031CDA /* UIView+XLsn0wKit.m in Sources */,
 				35F80DD71EF4B87700031CDA /* NSArray+JKSafeAccess.m in Sources */,
 				35F80E7F1EF4B87700031CDA /* UINavigationBar+XLsn0w.m in Sources */,
@@ -2716,6 +2805,7 @@
 				35F80EA31EF4B87700031CDA /* UIView+JKFrame.m in Sources */,
 				35F80F3D1EF4B87E00031CDA /* XLsn0wTouchID.m in Sources */,
 				35F80E301EF4B87700031CDA /* NSURLConnection+JKSelfSigned.m in Sources */,
+				30B0E67D1F3D70DD00FB1949 /* XLsn0wFileHandle.m in Sources */,
 				35F80DE71EF4B87700031CDA /* NSDate+JKReporting.m in Sources */,
 				35F80E1F1EF4B87700031CDA /* NSString+JKMatcher.m in Sources */,
 				35E242811EFA1D7600D0572A /* XLNetManager.m in Sources */,
@@ -2764,6 +2854,7 @@
 				35F80E391EF4B87700031CDA /* UIBarButtonItem+BFKit.m in Sources */,
 				35F80E501EF4B87700031CDA /* UIColor+JKModify.m in Sources */,
 				35F80EBA1EF4B87700031CDA /* UIWebView+JKStyle.m in Sources */,
+				30B0E67C1F3D70DD00FB1949 /* XLsn0wFileDownload.m in Sources */,
 				3594D4EA1EFD394E00DF291D /* MiddleTabBar.m in Sources */,
 				35F80E081EF4B87700031CDA /* NSObject+JKAddProperty.m in Sources */,
 				35F80DCD1EF4B87700031CDA /* CALayer+XLsn0w.m in Sources */,
@@ -2778,6 +2869,7 @@
 				35F80E761EF4B87700031CDA /* UIImageView+XLsn0wKit.m in Sources */,
 				35F80E911EF4B87700031CDA /* UITableView+BFKit.m in Sources */,
 				35F80E191EF4B87700031CDA /* NSString+JKBase64.m in Sources */,
+				30B0E67A1F3D70DD00FB1949 /* XLsn0wFileManager.m in Sources */,
 				35F80E411EF4B87700031CDA /* UIButton+ImageTitleLayout.m in Sources */,
 				35F80E8B1EF4B87700031CDA /* UIScrollView+BFKit.m in Sources */,
 				35F80DF21EF4B87700031CDA /* NSDictionary+JKSafeAccess.m in Sources */,
@@ -2815,8 +2907,10 @@
 				35F80EB01EF4B87700031CDA /* UIViewController+JKRecursiveDescription.m in Sources */,
 				35F80E4D1EF4B87700031CDA /* UIColor+BgColor.m in Sources */,
 				35F80EA91EF4B87700031CDA /* UIView+JKVisuals.m in Sources */,
+				30B0E67B1F3D70DD00FB1949 /* UIImageView+XLsn0wWebImage.m in Sources */,
 				35F80E8E1EF4B87700031CDA /* UISearchBar+JKBlocks.m in Sources */,
 				35F80F2E1EF4B87E00031CDA /* XLsn0wMapGeoCoder.m in Sources */,
+				30B0E67F1F3D70DD00FB1949 /* XLsn0wImageLoader.m in Sources */,
 				35F80E111EF4B87700031CDA /* NSObject+JKReflection.m in Sources */,
 				35F80E6C1EF4B87700031CDA /* UIImage+JKVector.m in Sources */,
 				35F80E6D1EF4B87700031CDA /* UIImage+XLsn0w.m in Sources */,
@@ -2843,6 +2937,7 @@
 				35F80EB71EF4B87700031CDA /* UIWebView+JKJavaScript.m in Sources */,
 				35F80DDA1EF4B87700031CDA /* NSData+BFKit.m in Sources */,
 				35F80DF11EF4B87700031CDA /* NSDictionary+JKMerge.m in Sources */,
+				30B0E6801F3D70DD00FB1949 /* XLsn0wWebImager.m in Sources */,
 				35F80DE61EF4B87700031CDA /* NSDate+JKInternetDateTime.m in Sources */,
 				35F80E201EF4B87700031CDA /* NSString+JKMIME.m in Sources */,
 				35F80DFE1EF4B87700031CDA /* NSMutableArray+XLsn0w.m in Sources */,
@@ -2877,6 +2972,7 @@
 				35F80E781EF4B87700031CDA /* UILabel+JKAutomaticWriting.m in Sources */,
 				35F80E901EF4B87700031CDA /* UITabBarController+XLsn0w.m in Sources */,
 				35E242951EFA213000D0572A /* UIImage+JRoundRectImage.m in Sources */,
+				30B0E67E1F3D70DD00FB1949 /* XLsn0wImageCache.m in Sources */,
 				35E2428A1EFA202300D0572A /* UIBezierPath+curved.m in Sources */,
 				35F80EB41EF4B87700031CDA /* UIWebView+BFKit.m in Sources */,
 				35E2432A1EFA66D100D0572A /* XLsn0wLocation.m in Sources */,
