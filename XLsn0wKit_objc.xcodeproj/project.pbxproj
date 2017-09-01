@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3017C5DF1F59086F003F06D3 /* XLsn0wCountTimeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */; };
 		30D682611F580ED000720E97 /* XLsn0wCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6824E1F580ED000720E97 /* XLsn0wCacher.m */; };
 		30D682621F580ED000720E97 /* XLsn0wFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682511F580ED000720E97 /* XLsn0wFileManager.m */; };
 		30D682631F580ED000720E97 /* UIImageView+XLsn0wWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682541F580ED000720E97 /* UIImageView+XLsn0wWebImage.m */; };
@@ -330,6 +331,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3017C5DD1F59086F003F06D3 /* XLsn0wCountTimeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCountTimeButton.h; sourceTree = "<group>"; };
+		3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCountTimeButton.m; sourceTree = "<group>"; };
 		30D6824D1F580ED000720E97 /* XLsn0wCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCacher.h; sourceTree = "<group>"; };
 		30D6824E1F580ED000720E97 /* XLsn0wCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCacher.m; sourceTree = "<group>"; };
 		30D682501F580ED000720E97 /* XLsn0wFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileManager.h; sourceTree = "<group>"; };
@@ -986,6 +989,15 @@
 				9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3017C5DC1F59086F003F06D3 /* XLsn0wCountTimeButton */ = {
+			isa = PBXGroup;
+			children = (
+				3017C5DD1F59086F003F06D3 /* XLsn0wCountTimeButton.h */,
+				3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */,
+			);
+			path = XLsn0wCountTimeButton;
 			sourceTree = "<group>";
 		};
 		30D6824C1F580ED000720E97 /* XLsn0wCacher */ = {
@@ -2253,6 +2265,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				3017C5DC1F59086F003F06D3 /* XLsn0wCountTimeButton */,
 				30D6824C1F580ED000720E97 /* XLsn0wCacher */,
 				30D6824F1F580ED000720E97 /* XLsn0wFileManager */,
 				30D682521F580ED000720E97 /* XLsn0wImageCache */,
@@ -2770,6 +2783,7 @@
 				35F80E2B1EF4B87700031CDA /* NSThread+BFKit.m in Sources */,
 				35F80E7E1EF4B87700031CDA /* UINavigationBar+JKAwesome.m in Sources */,
 				35F80EBB1EF4B87700031CDA /* UIWebVIew+JKSwipeGesture.m in Sources */,
+				3017C5DF1F59086F003F06D3 /* XLsn0wCountTimeButton.m in Sources */,
 				35F80E9E1EF4B87700031CDA /* UIView+JKBlockGesture.m in Sources */,
 				35E242901EFA20DC00D0572A /* UIView+Addbadge.m in Sources */,
 				35F80E731EF4B87700031CDA /* UIImageView+JKLetters.m in Sources */,

@@ -32,6 +32,7 @@
 #import "XLsn0wCacher.h"
 #import "XLsn0wWebImager.h"
 #import "XLsn0wImageLoader.h"
+#import "XLsn0wCountTimeButton.h"
 
 /*********************************************************************************************/
 
