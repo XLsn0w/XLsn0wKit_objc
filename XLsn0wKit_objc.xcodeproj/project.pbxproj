@@ -333,6 +333,10 @@
 /* Begin PBXFileReference section */
 		3017C5DD1F59086F003F06D3 /* XLsn0wCountTimeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCountTimeButton.h; sourceTree = "<group>"; };
 		3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCountTimeButton.m; sourceTree = "<group>"; };
+		30640A811F5EA02500635A71 /* iQiYiPlayButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iQiYiPlayButton.h; sourceTree = "<group>"; };
+		30640A821F5EA02500635A71 /* iQiYiPlayButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iQiYiPlayButton.m; sourceTree = "<group>"; };
+		30640A831F5EA02500635A71 /* YouKuPlayButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YouKuPlayButton.h; sourceTree = "<group>"; };
+		30640A841F5EA02500635A71 /* YouKuPlayButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouKuPlayButton.m; sourceTree = "<group>"; };
 		30A20B221F5E82D700C0A0C1 /* XLPaymentLoadingHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLPaymentLoadingHUD.h; sourceTree = "<group>"; };
 		30A20B231F5E82D700C0A0C1 /* XLPaymentLoadingHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLPaymentLoadingHUD.m; sourceTree = "<group>"; };
 		30A20B241F5E82D700C0A0C1 /* XLPaymentSuccessHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLPaymentSuccessHUD.h; sourceTree = "<group>"; };
@@ -1021,6 +1025,17 @@
 				3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */,
 			);
 			path = XLsn0wCountTimeButton;
+			sourceTree = "<group>";
+		};
+		30640A801F5EA02500635A71 /* AnimationPlayButton */ = {
+			isa = PBXGroup;
+			children = (
+				30640A811F5EA02500635A71 /* iQiYiPlayButton.h */,
+				30640A821F5EA02500635A71 /* iQiYiPlayButton.m */,
+				30640A831F5EA02500635A71 /* YouKuPlayButton.h */,
+				30640A841F5EA02500635A71 /* YouKuPlayButton.m */,
+			);
+			path = AnimationPlayButton;
 			sourceTree = "<group>";
 		};
 		30A20B211F5E82D700C0A0C1 /* XLPaymentHUD */ = {
@@ -2346,6 +2361,7 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				30640A801F5EA02500635A71 /* AnimationPlayButton */,
 				30A20B3F1F5E8DA900C0A0C1 /* XLCircleProgress */,
 				30A20B2E1F5E895600C0A0C1 /* XLChannelControl */,
 				30A20B291F5E87D600C0A0C1 /* XLDotLoading */,
