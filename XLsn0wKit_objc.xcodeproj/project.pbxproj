@@ -333,6 +333,29 @@
 /* Begin PBXFileReference section */
 		3017C5DD1F59086F003F06D3 /* XLsn0wCountTimeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCountTimeButton.h; sourceTree = "<group>"; };
 		3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCountTimeButton.m; sourceTree = "<group>"; };
+		30A20B221F5E82D700C0A0C1 /* XLPaymentLoadingHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLPaymentLoadingHUD.h; sourceTree = "<group>"; };
+		30A20B231F5E82D700C0A0C1 /* XLPaymentLoadingHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLPaymentLoadingHUD.m; sourceTree = "<group>"; };
+		30A20B241F5E82D700C0A0C1 /* XLPaymentSuccessHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLPaymentSuccessHUD.h; sourceTree = "<group>"; };
+		30A20B251F5E82D700C0A0C1 /* XLPaymentSuccessHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLPaymentSuccessHUD.m; sourceTree = "<group>"; };
+		30A20B271F5E86B700C0A0C1 /* XLBallLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLBallLoading.h; sourceTree = "<group>"; };
+		30A20B281F5E86B700C0A0C1 /* XLBallLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLBallLoading.m; sourceTree = "<group>"; };
+		30A20B2A1F5E87D600C0A0C1 /* XLDot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLDot.h; sourceTree = "<group>"; };
+		30A20B2B1F5E87D600C0A0C1 /* XLDot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLDot.m; sourceTree = "<group>"; };
+		30A20B2C1F5E87D600C0A0C1 /* XLDotLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLDotLoading.h; sourceTree = "<group>"; };
+		30A20B2D1F5E87D600C0A0C1 /* XLDotLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLDotLoading.m; sourceTree = "<group>"; };
+		30A20B2F1F5E895600C0A0C1 /* XLChannelControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLChannelControl.h; sourceTree = "<group>"; };
+		30A20B301F5E895600C0A0C1 /* XLChannelControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLChannelControl.m; sourceTree = "<group>"; };
+		30A20B311F5E895600C0A0C1 /* XLChannelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLChannelHeader.h; sourceTree = "<group>"; };
+		30A20B321F5E895600C0A0C1 /* XLChannelHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLChannelHeader.m; sourceTree = "<group>"; };
+		30A20B331F5E895600C0A0C1 /* XLChannelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLChannelItem.h; sourceTree = "<group>"; };
+		30A20B341F5E895600C0A0C1 /* XLChannelItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLChannelItem.m; sourceTree = "<group>"; };
+		30A20B351F5E895600C0A0C1 /* XLChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLChannelView.h; sourceTree = "<group>"; };
+		30A20B361F5E895600C0A0C1 /* XLChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLChannelView.m; sourceTree = "<group>"; };
+		30A20B401F5E8DA900C0A0C1 /* endPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endPoint.png; sourceTree = "<group>"; };
+		30A20B411F5E8DA900C0A0C1 /* XLCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLCircle.h; sourceTree = "<group>"; };
+		30A20B421F5E8DA900C0A0C1 /* XLCircle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLCircle.m; sourceTree = "<group>"; };
+		30A20B431F5E8DA900C0A0C1 /* XLCircleProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLCircleProgress.h; sourceTree = "<group>"; };
+		30A20B441F5E8DA900C0A0C1 /* XLCircleProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgress.m; sourceTree = "<group>"; };
 		30D6824D1F580ED000720E97 /* XLsn0wCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCacher.h; sourceTree = "<group>"; };
 		30D6824E1F580ED000720E97 /* XLsn0wCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCacher.m; sourceTree = "<group>"; };
 		30D682501F580ED000720E97 /* XLsn0wFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileManager.h; sourceTree = "<group>"; };
@@ -998,6 +1021,64 @@
 				3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */,
 			);
 			path = XLsn0wCountTimeButton;
+			sourceTree = "<group>";
+		};
+		30A20B211F5E82D700C0A0C1 /* XLPaymentHUD */ = {
+			isa = PBXGroup;
+			children = (
+				30A20B221F5E82D700C0A0C1 /* XLPaymentLoadingHUD.h */,
+				30A20B231F5E82D700C0A0C1 /* XLPaymentLoadingHUD.m */,
+				30A20B241F5E82D700C0A0C1 /* XLPaymentSuccessHUD.h */,
+				30A20B251F5E82D700C0A0C1 /* XLPaymentSuccessHUD.m */,
+			);
+			path = XLPaymentHUD;
+			sourceTree = "<group>";
+		};
+		30A20B261F5E86B700C0A0C1 /* XLBallLoading */ = {
+			isa = PBXGroup;
+			children = (
+				30A20B271F5E86B700C0A0C1 /* XLBallLoading.h */,
+				30A20B281F5E86B700C0A0C1 /* XLBallLoading.m */,
+			);
+			path = XLBallLoading;
+			sourceTree = "<group>";
+		};
+		30A20B291F5E87D600C0A0C1 /* XLDotLoading */ = {
+			isa = PBXGroup;
+			children = (
+				30A20B2A1F5E87D600C0A0C1 /* XLDot.h */,
+				30A20B2B1F5E87D600C0A0C1 /* XLDot.m */,
+				30A20B2C1F5E87D600C0A0C1 /* XLDotLoading.h */,
+				30A20B2D1F5E87D600C0A0C1 /* XLDotLoading.m */,
+			);
+			path = XLDotLoading;
+			sourceTree = "<group>";
+		};
+		30A20B2E1F5E895600C0A0C1 /* XLChannelControl */ = {
+			isa = PBXGroup;
+			children = (
+				30A20B2F1F5E895600C0A0C1 /* XLChannelControl.h */,
+				30A20B301F5E895600C0A0C1 /* XLChannelControl.m */,
+				30A20B311F5E895600C0A0C1 /* XLChannelHeader.h */,
+				30A20B321F5E895600C0A0C1 /* XLChannelHeader.m */,
+				30A20B331F5E895600C0A0C1 /* XLChannelItem.h */,
+				30A20B341F5E895600C0A0C1 /* XLChannelItem.m */,
+				30A20B351F5E895600C0A0C1 /* XLChannelView.h */,
+				30A20B361F5E895600C0A0C1 /* XLChannelView.m */,
+			);
+			path = XLChannelControl;
+			sourceTree = "<group>";
+		};
+		30A20B3F1F5E8DA900C0A0C1 /* XLCircleProgress */ = {
+			isa = PBXGroup;
+			children = (
+				30A20B401F5E8DA900C0A0C1 /* endPoint.png */,
+				30A20B411F5E8DA900C0A0C1 /* XLCircle.h */,
+				30A20B421F5E8DA900C0A0C1 /* XLCircle.m */,
+				30A20B431F5E8DA900C0A0C1 /* XLCircleProgress.h */,
+				30A20B441F5E8DA900C0A0C1 /* XLCircleProgress.m */,
+			);
+			path = XLCircleProgress;
 			sourceTree = "<group>";
 		};
 		30D6824C1F580ED000720E97 /* XLsn0wCacher */ = {
@@ -2265,6 +2346,11 @@
 			isa = PBXGroup;
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
+				30A20B3F1F5E8DA900C0A0C1 /* XLCircleProgress */,
+				30A20B2E1F5E895600C0A0C1 /* XLChannelControl */,
+				30A20B291F5E87D600C0A0C1 /* XLDotLoading */,
+				30A20B261F5E86B700C0A0C1 /* XLBallLoading */,
+				30A20B211F5E82D700C0A0C1 /* XLPaymentHUD */,
 				3017C5DC1F59086F003F06D3 /* XLsn0wCountTimeButton */,
 				30D6824C1F580ED000720E97 /* XLsn0wCacher */,
 				30D6824F1F580ED000720E97 /* XLsn0wFileManager */,
