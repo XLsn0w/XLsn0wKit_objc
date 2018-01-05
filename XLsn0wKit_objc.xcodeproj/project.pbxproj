@@ -328,6 +328,7 @@
 		35F80F3F1EF4B87E00031CDA /* XLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F1C1EF4B87E00031CDA /* XLTextField.m */; };
 		35FC05951EFB4C1F00DA1EF0 /* XLsn0wLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC05931EFB4C1F00DA1EF0 /* XLsn0wLoop.m */; };
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
+		CD7EF31A1FFF7B3000DC5828 /* XLsn0wQRCodeLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -995,6 +996,8 @@
 		62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wKit_objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.release.xcconfig"; sourceTree = "<group>"; };
+		CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wQRCodeLogo.m; sourceTree = "<group>"; };
+		CD7EF3191FFF7B3000DC5828 /* XLsn0wQRCodeLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wQRCodeLogo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2566,6 +2569,8 @@
 		35F80F001EF4B87E00031CDA /* XLsn0wQRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
+				CD7EF3191FFF7B3000DC5828 /* XLsn0wQRCodeLogo.h */,
+				CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */,
 				35F80F011EF4B87E00031CDA /* QRCodeReaderSupport.h */,
 				35F80F021EF4B87E00031CDA /* QRCodeReaderSupport.m */,
 				35F80F031EF4B87E00031CDA /* XLsn0wQRCodeReader.h */,
@@ -2984,6 +2989,7 @@
 				35F80E521EF4B87700031CDA /* UIColor+JKWeb.m in Sources */,
 				35F80E5C1EF4B87700031CDA /* UIImage+BFKit.m in Sources */,
 				35F80F3C1EF4B87E00031CDA /* XLsn0wTopSlider.m in Sources */,
+				CD7EF31A1FFF7B3000DC5828 /* XLsn0wQRCodeLogo.m in Sources */,
 				352957AE1EEFD824004B717F /* XLsn0w.m in Sources */,
 				35F80E431EF4B87700031CDA /* UIButton+JKBlock.m in Sources */,
 				35F80E791EF4B87700031CDA /* UILabel+JKAutoSize.m in Sources */,

@@ -33,6 +33,7 @@
 #import "XLsn0wWebImager.h"
 #import "XLsn0wImageLoader.h"
 #import "XLsn0wCountTimeButton.h"
+#import "XLsn0wQRCodeLogo.h"
 
 /*********************************************************************************************/
 
