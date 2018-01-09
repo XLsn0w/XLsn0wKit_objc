@@ -310,14 +310,6 @@
 		35F80F2D1EF4B87E00031CDA /* XLsn0wLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EEE1EF4B87E00031CDA /* XLsn0wLog.m */; };
 		35F80F2E1EF4B87E00031CDA /* XLsn0wMapGeoCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EF31EF4B87E00031CDA /* XLsn0wMapGeoCoder.m */; };
 		35F80F2F1EF4B87E00031CDA /* XLsn0wNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EF61EF4B87E00031CDA /* XLsn0wNavigationController.m */; };
-		35F80F301EF4B87E00031CDA /* QRCodeScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F80EF91EF4B87E00031CDA /* QRCodeScanLine@2x.png */; };
-		35F80F311EF4B87E00031CDA /* ScanQR1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F80EFA1EF4B87E00031CDA /* ScanQR1@2x.png */; };
-		35F80F321EF4B87E00031CDA /* ScanQR2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F80EFB1EF4B87E00031CDA /* ScanQR2@2x.png */; };
-		35F80F331EF4B87E00031CDA /* ScanQR3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F80EFC1EF4B87E00031CDA /* ScanQR3@2x.png */; };
-		35F80F341EF4B87E00031CDA /* ScanQR4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F80EFD1EF4B87E00031CDA /* ScanQR4@2x.png */; };
-		35F80F351EF4B87E00031CDA /* XLsn0wQRcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EFF1EF4B87E00031CDA /* XLsn0wQRcode.m */; };
-		35F80F361EF4B87E00031CDA /* QRCodeReaderSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F021EF4B87E00031CDA /* QRCodeReaderSupport.m */; };
-		35F80F371EF4B87E00031CDA /* XLsn0wQRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F041EF4B87E00031CDA /* XLsn0wQRCodeReader.m */; };
 		35F80F381EF4B87E00031CDA /* XLsn0wSegmentedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F071EF4B87E00031CDA /* XLsn0wSegmentedBar.m */; };
 		35F80F391EF4B87E00031CDA /* XLsn0wShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F0A1EF4B87E00031CDA /* XLsn0wShow.m */; };
 		35F80F3A1EF4B87E00031CDA /* XLsn0wStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F0D1EF4B87E00031CDA /* XLsn0wStarRating.m */; };
@@ -328,7 +320,6 @@
 		35F80F3F1EF4B87E00031CDA /* XLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F1C1EF4B87E00031CDA /* XLTextField.m */; };
 		35FC05951EFB4C1F00DA1EF0 /* XLsn0wLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC05931EFB4C1F00DA1EF0 /* XLsn0wLoop.m */; };
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
-		CD7EF31A1FFF7B3000DC5828 /* XLsn0wQRCodeLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -964,17 +955,6 @@
 		35F80EF31EF4B87E00031CDA /* XLsn0wMapGeoCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wMapGeoCoder.m; sourceTree = "<group>"; };
 		35F80EF51EF4B87E00031CDA /* XLsn0wNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wNavigationController.h; sourceTree = "<group>"; };
 		35F80EF61EF4B87E00031CDA /* XLsn0wNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNavigationController.m; sourceTree = "<group>"; };
-		35F80EF91EF4B87E00031CDA /* QRCodeScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QRCodeScanLine@2x.png"; sourceTree = "<group>"; };
-		35F80EFA1EF4B87E00031CDA /* ScanQR1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanQR1@2x.png"; sourceTree = "<group>"; };
-		35F80EFB1EF4B87E00031CDA /* ScanQR2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanQR2@2x.png"; sourceTree = "<group>"; };
-		35F80EFC1EF4B87E00031CDA /* ScanQR3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanQR3@2x.png"; sourceTree = "<group>"; };
-		35F80EFD1EF4B87E00031CDA /* ScanQR4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanQR4@2x.png"; sourceTree = "<group>"; };
-		35F80EFE1EF4B87E00031CDA /* XLsn0wQRcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wQRcode.h; sourceTree = "<group>"; };
-		35F80EFF1EF4B87E00031CDA /* XLsn0wQRcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wQRcode.m; sourceTree = "<group>"; };
-		35F80F011EF4B87E00031CDA /* QRCodeReaderSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderSupport.h; sourceTree = "<group>"; };
-		35F80F021EF4B87E00031CDA /* QRCodeReaderSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderSupport.m; sourceTree = "<group>"; };
-		35F80F031EF4B87E00031CDA /* XLsn0wQRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wQRCodeReader.h; sourceTree = "<group>"; };
-		35F80F041EF4B87E00031CDA /* XLsn0wQRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wQRCodeReader.m; sourceTree = "<group>"; };
 		35F80F061EF4B87E00031CDA /* XLsn0wSegmentedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wSegmentedBar.h; sourceTree = "<group>"; };
 		35F80F071EF4B87E00031CDA /* XLsn0wSegmentedBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wSegmentedBar.m; sourceTree = "<group>"; };
 		35F80F091EF4B87E00031CDA /* XLsn0wShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wShow.h; sourceTree = "<group>"; };
@@ -996,8 +976,6 @@
 		62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wKit_objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.release.xcconfig"; sourceTree = "<group>"; };
-		CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wQRCodeLogo.m; sourceTree = "<group>"; };
-		CD7EF3191FFF7B3000DC5828 /* XLsn0wQRCodeLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wQRCodeLogo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2403,8 +2381,6 @@
 				35F80EEF1EF4B87E00031CDA /* XLsn0wMacro */,
 				35F80EF11EF4B87E00031CDA /* XLsn0wMapGeoCoder */,
 				35F80EF41EF4B87E00031CDA /* XLsn0wNavigationController */,
-				35F80EF71EF4B87E00031CDA /* XLsn0wQRcode */,
-				35F80F001EF4B87E00031CDA /* XLsn0wQRCodeReader */,
 				35F80F051EF4B87E00031CDA /* XLsn0wSegmentedBar */,
 				35F80F081EF4B87E00031CDA /* XLsn0wShow */,
 				35F80F0B1EF4B87E00031CDA /* XLsn0wStarRating */,
@@ -2542,41 +2518,6 @@
 				35F80EF61EF4B87E00031CDA /* XLsn0wNavigationController.m */,
 			);
 			path = XLsn0wNavigationController;
-			sourceTree = "<group>";
-		};
-		35F80EF71EF4B87E00031CDA /* XLsn0wQRcode */ = {
-			isa = PBXGroup;
-			children = (
-				35F80EF81EF4B87E00031CDA /* resource */,
-				35F80EFE1EF4B87E00031CDA /* XLsn0wQRcode.h */,
-				35F80EFF1EF4B87E00031CDA /* XLsn0wQRcode.m */,
-			);
-			path = XLsn0wQRcode;
-			sourceTree = "<group>";
-		};
-		35F80EF81EF4B87E00031CDA /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				35F80EF91EF4B87E00031CDA /* QRCodeScanLine@2x.png */,
-				35F80EFA1EF4B87E00031CDA /* ScanQR1@2x.png */,
-				35F80EFB1EF4B87E00031CDA /* ScanQR2@2x.png */,
-				35F80EFC1EF4B87E00031CDA /* ScanQR3@2x.png */,
-				35F80EFD1EF4B87E00031CDA /* ScanQR4@2x.png */,
-			);
-			path = resource;
-			sourceTree = "<group>";
-		};
-		35F80F001EF4B87E00031CDA /* XLsn0wQRCodeReader */ = {
-			isa = PBXGroup;
-			children = (
-				CD7EF3191FFF7B3000DC5828 /* XLsn0wQRCodeLogo.h */,
-				CD7EF3181FFF7B2F00DC5828 /* XLsn0wQRCodeLogo.m */,
-				35F80F011EF4B87E00031CDA /* QRCodeReaderSupport.h */,
-				35F80F021EF4B87E00031CDA /* QRCodeReaderSupport.m */,
-				35F80F031EF4B87E00031CDA /* XLsn0wQRCodeReader.h */,
-				35F80F041EF4B87E00031CDA /* XLsn0wQRCodeReader.m */,
-			);
-			path = XLsn0wQRCodeReader;
 			sourceTree = "<group>";
 		};
 		35F80F051EF4B87E00031CDA /* XLsn0wSegmentedBar */ = {
@@ -2737,11 +2678,6 @@
 				353594B01F1F5DC700678022 /* 绘制二维码代码.png in Resources */,
 				352954A21EEFD7FB004B717F /* Assets.xcassets in Resources */,
 				352954A01EEFD7FB004B717F /* Main.storyboard in Resources */,
-				35F80F321EF4B87E00031CDA /* ScanQR2@2x.png in Resources */,
-				35F80F331EF4B87E00031CDA /* ScanQR3@2x.png in Resources */,
-				35F80F341EF4B87E00031CDA /* ScanQR4@2x.png in Resources */,
-				35F80F301EF4B87E00031CDA /* QRCodeScanLine@2x.png in Resources */,
-				35F80F311EF4B87E00031CDA /* ScanQR1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2805,7 +2741,6 @@
 				35E243121EFA612500D0572A /* XLsn0wCitySearchView.m in Sources */,
 				35F80DEB1EF4B87700031CDA /* NSDateFormatter+JKMake.m in Sources */,
 				35F80E7B1EF4B87700031CDA /* UILabel+MultipleLines.m in Sources */,
-				35F80F371EF4B87E00031CDA /* XLsn0wQRCodeReader.m in Sources */,
 				35F80E3F1EF4B87700031CDA /* UIBezierPath+JKThroughPointsBezier.m in Sources */,
 				35F80E531EF4B87700031CDA /* UIColor+XLsn0w.m in Sources */,
 				35F80E621EF4B87700031CDA /* UIImage+JKColor.m in Sources */,
@@ -2989,7 +2924,6 @@
 				35F80E521EF4B87700031CDA /* UIColor+JKWeb.m in Sources */,
 				35F80E5C1EF4B87700031CDA /* UIImage+BFKit.m in Sources */,
 				35F80F3C1EF4B87E00031CDA /* XLsn0wTopSlider.m in Sources */,
-				CD7EF31A1FFF7B3000DC5828 /* XLsn0wQRCodeLogo.m in Sources */,
 				352957AE1EEFD824004B717F /* XLsn0w.m in Sources */,
 				35F80E431EF4B87700031CDA /* UIButton+JKBlock.m in Sources */,
 				35F80E791EF4B87700031CDA /* UILabel+JKAutoSize.m in Sources */,
@@ -3017,7 +2951,6 @@
 				35F80E841EF4B87700031CDA /* UINavigationItem+JKLock.m in Sources */,
 				35F80E121EF4B87700031CDA /* NSObject+JKRuntime.m in Sources */,
 				35F80E341EF4B87700031CDA /* UIAlertView+JKBlock.m in Sources */,
-				35F80F361EF4B87E00031CDA /* QRCodeReaderSupport.m in Sources */,
 				35F80EB01EF4B87700031CDA /* UIViewController+JKRecursiveDescription.m in Sources */,
 				35F80E4D1EF4B87700031CDA /* UIColor+BgColor.m in Sources */,
 				35F80EA91EF4B87700031CDA /* UIView+JKVisuals.m in Sources */,
@@ -3072,7 +3005,6 @@
 				35F80E571EF4B87700031CDA /* UIDevice+JKHardware.m in Sources */,
 				35F80F391EF4B87E00031CDA /* XLsn0wShow.m in Sources */,
 				35F80E2A1EF4B87700031CDA /* NSString+XL.m in Sources */,
-				35F80F351EF4B87E00031CDA /* XLsn0wQRcode.m in Sources */,
 				35F80E9A1EF4B87700031CDA /* UITextView+JKSelect.m in Sources */,
 				35F80DE41EF4B87700031CDA /* NSDate+JKCupertinoYankee.m in Sources */,
 				35F80DFB1EF4B87700031CDA /* NSIndexPath+JKOffset.m in Sources */,

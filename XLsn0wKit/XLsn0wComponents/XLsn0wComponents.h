@@ -33,7 +33,6 @@
 #import "XLsn0wWebImager.h"
 #import "XLsn0wImageLoader.h"
 #import "XLsn0wCountTimeButton.h"
-#import "XLsn0wQRCodeLogo.h"
 
 /*********************************************************************************************/
 
@@ -53,8 +52,6 @@
 #import "XLNetManager.h"
 #import "XLsn0wVersionManager.h"
 #import "XLsn0wFilterMenu.h"
-#import "XLsn0wQRCodeReader.h"
-#import "QRCodeReaderSupport.h"
 #import "XLsn0wSegmentedBar.h"
 #import "XLsn0wStarRating.h"
 #import "XLsn0wTextView.h"
