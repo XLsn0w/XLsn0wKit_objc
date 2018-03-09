@@ -488,7 +488,7 @@
 }
 
 #pragma mark - animation method
-- (void)animateIndicator:(CAShapeLayer *)indicator Forward:(BOOL)forward complete:(void(^)())complete {
+- (void)animateIndicator:(CAShapeLayer *)indicator Forward:(BOOL)forward complete:(void(^)(void))complete {
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.25];
     [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.4 :0.0 :0.2 :1.0]];
@@ -516,7 +516,7 @@
     complete();
 }
 
-- (void)animateBackGroundView:(UIView *)view show:(BOOL)show complete:(void(^)())complete {
+- (void)animateBackGroundView:(UIView *)view show:(BOOL)show complete:(void(^)(void))complete {
     if (show) {
         [self.superview addSubview:view];
         [view.superview addSubview:self];
@@ -533,7 +533,7 @@
     complete();
 }
 
-- (void)animateTableView:(UITableView *)tableView show:(BOOL)show complete:(void(^)())complete {
+- (void)animateTableView:(UITableView *)tableView show:(BOOL)show complete:(void(^)(void))complete {
     
     BOOL haveItems = NO;
     
@@ -598,7 +598,7 @@
     complete();
 }
 
-- (void)animateTitle:(CATextLayer *)title show:(BOOL)show complete:(void(^)())complete {
+- (void)animateTitle:(CATextLayer *)title show:(BOOL)show complete:(void(^)(void))complete {
     CGSize size = [self calculateTitleSizeWithString:title.string];
     CGFloat sizeWidth = (size.width < (self.frame.size.width / _numOfMenu) - 25) ? size.width : self.frame.size.width / _numOfMenu - 25;
     title.bounds = CGRectMake(0, 0, sizeWidth, size.height);
@@ -610,7 +610,7 @@
     complete();
 }
 
-- (void)animateIdicator:(CAShapeLayer *)indicator background:(UIView *)background tableView:(UITableView *)tableView title:(CATextLayer *)title forward:(BOOL)forward complecte:(void(^)())complete{
+- (void)animateIdicator:(CAShapeLayer *)indicator background:(UIView *)background tableView:(UITableView *)tableView title:(CATextLayer *)title forward:(BOOL)forward complecte:(void(^)(void))complete{
     
     [self animateIndicator:indicator Forward:forward complete:^{
         [self animateTitle:title show:forward complete:^{

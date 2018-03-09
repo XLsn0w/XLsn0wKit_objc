@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^JFSearchViewChoseCityReultBlock)(NSDictionary *cityData);
-typedef void(^JFSearchViewBlock)();
+typedef void(^JFSearchViewBlock)(void);
 
 @interface XLsn0wCitySearchView : UIView
 

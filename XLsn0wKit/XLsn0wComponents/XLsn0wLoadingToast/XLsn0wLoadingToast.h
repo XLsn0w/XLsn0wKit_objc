@@ -108,7 +108,7 @@ typedef enum {
  Block callback
  */
 #if NS_BLOCKS_AVAILABLE
-typedef void (^XLsn0wLoadingToastCallbackBlock)();
+typedef void (^XLsn0wLoadingToastCallbackBlock)(void);
 #endif
 
 

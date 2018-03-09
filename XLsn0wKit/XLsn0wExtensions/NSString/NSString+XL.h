@@ -44,7 +44,7 @@
  *
  *  @return a date info string of sns
  */
-+ (NSString *)xl_formatDateFromDate:(NSDate *)date;
++ (NSString *_Nullable)xl_formatDateFromDate:(NSDate *_Nullable)date;
 
 @end
 
@@ -57,7 +57,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkEmail:(NSString *)input;
++ (BOOL)xl_checkEmail:(NSString *_Nullable)input;
 
 /**
  *  check the string is phone Number
@@ -66,7 +66,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkPhoneNumber:(NSString *)input;
++ (BOOL)xl_checkPhoneNumber:(NSString *_Nullable)input;
 
 /**
  *  check the string is chinese name
@@ -75,7 +75,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkChineseName:(NSString *)input;
++ (BOOL)xl_checkChineseName:(NSString *_Nullable)input;
 
 /**
  *  check the string is valudate code
@@ -84,7 +84,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkValidateCode:(NSString *)input;
++ (BOOL)xl_checkValidateCode:(NSString *_Nullable)input;
 
 /**
  *  check the string is strong password string
@@ -93,7 +93,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkPassword:(NSString *)input;
++ (BOOL)xl_checkPassword:(NSString *_Nullable)input;
 
 
 /**
@@ -103,7 +103,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkMobileNumber:(NSString *)input;
++ (BOOL)xl_checkMobileNumber:(NSString *_Nullable)input;
 
 /**
  *  check the string is validate money
@@ -112,7 +112,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)xl_checkWithDrawMoney:(NSString *)input;
++ (BOOL)xl_checkWithDrawMoney:(NSString *_Nullable)input;
 
 @end
 
@@ -126,13 +126,13 @@
  *
  *  @return The result string
  */
-- (NSString *)xl_getSubStringBeginKey:(NSString *)bKey endKey:(NSString *)eKey;
+- (NSString *_Nullable)xl_getSubStringBeginKey:(NSString *_Nullable)bKey endKey:(NSString *_Nullable)eKey;
 
 @end
 
 @interface NSString (XLPrice)
 
-+ (NSString *)xl_formatPrice:(NSNumber *)price;
++ (NSString *_Nullable)xl_formatPrice:(NSNumber *_Nullable)price;
 
 @end
 
@@ -145,7 +145,7 @@
 /**
  *  md5加密
  */
-+ (NSString*)md5HexDigest:(NSString*)inputStr;
++ (NSString*_Nullable)md5HexDigest:(NSString*_Nullable)inputStr;
 /**
  *  根据文件名计算出文件大小
  */
@@ -153,15 +153,15 @@
 /**
  *  生成缓存目录全路径
  */
-- (instancetype)cacheDir;
+- (instancetype _Nullable )cacheDir;
 /**
  *  生成文档目录全路径
  */
-- (instancetype)docDir;
+- (instancetype _Nullable )docDir;
 /**
  *  生成临时目录全路径
  */
-- (instancetype)tmpDir;
+- (instancetype _Nullable )tmpDir;
 
 /**
  *  @brief 根据字数的不同,返回UILabel中的text文字需要占用多少Size
@@ -169,7 +169,7 @@
  *  @param font 文本字体
  *  @return 文本的实际尺寸
  */
-- (CGSize)textSizeWithContentSize:(CGSize)size font:(UIFont *)font;
+- (CGSize)textSizeWithContentSize:(CGSize)size font:(UIFont *_Nullable)font;
 
 /**
  *  @brief  根据文本字数/文本宽度约束/文本字体 求得text的Size
@@ -177,7 +177,7 @@
  *  @param font  文本字体
  *  @return 文本的实际高度
  */
-- (CGFloat)textHeightWithContentWidth:(CGFloat)width font:(UIFont *)font;
+- (CGFloat)textHeightWithContentWidth:(CGFloat)width font:(UIFont *_Nullable)font;
 
 /**
  *  @brief  根据文本字数/文本宽度约束/文本字体 求得text的Size
@@ -185,7 +185,7 @@
  *  @param font  文本字体
  *  @return 文本的实际长度
  */
-- (CGFloat)textWidthWithContentHeight:(CGFloat)height font:(UIFont *)font;
+- (CGFloat)textWidthWithContentHeight:(CGFloat)height font:(UIFont *_Nullable)font;
 
 @end
 
@@ -198,14 +198,14 @@
  输入参数 : (NSString *)普通字符串
  返回参数 : (NSString *)base64格式字符串
  **********************************************************/
-+ (NSString *)xl_getBase64StringWithInputString:(NSString *)string;
++ (NSString *_Nullable)xl_getBase64StringWithInputString:(NSString *_Nullable)string;
 
 /************************************************************
  函数描述 : 将base64格式字符串转换为普通字符串
  输入参数 : (NSString *)base64格式字符串
  返回参数 : (NSString *)字符串
  **********************************************************/
-+ (NSString *)xl_getStringWithInputBase64String:(NSString *)base64String;
++ (NSString *_Nullable)xl_getStringWithInputBase64String:(NSString *_Nullable)base64String;
 
 @end
 

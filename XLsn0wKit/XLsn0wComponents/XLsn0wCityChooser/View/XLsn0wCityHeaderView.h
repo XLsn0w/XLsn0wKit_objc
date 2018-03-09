@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^JFCityHeaderViewBlock)(BOOL selected);
-typedef void(^JFCityHeaderViewSearchBlock)();
+typedef void(^JFCityHeaderViewSearchBlock)(void);
 typedef void(^JFCityHeaderViewSearchResultBlock)(NSString *result);
 
 @interface XLsn0wCityHeaderView : UIView

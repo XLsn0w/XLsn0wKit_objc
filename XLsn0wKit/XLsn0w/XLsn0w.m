@@ -813,7 +813,7 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
     
     [hud hideAnimated:YES afterDelay:time];
 }
-+ (void)showProgessInView:(UIView *)view withExtBlock:(void (^)())exBlock withComBlock:(void (^)())comBlock
++ (void)showProgessInView:(UIView *)view withExtBlock:(void (^)(void))exBlock withComBlock:(void (^)(void))comBlock
 {
     MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:view];
     hud.bezelView.color = [UIColor colorWithWhite:0.8 alpha:0.6];

@@ -54,7 +54,7 @@
     
     fullSelectedImage = [UIImage imageNamed:fullSelectedName];
     
-    height = 0.0,width = 0.0;
+    (void)(height = 0.0),width = 0.0;
     
     if (height < [fullSelectedImage size].height) {
         height = [fullSelectedImage size].height;

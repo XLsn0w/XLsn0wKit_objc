@@ -722,95 +722,6 @@ typedef NS_ENUM(NSInteger, AudioID) {
  */
 + (NSString * _Nullable)SHA512:(NSString * _Nonnull)string;
 
-/**
- *  Encrypt NSData in AES128
- *
- *  @param data NSData to be encrypted
- *  @param key  Key to encrypt data
- *
- *  @return Returns the encrypted NSData
- */
-+ (NSData * _Nullable)AES128EncryptData:(NSData * _Nonnull)data
-                                withKey:(NSString * _Nonnull)key;
-
-/**
- *  Decrypt NSData in AES128
- *
- *  @param data NSData to be decrypted
- *  @param key  Key to decrypt data
- *
- *  @return Returns the decrypted NSData
- */
-+ (NSData * _Nullable)AES128DecryptData:(NSData * _Nonnull)data
-                                withKey:(NSString * _Nonnull)key;
-
-/**
- *  Encrypt NSData in AES256
- *
- *  @param data NSData to be encrypted
- *  @param key  Key to encrypt data
- *
- *  @return Returns the encrypted NSData
- */
-+ (NSData * _Nullable)AES256EncryptData:(NSData * _Nonnull)data
-                                withKey:(NSString * _Nonnull)key;
-
-/**
- *  Decrypt NSData in AES256
- *
- *  @param data NSData to be decrypted
- *  @param key  Key to decrypt data
- *
- *  @return Returns the decrypted NSData
- */
-+ (NSData * _Nullable)AES256DecryptData:(NSData * _Nonnull)data
-                                withKey:(NSString * _Nonnull)key;
-
-/**
- *  Encrypt NSString in AES128
- *
- *  @param string NSString to be encrypted
- *  @param key  Key to encrypt data
- *
- *  @return Returns the encrypted NSData
- */
-+ (NSData * _Nullable)AES128EncryptString:(NSString * _Nonnull)string
-                                  withKey:(NSString * _Nonnull)key;
-
-/**
- *  Decrypt NSString in AES128
- *
- *  @param string NSString to be decrypted
- *  @param key  Key to decrypt data
- *
- *  @return Returns the decrypted NSData
- */
-+ (NSData * _Nullable)AES128DecryptString:(NSString * _Nonnull)string
-                                  withKey:(NSString * _Nonnull)key;
-
-/**
- *  Encrypt NSString in AES256
- *
- *  @param string NSString to be encrypted
- *  @param key  Key to encrypt data
- *
- *  @return Returns the encrypted NSData
- */
-+ (NSData * _Nullable)AES256EncryptString:(NSString * _Nonnull)string
-                                  withKey:(NSString * _Nonnull)key;
-
-/**
- *  Decrypt NSString in AES256
- *
- *  @param string NSString to be decrypted
- *  @param key  Key to decrypt data
- *
- *  @return Returns the decrypted NSData
- */
-+ (NSData * _Nullable)AES256DecryptString:(NSString * _Nonnull)string
-                                  withKey:(NSString * _Nonnull)key;
-
-
 
 @end
 
@@ -853,7 +764,7 @@ typedef NS_ENUM(NSInteger, AudioID) {
 +(void)addLoadingViewInView:(UIView* _Nullable)viewToLoadData usingUIActivityIndicatorViewStyle:(UIActivityIndicatorViewStyle)aStyle usingColor:(UIColor *_Nullable)color;
 +(void)removeLoadingViewAndLabelInView:(UIView*_Nullable)viewToLoadData;
 +(void)addLoadingViewAndLabelInView:(UIView*_Nullable)viewToLoadData usingOrignalYPosition:(CGFloat)yPosition;
-+(void)showProgessInView:(UIView * _Nullable)view withExtBlock:(void (^ _Nullable)() )exBlock withComBlock:(void (^ _Nullable)())comBlock;
++(void)showProgessInView:(UIView * _Nullable)view withExtBlock:(void (^ _Nullable)(void) )exBlock withComBlock:(void (^ _Nullable)(void))comBlock;
 + (UIImage *_Nullable)image:(UIImage *_Nullable)image rotation:(UIImageOrientation)orientation; //图片旋转
 
 //将图片保存到应用程序沙盒中去,imageNameString的格式为 @"upLoad.png"

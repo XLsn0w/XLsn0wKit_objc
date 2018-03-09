@@ -88,7 +88,7 @@ static NSMutableArray *HUDArray;
     }
 }
 
-- (void)show:(BOOL)animated withDuration:(NSTimeInterval)duration completion:(void (^)())completion {
+- (void)show:(BOOL)animated withDuration:(NSTimeInterval)duration completion:(void (^)(void))completion {
     [self addSubview:self.backView];
     [HUDArray addObject:self];
     
