@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MiddleTabBarDelegate <NSObject>
+@protocol XLsn0wMiddleTabBarDelegate <NSObject>
 
 - (void)hookMiddleButtonEventWithMiddleButton:(UIButton *)middleButton;
 
@@ -9,10 +9,9 @@
 
 @class  MiddleButton;
 
-@interface MiddleTabBar : UITabBar
+@interface XLsn0wMiddleTabBar : UITabBar
 
-@property (nonatomic, weak) id <MiddleTabBarDelegate> xlsn0w_delegate;
-
+@property (nonatomic, weak) id <XLsn0wMiddleTabBarDelegate> delegater;
 @property (nonatomic, strong) MiddleButton *middleButton;
 
 @end

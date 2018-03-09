@@ -1,8 +1,8 @@
 
-#import "MiddleTabBar.h"
+#import "XLsn0wMiddleTabBar.h"
 #import "UIView+Extension.h"
 
-@implementation MiddleTabBar
+@implementation XLsn0wMiddleTabBar
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -27,7 +27,7 @@
 }
 
 - (void)middleButtonEvent:(UIButton *)middleButton {
-    [self.xlsn0w_delegate hookMiddleButtonEventWithMiddleButton:middleButton];
+    [self.delegater hookMiddleButtonEventWithMiddleButton:middleButton];
 }
 
 - (void)layoutSubviews {

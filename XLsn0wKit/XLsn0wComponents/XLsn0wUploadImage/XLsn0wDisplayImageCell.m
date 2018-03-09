@@ -1,8 +1,8 @@
 
-#import "DisplayImageCell.h"
+#import "XLsn0wDisplayImageCell.h"
 #import <Photos/Photos.h>
 
-@implementation DisplayImageCell
+@implementation XLsn0wDisplayImageCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -40,7 +40,7 @@
 
 ///所有相片展示的方法 将照片直接展示
 - (void)displayCellWith :(NSString *)image {
-    __block DisplayImageCell *blockSelf = self;
+    __block XLsn0wDisplayImageCell *blockSelf = self;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize targetSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) * scale, CGRectGetHeight([UIScreen mainScreen].bounds) * scale);
     PHImageRequestOptions *operation = [[PHImageRequestOptions alloc] init];
@@ -67,7 +67,7 @@
 }
 ///展示选取照片的方法
 - (void)addMinusImage:(id)imagePath {
-        __block DisplayImageCell *blockSelf = self;
+        __block XLsn0wDisplayImageCell *blockSelf = self;
     if ([imagePath isKindOfClass:[UIImage class]]) {
         [self.displayImageView setImage:[UIImage imageNamed:@"plus"]];
         [self.minusPic setImage:[UIImage imageNamed:@""]];

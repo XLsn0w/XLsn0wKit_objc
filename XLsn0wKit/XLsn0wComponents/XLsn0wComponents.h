@@ -16,8 +16,8 @@
 
 /*********************************************************************************************/
 
-#import "UploadImageCell.h"
-#import "DisplayImageCell.h"
+#import "XLsn0wUploadImageCell.h"
+#import "XLsn0wDisplayImageCell.h"
 #import "XLsn0wCycle.h"
 #import "XLsn0wCityChooser.h"
 #import "XLsn0wCityLocation.h"
@@ -37,8 +37,9 @@
 /*********************************************************************************************/
 
 #import "XLsn0wKitNavigationController.h"
-#import "MiddleTabBarController.h"
-#import "MiddleTabBar.h"
+#import "XLsn0wMiddleTabBarController.h"
+#import "XLsn0wMiddleTabBar.h"
+#import "XLsn0wMaskBlurView.h"
 #import "XLNavViewController.h"
 #import "XLGuidePageView.h"
 #import "XLsn0wTouchID.h"

@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MiddleTabBarController : UITabBarController
+@interface XLsn0wMiddleTabBarController : UITabBarController
 
 @end
 

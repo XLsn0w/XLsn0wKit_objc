@@ -9,7 +9,7 @@
 
 @end
 
-@interface DisplayImageCell : UICollectionViewCell
+@interface XLsn0wDisplayImageCell : UICollectionViewCell
 
 @property (nonatomic, weak) id<DisplayImageCellDelegate> xlDelegate;
 

@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UploadImageCell : UITableViewCell
+@interface XLsn0wUploadImageCell : UITableViewCell
 
 //cell中放置collectionView
 @property (nonatomic, retain) UICollectionView *collectionView;

@@ -1,15 +1,15 @@
 
-#import "MiddleTabBarController.h"
-#import "MiddleTabBar.h"
+#import "XLsn0wMiddleTabBarController.h"
+#import "XLsn0wMiddleTabBar.h"
 #import "XLsn0wKitNavigationController.h"
 
 #define kTabbarHeight 49
 
-@interface MiddleTabBarController () <MiddleTabBarDelegate>
+@interface XLsn0wMiddleTabBarController () <XLsn0wMiddleTabBarDelegate>
 
 @end
 
-@implementation MiddleTabBarController
+@implementation XLsn0wMiddleTabBarController
 //+ (void)initialize {
 //    // 设置tabbarItem的普通文字
 //    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
@@ -29,22 +29,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpTabBar];
-    
     // 添加所有子控制器
     [self addAllChildVc];
-
-    
 }
+
 #pragma mark - 自定义tabBar
-- (void)setUpTabBar
-{
-    MiddleTabBar *myTabBar = [[MiddleTabBar alloc] init];
-    // 更换tabBar
-    [self setValue:myTabBar forKey:@"tabBar"];
-    myTabBar.xlsn0w_delegate = self;
-    
-    
-     [myTabBar.middleButton setTitle:@"徐 良" forState:(UIControlStateNormal)];
+- (void)setUpTabBar {
+    XLsn0wMiddleTabBar *tabBar = [[XLsn0wMiddleTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];// 更换tabBar
+    tabBar.delegate = self;
+    [tabBar.middleButton setTitle:@"XL" forState:(UIControlStateNormal)];
 }
 
 - (void)hookMiddleButtonEventWithMiddleButton:(UIButton *)middleButton {
