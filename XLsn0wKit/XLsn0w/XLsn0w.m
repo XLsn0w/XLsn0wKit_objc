@@ -59,14 +59,31 @@
 #include <sys/stat.h>
 #include <sys/sockio.h>
 #import <objc/runtime.h>
-
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 @interface XLsn0w () {
     NSMutableArray *stack;
 }
 
 @end
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 @implementation XLsn0w
 
 ///解决 warning:
@@ -75,6 +92,35 @@
 @synthesize month = _month;
 @synthesize day   = _day;
 
+///单例 singleton
++ (instancetype)shared {
+    static XLsn0w *singleton = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        singleton = [[self alloc] init];
+    });
+    return singleton;
+}
+
+#pragma mark - JSON格式转换成iOS字典格式
++ (NSDictionary *_Nullable)convertToDictionaryWithJSON:(id _Nullable)JSON {
+    if (!JSON || JSON == (id)kCFNull) return nil;
+    NSDictionary *JSON2Dictionary = nil;
+    NSData *jsonData = nil;
+    if ([JSON isKindOfClass:[NSDictionary class]]) {
+        JSON2Dictionary = JSON;
+    } else if ([JSON isKindOfClass:[NSString class]]) {
+        jsonData = [(NSString *)JSON dataUsingEncoding : NSUTF8StringEncoding];
+    } else if ([JSON isKindOfClass:[NSData class]]) {
+        jsonData = JSON;
+    }
+    if (jsonData) {
+        JSON2Dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:NULL];
+        if (![JSON2Dictionary isKindOfClass:[NSDictionary class]]) JSON2Dictionary = nil;
+    }
+    return JSON2Dictionary;
+}
+
 //字典转字符串
 + (NSString*)convertToStringWithDictionary:(NSDictionary *)dictionary {
     NSError *parseError = nil;
@@ -82,11 +128,11 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
-- (NSDictionary *)convertToDictionaryWithJSONString:(NSString *)JSONString {
-    if (JSONString == nil) {
++ (NSDictionary *_Nullable)convertToDictionaryWithString:(NSString *_Nullable)string {
+    if (string == nil) {
         return nil;
     }
-    NSData *jsonData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
     NSError *parseError = nil;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
                                                         options:NSJSONReadingMutableContainers
