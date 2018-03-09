@@ -3,6 +3,46 @@
 
 @implementation NSDate (XL)
 
+- (BFDateInformation)dateInformation {
+    return [self dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
+}
+
+- (BFDateInformation)dateInformationWithTimeZone:(NSTimeZone * _Nonnull)timezone {
+    BFDateInformation info;
+    
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    [calendar setTimeZone:timezone];
+    NSDateComponents *comp = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitMinute | NSCalendarUnitYear | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitSecond | NSCalendarUnitNanosecond) fromDate:self];
+    info.day = [comp day];
+    info.month = [comp month];
+    info.year = [comp year];
+    
+    info.hour = [comp hour];
+    info.minute = [comp minute];
+    info.second = [comp second];
+    info.nanosecond = [comp nanosecond];
+    
+    info.weekday = [comp weekday];
+    
+    return info;
+}
+
++ (NSString * _Nonnull)dateInformationDescriptionWithInformation:(BFDateInformation)info dateSeparator:(NSString *)dateSeparator usFormat:(BOOL)usFormat nanosecond:(BOOL)nanosecond {
+    NSString *description;
+    
+    if (usFormat) {
+        description = [NSString stringWithFormat:@"%04li%@%02li%@%02li %02li:%02li:%02li", (long)info.year, dateSeparator, (long)info.month, dateSeparator, (long)info.day, (long)info.hour, (long)info.minute, (long)info.second];
+    } else {
+        description = [NSString stringWithFormat:@"%02li%@%02li%@%04li %02li:%02li:%02li", (long)info.month, dateSeparator, (long)info.day, dateSeparator, (long)info.year, (long)info.hour, (long)info.minute, (long)info.second];
+    }
+    
+    if (nanosecond) {
+        description = [description stringByAppendingString:[NSString stringWithFormat:@":%03li", (long)info.nanosecond / 10000000]];
+    }
+    
+    return description;
+}
+
 - (BOOL)isSameToDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;

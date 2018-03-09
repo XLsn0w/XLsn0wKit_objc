@@ -1,7 +1,4 @@
-
-
 #import "UILabel+MultipleLines.h"
-
 #import <objc/runtime.h>
 
 @implementation UILabel (MultipleLines)

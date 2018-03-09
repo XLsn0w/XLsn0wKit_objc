@@ -3,8 +3,6 @@
 
 @interface UINavigationBar (BarStyle)
 
-
-
 /** 设置导航栏背景颜色*/
 - (void)style_setNavigationBarBackgroundColor:(UIColor *)color;
 

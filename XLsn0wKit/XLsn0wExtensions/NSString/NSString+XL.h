@@ -4,9 +4,25 @@
 
 @interface NSString (XL)
 
-+ (NSString *)xl_getMD5String32bitWithInputString:(NSString *)string;
+- (BOOL)hasString:(NSString * _Nonnull)substring;
 
-+ (NSString *)xl_getMD5String16bitWithInputString:(NSString *)string;
+- (BOOL)hasString:(NSString *_Nullable)substring
+    caseSensitive:(BOOL)caseSensitive;
+
+/**
+ *  Returns a new string containing matching regular expressions replaced with the template string
+ *
+ *  @param regexString The regex string
+ *  @param replacement The replacement string
+ *
+ *  @return Returns a new string containing matching regular expressions replaced with the template string
+ */
+- (NSString * _Nonnull)stringByReplacingWithRegex:(NSString * _Nonnull)regexString
+                                       withString:(NSString * _Nonnull)replacement;
+
++ (NSString *_Nullable)xl_getMD5String32bitWithInputString:(NSString *_Nullable)string;
+
++ (NSString *_Nullable)xl_getMD5String16bitWithInputString:(NSString *_Nullable)string;
 
 @end
 
@@ -19,7 +35,7 @@
  *
  *  @return a date info string
  */
-+ (NSString *)xl_formatInfoFromDate:(NSDate *)date;
++ (NSString *_Nullable)xl_formatInfoFromDate:(NSDate *_Nullable)date;
 
 /**
  *  Get sns date info string form date type object

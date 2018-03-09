@@ -7,8 +7,7 @@
 
 #import <CommonCrypto/CommonCrypto.h>
 
-#import "NSString+BFKit.h"
-#import "NSData+BFKit.h"
+#import "NSString+XL.h"
 
 @interface XLsn0w () {
     NSMutableArray *stack;
@@ -576,22 +575,6 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
     
     free(buffer);
     return nil;
-}
-
-+ (NSData * _Nullable)AES128EncryptString:(NSString * _Nonnull)string withKey:(NSString * _Nonnull)key {
-    return [XLsn0w AES128EncryptData:[string convertToNSData] withKey:key];
-}
-
-+ (NSData * _Nullable)AES128DecryptString:(NSString * _Nonnull)string withKey:(NSString * _Nonnull)key {
-    return [XLsn0w AES128DecryptData:[string convertToNSData] withKey:key];
-}
-
-+ (NSData * _Nullable)AES256EncryptString:(NSString * _Nonnull)string withKey:(NSString * _Nonnull)key {
-    return [XLsn0w AES256EncryptData:[string convertToNSData] withKey:key];
-}
-
-+ (NSData * _Nullable)AES256DecryptString:(NSString * _Nonnull)string withKey:(NSString * _Nonnull)key {
-    return [XLsn0w AES256DecryptData:[string convertToNSData] withKey:key];
 }
 
 @end

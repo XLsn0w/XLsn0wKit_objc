@@ -20,8 +20,8 @@
  *                                                                                           *
  *********************************************************************************************/
 
-#import "NSDate+BFKit.h"
-#import "NSString+BFKit.h"
+#import "NSDate+XL.h"
+#import "NSString+XL.h"
 
 static NSString *logString = @"";
 static NSString *logDetailedString = @"";

@@ -2,7 +2,7 @@
 #import "UINavigationBar+BarStyle.h"
 #import <objc/runtime.h>
 
-static char *kBarBackgroundViewKey = "JKBarBackgroundView";
+static char *kBarBackgroundViewKey = "NavBarBackgroundView";
 
 @interface UINavigationBar ()
 

@@ -4,6 +4,24 @@
 
 @implementation NSString (XL)
 
+- (BOOL)hasString:(NSString * _Nonnull)substring {
+    return [self hasString:substring caseSensitive:YES];
+}
+
+- (BOOL)hasString:(NSString *)substring caseSensitive:(BOOL)caseSensitive {
+    if (caseSensitive) {
+        return [self rangeOfString:substring].location != NSNotFound;
+    } else {
+        return [self.lowercaseString rangeOfString:substring.lowercaseString].location != NSNotFound;
+    }
+}
+
+
+- (NSString * _Nonnull)stringByReplacingWithRegex:(NSString * _Nonnull)regexString withString:(NSString * _Nonnull)replacement {
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:nil];
+    return [regex stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:@""];
+}
+
 /** 得到一串32位 MD5加密字符串 */
 + (NSString *)xl_getMD5String32bitWithInputString:(NSString *)string {
     //要进行UTF8的转码

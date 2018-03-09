@@ -1,7 +1,55 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  The simplified date structure
+ */
+struct BFDateInformation {
+    /**
+     *  Year
+     */
+    NSInteger year;
+    /**
+     *  Month of the year
+     */
+    NSInteger month;
+    /**
+     *  Day of the month
+     */
+    NSInteger day;
+    
+    
+    /**
+     *  Day of the week
+     */
+    NSInteger weekday;
+    
+    /**
+     *  Hour of the day
+     */
+    NSInteger hour;
+    /**
+     *  Minute of the hour
+     */
+    NSInteger minute;
+    /**
+     *  Second of the minute
+     */
+    NSInteger second;
+    /**
+     *  Nanosecond of the second
+     */
+    NSInteger nanosecond;
+    
+};
+typedef struct BFDateInformation BFDateInformation;
+
 @interface NSDate (XL)
+
+- (BFDateInformation)dateInformation;
+- (BFDateInformation)dateInformationWithTimeZone:(NSTimeZone * _Nonnull)timezone;
+
++ (NSString * _Nonnull)dateInformationDescriptionWithInformation:(BFDateInformation)info dateSeparator:(NSString *_Nullable)dateSeparator usFormat:(BOOL)usFormat nanosecond:(BOOL)nanosecond;
 
 /**
  *  Compare the two days is same date (not include the time).
@@ -10,24 +58,24 @@
  *
  *  @return true/false
  */
-- (BOOL)isSameToDate:(NSDate *)date;
+- (BOOL)isSameToDate:(NSDate *_Nullable)date;
 
 @end
 
 @interface NSDate (Convenience)
 
--(NSDate *)offsetMonth:(int)numMonths;
--(NSDate *)offsetDay:(int)numDays;
--(NSDate *)offsetHours:(int)hours;
+-(NSDate *_Nullable)offsetMonth:(int)numMonths;
+-(NSDate *_Nullable)offsetDay:(int)numDays;
+-(NSDate *_Nullable)offsetHours:(int)hours;
 -(int)numDaysInMonth;
 -(int)firstWeekDayInMonth;
 -(int)year;
 -(int)month;
 -(int)day;
 
-+(NSDate *)dateStartOfDay:(NSDate *)date;
-+(NSDate *)dateStartOfWeek;
-+(NSDate *)dateEndOfWeek;
++(NSDate *_Nullable)dateStartOfDay:(NSDate *_Nullable)date;
++(NSDate *_Nullable)dateStartOfWeek;
++(NSDate *_Nullable)dateEndOfWeek;
 
 @end
 
@@ -42,7 +90,7 @@
 
 @interface NSDate (Extension)
 
-- (XLDateItem *)xl_timeIntervalSinceDate:(NSDate *)anotherDate;
+- (XLDateItem *_Nullable)xl_timeIntervalSinceDate:(NSDate *_Nullable)anotherDate;
 
 - (BOOL)xl_isToday;
 - (BOOL)xl_isYesterday;
