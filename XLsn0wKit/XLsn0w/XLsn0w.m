@@ -8,6 +8,58 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 #import "NSString+XL.h"
+#define KFacialSizeWidth    32
+
+#define KFacialSizeHeight   32
+
+#define KCharacterWidth     8
+
+#define VIEW_LINE_HEIGHT    32
+
+#define VIEW_LEFT           0
+
+#define VIEW_RIGHT          5
+
+#define VIEW_TOP            8
+
+#define VIEW_WIDTH_MAX      238
+
+#define FACE_NAME_HEAD @"["
+#define PATTERN_STR @"\\[[^\\[\\]]*\\]"
+
+// 表情转义字符的长度（ /s占2个长度，xxx占3个长度，共5个长度 ）
+#define FACE_NAME_LEN   4
+
+#import "MBProgressHUD.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <arpa/inet.h>
+#include <sys/sockio.h>
+#include <net/if.h>
+#include <errno.h>
+#include <net/if_dl.h>
+#include <ctype.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <dirent.h>
+#import <CommonCrypto/CommonDigest.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/sockio.h>
+#import <objc/runtime.h>
+
 
 @interface XLsn0w () {
     NSMutableArray *stack;
@@ -16,6 +68,35 @@
 @end
 
 @implementation XLsn0w
+
+///解决 warning:
+///Autosynthesized property 'year' will use synthesized instance variable '_year', not existing instance variable 'year'.
+@synthesize year  = _year;
+@synthesize month = _month;
+@synthesize day   = _day;
+
+//字典转字符串
++ (NSString*)convertToStringWithDictionary:(NSDictionary *)dictionary {
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&parseError];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
+- (NSDictionary *)convertToDictionaryWithJSONString:(NSString *)JSONString {
+    if (JSONString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *parseError = nil;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&parseError];
+    if(parseError) {
+        NSLog(@"parseError: %@",parseError);
+        return nil;
+    }
+    return dic;
+}
 
 + (NSBundle *)getCustomBundleWithFileName:(NSString *)fileName {
     NSBundle *customBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:fileName ofType :@"bundle"]];
@@ -577,63 +658,232 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
     return nil;
 }
 
-@end
++ (NSString *)xl_nullDefultString: (NSString *)fromString null:(NSString *)nullStr {
+    if ([fromString isEqualToString:@""] || [fromString isEqualToString:@"(null)"] || [fromString isEqualToString:@"<null>"] || [fromString isEqualToString:@"null"] || fromString==nil) {
+        return nullStr;
+    }else{
+        return fromString;
+    }
+}
 
-/**************************************************************************************************/
++ (NSString *)xl_htmlShuangyinhao:(NSString *)values {
+    if (values == nil) {
+        return @"";
+    }
+    /*
+     字符串的替换
+     注：将字符串中的参数进行替换
+     参数1：目标替换值
+     参数2：替换成为的值
+     参数3：类型为默认：NSLiteralSearch
+     参数4：替换的范围
+     */
+    NSMutableString *temp = [NSMutableString stringWithString:values];
+    [temp replaceOccurrencesOfString:@"\"" withString:@"'" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
+    [temp replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
+    [temp replaceOccurrencesOfString:@"\r" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
+    return temp;
+}
 
-#define KFacialSizeWidth    32
++ (UIColor *)xl_colorWithHexString:(NSString *)stringToConvert {
+    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor colorWithWhite:1.0 alpha:0.5];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"]) cString = [cString substringFromIndex:1];
+    if ([cString length] != 6) return [UIColor colorWithWhite:1.0 alpha:0.5];
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
 
-#define KFacialSizeHeight   32
 
-#define KCharacterWidth     8
 
-#define VIEW_LINE_HEIGHT    32
 
-#define VIEW_LEFT           0
+#pragma 正则匹配邮箱号
++ (BOOL)checkMailAccount:(NSString *)mail {
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:mail];
+}
 
-#define VIEW_RIGHT          5
+#pragma 正则匹配手机号
++ (BOOL)checkPhoneNumber:(NSString *)phoneNumber {
+    /**
+     * 手机号码
+     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+     * 联通：130,131,132,152,155,156,185,186
+     * 电信：133,1349,153,180,189
+     */
+    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
+    /**
+     10         * 中国移动：China Mobile
+     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+     12         */
+    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
+    /**
+     15         * 中国联通：China Unicom
+     16         * 130,131,132,152,155,156,183,185,186
+     17         */
+    NSString * CU = @"^1(3[0-2]|5[256]|8[356])\\d{8}$";
+    /**
+     20         * 中国电信：China Telecom
+     21         * 133,1349,153,180,189
+     22         */
+    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
+    /**
+     25         * 大陆地区固话及小灵通
+     26         * 区号：010,020,021,022,023,024,025,027,028,029
+     27         * 号码：七位或八位
+     28         */
+    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+    
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
+    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
+    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
+    
+    if (([regextestmobile evaluateWithObject:phoneNumber] == YES)
+        || ([regextestcm evaluateWithObject:phoneNumber] == YES)
+        || ([regextestct evaluateWithObject:phoneNumber] == YES)
+        || ([regextestcu evaluateWithObject:phoneNumber] == YES))
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+    
+}
 
-#define VIEW_TOP            8
 
-#define VIEW_WIDTH_MAX      238
+#pragma 正则匹配用户密码6-18位数字和字母组合
++ (BOOL)checkPassword:(NSString *)password {
+    NSString *pattern = @"^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:password];
+    return isMatch;
+    
+}
 
-#define FACE_NAME_HEAD @"["
-#define PATTERN_STR @"\\[[^\\[\\]]*\\]"
+#pragma 正则匹配用户姓名,20位的中文或英文
++ (BOOL)checkUserName:(NSString *)userName {
+    NSString *pattern = @"^[a-zA-Z\u4E00-\u9FA5]{1,20}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:userName];
+    return isMatch;
+}
 
-// 表情转义字符的长度（ /s占2个长度，xxx占3个长度，共5个长度 ）
-#define FACE_NAME_LEN   4
 
-#import "MBProgressHUD.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <arpa/inet.h>
-#include <sys/sockio.h>
-#include <net/if.h>
-#include <errno.h>
-#include <net/if_dl.h>
-#include <ctype.h>
-#include <sys/ioctl.h>
-#include <fcntl.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <dirent.h>
-#import <CommonCrypto/CommonDigest.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/sockio.h>
-#import <objc/runtime.h>
+#pragma 正则匹配用户身份证号15或18位
++ (BOOL)checkUserIDCard:(NSString *)IDCard {
+    BOOL flag;
+    if (IDCard.length <= 0) {
+        flag = NO;
+        return flag;
+    }
+    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
+    BOOL isMatch = [pred evaluateWithObject:IDCard];
+    return isMatch;
+}
 
-@implementation XLMethods
+#pragma 正则匹配URL
++ (BOOL)checkURL:(NSString *)url {
+    NSString *pattern = @"^[0-9A-Za-z]{1,50}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:url];
+    return isMatch;
+    
+}
+
+#pragma 正则匹员工号,12位的数字
++ (BOOL)checkEmployeeNumber:(NSString *)number {
+    NSString *pattern = @"^[0-9]{12}";
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:number];
+    return isMatch;
+    
+}
+
+#pragma 正则匹配昵称
++ (BOOL)checkNickname:(NSString *)nickname {
+    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{4,8}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
+    BOOL isMatch = [pred evaluateWithObject:nickname];
+    return isMatch;
+}
+
+#pragma 正则匹配以C开头的18位字符
++ (BOOL)checkCtooNumberTo18:(NSString *)nickNumber {
+    NSString *nickNum=@"^C{1}[0-9]{18}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nickNum];
+    BOOL isMatch = [pred evaluateWithObject:nickNumber];
+    return isMatch;
+}
+
+#pragma 正则匹配以C开头字符
++ (BOOL)checkCtooNumber:(NSString *) nickNumber {
+    NSString *nickNum=@"^C{1}[0-9]+$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nickNum];
+    BOOL isMatch = [pred evaluateWithObject:nickNumber];
+    return isMatch;
+}
+
+#pragma 正则匹配银行卡号是否正确
++ (BOOL)checkBankNumber:(NSString *)bankNumber {
+    NSString *bankNum=@"^([0-9]{16}|[0-9]{19})$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
+    BOOL isMatch = [pred evaluateWithObject:bankNumber];
+    return isMatch;
+}
+#pragma 正则匹配17位车架号
++ (BOOL)checkCheJiaNumber:(NSString *) CheJiaNumber {
+    NSString *bankNum=@"^(\\d{17})$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
+    BOOL isMatch = [pred evaluateWithObject:CheJiaNumber];
+    return isMatch;
+}
+
+#pragma 正则只能输入数字和字母
++ (BOOL)checkTeshuZifuNumber:(NSString *)cheJiaNumber {
+    NSString *bankNum=@"^[A-Za-z0-9]+$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
+    BOOL isMatch = [pred evaluateWithObject:cheJiaNumber];
+    return isMatch;
+}
+#pragma 车牌号验证
++ (BOOL)checkCarNumber:(NSString *)carNumber {
+    NSString *bankNum = @"^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
+    BOOL isMatch = [pred evaluateWithObject:carNumber];
+    return isMatch;
+}
 
 +(NSDictionary*)dictionaryFromBundleWithName:(NSString*)fileName withType:(NSString*)typeName {
     NSDictionary * dict = nil;
@@ -798,7 +1048,7 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
 
 + (void)showTipsWithHUD:(NSString*)labelText inView:(UIView *)inView
 {
-    [XLMethods showTipsWithView:inView labelText:labelText showTime:1.5];
+    [XLsn0w showTipsWithView:inView labelText:labelText showTime:1.5];
 }
 
 + (void)showTipsWithView:(UIView *)uiview labelText:(NSString *)labelText showTime:(CGFloat)time
@@ -1544,934 +1794,6 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
     }
 }
 
-
-@end
-
-static NSString   *const YGPCacheDirectoryName  = @"YLCache";
-
-static inline NSString *escapedString(NSString *key){
-    
-    if (![key length])return @"";
-    
-    CFStringRef static const charsToEscape = CFSTR(".:/");
-    CFStringRef escapedString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                        (__bridge CFStringRef)key,
-                                                                        NULL,
-                                                                        charsToEscape,
-                                                                        kCFStringEncodingUTF8);
-    return (__bridge_transfer NSString *)escapedString;
-}
-
-static inline NSString *unescapedString(NSString *key){
-    
-    if (![key length])return @"";
-    
-    CFStringRef unescapedString = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                          (__bridge CFStringRef)key,
-                                                                                          CFSTR(""),
-                                                                                          kCFStringEncodingUTF8);
-    return (__bridge_transfer NSString *)unescapedString;
-}
-
-@interface XLCache ()
-@property (nonatomic,strong)YGPCacheMemory *cacheMemory;
-@property (nonatomic,strong)YGPCacheDisk   *cacheDisk;
-
-@end
-
-@implementation XLCache
-
-+ (instancetype)sharedCache{
-    
-    static XLCache *_ygp_YGPCache = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _ygp_YGPCache = [[XLCache alloc]init];
-    });
-    
-    return _ygp_YGPCache;
-}
-- (instancetype)init{
-    return [self initWithCacheDirectory:YGPCacheDirectoryName];
-}
-
-- (instancetype)initWithCacheDirectory:(NSString*)cacheDirectory{
-    
-    self = [super init];
-    
-    if (self) {
-        
-        _cacheDisk   = [[YGPCacheDisk alloc]initWithCacheDirectory:cacheDirectory];
-        _cacheMemory = [YGPCacheMemory sharedMemory];
-        
-    }
-    return self;
-    
-}
-
-#pragma mark Data
-- (void)setDataToDiskWithData:(NSData *)data forKey:(NSString *)key{
-    [_cacheDisk setData:data forKey:escapedString(key)];
-}
-
-- (void)setDataToMemoryWithData:(NSData *)data forKey:(NSString *)key{
-    [_cacheMemory setData:data forKey:escapedString(key)];
-}
-
-- (void)dataForKey:(NSString *)key block:(YGPCacheDataCacheObjectBlock)block{
-    [_cacheDisk dataForKey:escapedString(key) block:^(NSData *data, NSString *key) {
-        if (block) {
-            block(data,unescapedString(key));
-        }
-    }];
-}
-
-
-#pragma mark Image
-- (void)setImageToDiskWithImage:(UIImage *)image forKey:(NSString *)key{
-    [self setDataToDiskWithData:UIImageJPEGRepresentation(image, 1.f) forKey:key];
-}
-
-- (void)setImageToMemoryWithImage:(UIImage *)image forKey:(NSString *)key{
-    [self setDataToMemoryWithData:UIImageJPEGRepresentation(image, 1.f) forKey:key];
-}
-
-- (void)imageForKey:(NSString *)key block:(YGPCacheImageCacheObjectBlock)block{
-    
-    [_cacheDisk dataForKey:key block:^(NSData *data, NSString *key) {
-        
-        UIImage *image = [UIImage imageWithData:data];
-        
-        if (block) {
-            block(image,unescapedString(key));
-        }
-        
-    }];
-}
-
-#pragma mark Object
-- (void)setObjectToDisk:(id<NSCopying>)object forKey:(NSString*)aKey{
-    
-    NSData *Data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [self setDataToDiskWithData:Data forKey:aKey];
-}
-
-- (void)setObjectToMemory:(id<NSCopying>)object forKey:(NSString *)aKey{
-    
-    NSData *Data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [self setDataToMemoryWithData:Data forKey:aKey];
-}
-
-- (void)objectForKey:(NSString *)key block:(YGPCacheObjectBlock)block{
-    
-    [_cacheDisk dataForKey:key block:^(NSData *data, NSString *key) {
-        
-        id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        
-        if (block) {
-            block(obj,unescapedString(key));
-        }
-    }];
-}
-
-#pragma mark Remove
-
-- (void)removeDiskCacheDataForKey:(NSString *)key{
-    [_cacheDisk removeDataForKey:escapedString(key)];
-}
-
-- (void)removeDiskAllData{
-    [_cacheDisk removeAllData];
-}
-
-- (void)removeMemoryCacheDataForKey:(NSString *)key{
-    [_cacheMemory removeDataForKey:escapedString(key)];
-}
-
-- (void)removeMemoryAllData{
-    [_cacheMemory removeAllData];
-}
-
-#pragma mark search
-
-- (BOOL)isDataExistOnDiskForKey:(NSString *)key{
-    return [_cacheDisk isDataExistOnDiskForKey:escapedString(key)];
-}
-
-- (BOOL)containsMemoryObjectForKey:(NSString *)key{
-    return [_cacheMemory containsDataForKey:escapedString(key)];
-}
-
-- (float)diskCacheSize{
-    return [_cacheDisk diskCacheSize];
-}
-
-- (NSUInteger)diskCacheFileCount{
-    return [_cacheDisk diskCacheFileCount];
-}
-
-@end
-
-static char       *const YGPCacheDiskIOQueue            = "YGPCacheDiskIOQueue";
-static NSString   *const YGPCacheAttributeListName      = @"YGPCacheAttributeList";
-//static NSString   *const YGPCacheDirectoryName          = @"YLCache";
-
-@interface YGPCacheDisk ()
-@property (nonatomic,strong) NSFileManager    *fileManager;
-@property (nonatomic,copy)   NSString         *cacheDiskPath;
-@property (nonatomic,strong) dispatch_queue_t diskIoQueue;
-@property (nonatomic,strong) YGPCacheMemory   *memoryCache;
-@end
-
-@implementation YGPCacheDisk
-
-+ (instancetype)sharedDisk{
-    
-    static YGPCacheDisk *_ygp_YGPCacheDisk= nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _ygp_YGPCacheDisk = [[YGPCacheDisk alloc]init];
-    });
-    
-    return _ygp_YGPCacheDisk;
-}
-
-- (instancetype)init{
-    return [self initWithCacheDirectory:YGPCacheDirectoryName];
-}
-
-- (instancetype)initWithCacheDirectory:(NSString*)cacheDirectory{
-    
-    self = [super init];
-    
-    if (self) {
-        [self ygp_initMethodWithCacheDirectory:cacheDirectory];
-    }
-    return self;
-    
-}
-
-- (void)ygp_initMethodWithCacheDirectory:(NSString*)cacheDirectory{
-    
-    _cacheDiskPath = [[self ygp_CacheDirectory:cacheDirectory] copy];
-    _diskIoQueue   = dispatch_queue_create(YGPCacheDiskIOQueue, DISPATCH_QUEUE_SERIAL);
-    _memoryCache   = [YGPCacheMemory sharedMemory];
-    
-    [self setTimeoutInterval:60*60*24*2];
-    
-    [self clearTimeoutDiskFile];
-}
-
-
-- (NSString*)ygp_CacheDirectory:(NSString*)cacheDirectory{
-    
-    NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);
-    NSString *docDir = [paths objectAtIndex:0];
-    NSString *ygp_cachePath = [docDir stringByAppendingPathComponent:cacheDirectory];
-    
-    self.fileManager = [[NSFileManager alloc]init];
-    BOOL isDir       = false;
-    
-    if (![_fileManager fileExistsAtPath:ygp_cachePath isDirectory:&isDir]) {
-        
-        NSError *error = nil;
-        
-        BOOL res = [_fileManager createDirectoryAtPath:ygp_cachePath
-                           withIntermediateDirectories:YES
-                                            attributes:nil
-                                                 error:&error];
-        
-        if (!res) {
-            NSLog(@"创建文件目录失败 %@",error);
-        }
-    }
-    
-    return ygp_cachePath;
-}
-
-- (NSString*)ygp_filePathWithKey:(NSString*)key{
-    NSString *path = [NSString stringWithFormat:@"%@/%@",_cacheDiskPath,key];
-    return path;
-}
-
-#pragma mark Disk add get remove
-- (void)setData:(NSData *)data forKey:(NSString *)key{
-    
-    if (![key length] ||![data length]) {return;}
-    
-    dispatch_async(self.diskIoQueue, ^{
-        
-        BOOL      isCacheSuccess;
-        NSData   *writeData    = data;
-        NSString *path         = [self ygp_filePathWithKey:key];
-        isCacheSuccess  = [writeData writeToFile:path atomically:YES];
-        
-        [self addTimeoutListForKey:key];
-        
-    });
-}
-
-
-- (void)dataForKey:(NSString*)key
-             block:(YGPCacheDataCacheObjectBlock)block{
-    
-    if (![key length]) {
-        if (block) {
-            block(nil,nil);
-        }
-    }
-    
-    dispatch_async(self.diskIoQueue, ^{
-        
-        NSData *cacheData = nil;
-        
-        // Memory cache data
-        // 查看内存中
-        cacheData = [_memoryCache objectForKey:key];
-        
-        if (cacheData) {
-            if (block){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    block(cacheData,key);
-                });
-            }
-        }else{
-            
-            NSString *path = [self ygp_filePathWithKey:key];
-            
-            if ([_fileManager fileExistsAtPath:path]) {
-                cacheData = [NSData dataWithContentsOfFile:path options:0 error:nil];
-            }
-            
-            // data write the memory
-            if (cacheData) {
-                [_memoryCache setData:cacheData forKey:key];
-            }
-            
-            if (block){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    block(cacheData,key);
-                    
-                });
-            }
-        }
-    });
-}
-
-- (void)removeDataForKey:(NSString *)key{
-    
-    if (![key length]) {return;}
-    
-    dispatch_async(self.diskIoQueue, ^{
-        
-        [_fileManager removeItemAtPath:key error:nil];
-        [_memoryCache removeDataForKey:key];
-        
-    });
-}
-
-- (void)removeAllData{
-    
-    dispatch_async(self.diskIoQueue, ^{
-        
-        NSDirectoryEnumerator * fileEnumerator = [_fileManager enumeratorAtPath:_cacheDiskPath];
-        
-        for (NSString *fileName in fileEnumerator) {
-            [_fileManager removeItemAtPath:fileName error:nil];
-        }
-        
-    });
-}
-
-- (BOOL)isDataExistOnDiskForKey:(NSString *)key{
-    
-    __block BOOL isContains  = NO;
-    dispatch_sync(self.diskIoQueue, ^{
-        
-        NSString *path = [self ygp_filePathWithKey:key];
-        if ([_fileManager fileExistsAtPath:path]) {
-            isContains = YES;
-        }
-    });
-    
-    return isContains;
-}
-
-#pragma mark
-
-- (float)diskCacheSize{
-    
-    __block float folderSize = 0;
-    
-    if (![_fileManager fileExistsAtPath:_cacheDiskPath])
-        return 0;
-    
-    dispatch_sync(self.diskIoQueue, ^{
-        
-        NSDirectoryEnumerator *fileEnumerator = [_fileManager enumeratorAtPath:_cacheDiskPath];
-        
-        for (NSString *fileName in fileEnumerator) {
-            
-            NSString *filePath = [_cacheDiskPath stringByAppendingPathComponent:fileName];
-            folderSize += [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileSize];
-            
-        }
-    });
-    
-    return folderSize / (1024.0 * 1024.0); //Mb
-}
-
-- (NSUInteger)diskCacheFileCount{
-    
-    __block NSUInteger fileCount = 0;
-    
-    dispatch_sync(self.diskIoQueue, ^{
-        
-        NSDirectoryEnumerator *fileEnumerator = [_fileManager enumeratorAtPath:_cacheDiskPath];
-        fileCount = [[fileEnumerator allObjects] count];
-        
-    });
-    
-    return fileCount;
-}
-
-#pragma mark TimeoutList
-
-- (NSMutableDictionary*)getTimeoutList{
-    
-    __block NSData *cacheListData  = nil;
-    NSMutableDictionary *cacheList = nil;
-    NSString * filePath = [self ygp_filePathWithKey:YGPCacheAttributeListName];
-    cacheListData = [NSData dataWithContentsOfFile:filePath
-                                           options:0
-                                             error:nil];
-    
-    if (!cacheListData) {
-        cacheList = [[NSMutableDictionary alloc]init];
-    }else{
-        cacheList = [[NSJSONSerialization JSONObjectWithData:cacheListData
-                                                     options:kNilOptions
-                                                       error:nil] mutableCopy];
-    }
-    
-    return cacheList;
-    
-}
-
-- (void)addTimeoutListForKey:(NSString*)key{
-    
-    //每次添加缓存数据的将在缓存列表中添加一个时间戳
-    
-    NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];
-    
-    NSMutableDictionary *cacheList = [[NSMutableDictionary alloc]init];
-    [cacheList addEntriesFromDictionary:[self getTimeoutList]];
-    
-    [cacheList setObject:[NSString stringWithFormat:@"%f",now] forKey:key];
-    
-    [self cacheTimeListForData:cacheList];
-    
-}
-
-- (void)clearTimeoutDiskFile{
-    
-    
-    NSTimeInterval now             = [[NSDate date] timeIntervalSinceReferenceDate];
-    NSMutableArray *timeoutKeys    = [[NSMutableArray alloc]init];
-    NSMutableDictionary *cacheList = [[NSMutableDictionary alloc]init];
-    
-    [cacheList addEntriesFromDictionary:[self getTimeoutList]];
-    
-    for (NSString *key in cacheList) {
-        
-        if ((now - [cacheList[key] doubleValue]) >= _timeoutInterval) {
-            
-            [[NSFileManager defaultManager] removeItemAtPath:[self ygp_filePathWithKey:key]
-                                                       error:nil];
-            [timeoutKeys addObject:key];
-            
-        }
-    }
-    
-    [cacheList removeObjectsForKeys:timeoutKeys];
-    [self cacheTimeListForData:cacheList];
-    
-}
-
-- (void)cacheTimeListForData:(NSMutableDictionary*)dict{
-    
-    NSData *cacheListData = [NSJSONSerialization dataWithJSONObject:dict
-                                                            options:NSJSONWritingPrettyPrinted
-                                                              error:nil];
-    
-    [cacheListData writeToFile:[self ygp_filePathWithKey:YGPCacheAttributeListName] atomically:YES];
-}
-
-@end
-
-
-#pragma mark memory cache
-@interface YGPMemoryCacheNode :NSObject
-@property (nonatomic,copy)   NSString       *key;
-@property (nonatomic,assign) NSTimeInterval accessedTime;
-@property (nonatomic,assign) NSUInteger     accessedCount;
-@end
-
-@implementation YGPMemoryCacheNode
-
-- (instancetype)initWithKey:(NSString*)key forAccessedCount:(NSUInteger)AccessedCount{
-    
-    self = [super init];
-    
-    if (self) {
-        _key               = [key copy];
-        _accessedCount     = AccessedCount;
-        NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];
-        _accessedTime      = now;
-        
-    }
-    return self;
-}
-@end
-
-static inline YGPMemoryCacheNode *memoryCacheNode(NSString *key,NSUInteger accessedCount){
-    
-    YGPMemoryCacheNode * cacheNode = [[YGPMemoryCacheNode alloc]initWithKey:key
-                                                           forAccessedCount:accessedCount];
-    
-    return cacheNode;
-}
-
-
-static NSUInteger  const YGPCacheCacheMemoryObjLimit    = 35; //max count
-//static NSString   *const YGPCacheAttributeListName      = @"YGPCacheAttributeList";
-static char       *const YGPCacheMemoryIOQueue          = "YGPCacheMemoryIOQueue";
-
-@interface YGPCacheMemory ()
-{
-    NSMutableDictionary *_cacheData;
-    NSMutableArray      *_recentlyAccessedKeys;
-    NSMutableDictionary *_recentlyNode;
-    NSTimeInterval       _recentlyHandleTime;
-    NSUInteger           _minAccessedCount;
-}
-
-@property (nonatomic,strong) dispatch_queue_t memoryIoQueue;
-@end
-
-@implementation YGPCacheMemory
-
-+ (instancetype)sharedMemory{
-    
-    static YGPCacheMemory *_ygp_YGPCacheMemory = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _ygp_YGPCacheMemory = [[YGPCacheMemory alloc]init];
-    });
-    return _ygp_YGPCacheMemory;
-}
-
-- (instancetype)init{
-    
-    self = [super init];
-    
-    if (self) {
-        
-        _cacheData             = [[NSMutableDictionary alloc]init];
-        _recentlyNode          = [[NSMutableDictionary alloc]init];
-        _recentlyAccessedKeys  = [[NSMutableArray alloc]init];
-        _recentlyHandleTime    = [[NSDate date] timeIntervalSinceReferenceDate];
-        _minAccessedCount      = 1;
-        _memoryCacheCountLimit = YGPCacheCacheMemoryObjLimit;
-        _memoryIoQueue         = dispatch_queue_create(YGPCacheMemoryIOQueue, DISPATCH_QUEUE_SERIAL);
-        
-        [[NSNotificationCenter defaultCenter]addObserverForName:UIApplicationDidReceiveMemoryWarningNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * __unused note) {
-            [self removeAllData];
-        }];
-        
-        [[NSNotificationCenter defaultCenter]addObserverForName:UIApplicationWillTerminateNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * __unused note) {
-            [self removeAllData];
-        }];
-        
-        [[NSNotificationCenter defaultCenter]addObserverForName:UIApplicationWillResignActiveNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * __unused note) {
-            [self removeAllData];
-        }];
-        
-        
-        
-    }
-    return self;
-}
-
-- (void)setData:(NSData*)data forKey:(NSString*)key{
-    
-    if (![key length] ||![data length]) {return;}
-    
-    dispatch_async(_memoryIoQueue, ^{
-        
-        [_cacheData setObject:data forKey:key];
-        
-    });
-    
-}
-
-- (NSData*)objectForKey:(NSString*)key{
-    
-    if (![key length]) {return nil;}
-    
-    __block NSData *cacheData = nil;
-    
-    dispatch_sync(_memoryIoQueue, ^{
-        
-        cacheData = _cacheData[key];
-        
-        if (cacheData) {
-            [self timeoutObjForKey:key];
-        }
-        
-    });
-    
-    return cacheData;
-}
-
-- (void)removeAllData{
-    
-    dispatch_async(_memoryIoQueue, ^{
-        
-        [_cacheData            removeAllObjects];
-        [_recentlyAccessedKeys removeAllObjects];
-        [_recentlyNode         removeAllObjects];
-    });
-}
-
-- (void)removeDataForKey:(NSString*)key{
-    
-    if (![key length]) {return;}
-    
-    dispatch_async(_memoryIoQueue, ^{
-        
-        [_cacheData removeObjectForKey:key];
-        if ([_recentlyAccessedKeys containsObject:key]) {
-            [_recentlyAccessedKeys removeObject:key];
-            [_recentlyNode         removeObjectForKey:key];
-        }
-    });
-}
-
-- (BOOL)containsDataForKey:(NSString*)key{
-    
-    __block BOOL isContains = NO;
-    
-    dispatch_sync(_memoryIoQueue, ^{
-        if (_cacheData[key]) {
-            isContains = YES;
-        }
-    });
-    
-    return isContains;
-}
-
-- (void)timeoutObjForKey:(NSString*)key{
-    
-    /*
-     
-     获取一个缓存数据，就将其移动到队列的最顶端，队列内越后的数据就是调用得最少次的
-     设置一个内存LIMIT 最大值，当缓存数据超过了最大值。每次有新的数据进入列队，就会讲
-     列队的最后一个缓存数据移除掉。
-     
-     每个缓存数据都会组建成一个结构体 里面包含 （访问次数 ，访问时间）
-     每隔3分钟的时候就会去调用 队列  将访问次数最小和访问时间离现在最久的数据将其出列
-     
-     */
-    
-    YGPMemoryCacheNode *node = nil;
-    
-    if ([_recentlyAccessedKeys containsObject:key]) {
-        [_recentlyAccessedKeys removeObject:key];
-        
-        node = _recentlyNode[key];
-        [_recentlyNode removeObjectForKey:key];
-    }
-    
-    [_recentlyAccessedKeys insertObject:key atIndex:0];
-    
-    //增加内存访问的计时和时间
-    NSUInteger accessedCount = 1;
-    if (node)accessedCount   = node.accessedCount+1;
-    
-    //获取最小的访问数
-    if (accessedCount < _minAccessedCount) _minAccessedCount = accessedCount;
-    
-    [_recentlyNode setObject:memoryCacheNode(key, accessedCount) forKey:key];
-    
-    //移除近期不访问
-    if (_recentlyAccessedKeys.count >= YGPCacheCacheMemoryObjLimit) {
-        NSString *lastObjKey = [_recentlyAccessedKeys lastObject];
-        [_cacheData    removeObjectForKey:lastObjKey];
-        [_recentlyNode removeObjectForKey:lastObjKey];
-    }
-    
-    //remove timeout data
-    NSTimeInterval now     = [[NSDate date] timeIntervalSinceReferenceDate];
-    NSTimeInterval timeout = 60 * 5;
-    
-    if ((now - _recentlyHandleTime) >= timeout) {
-        
-        [_recentlyNode enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            
-            YGPMemoryCacheNode *node = (YGPMemoryCacheNode*)obj;
-            
-            if ((now - node.accessedTime) >= timeout && node.accessedCount <= _minAccessedCount) {
-                
-                [_cacheData            removeObjectForKey:key];
-                [_recentlyNode         removeObjectForKey:key];
-                [_recentlyAccessedKeys removeObject:key];
-                
-            }
-        }];
-    }
-    
-    
-    _recentlyHandleTime = now;
-}
-
-@end
-
-@implementation XLTools
-
-+ (NSString *)xl_nullDefultString: (NSString *)fromString null:(NSString *)nullStr {
-    if ([fromString isEqualToString:@""] || [fromString isEqualToString:@"(null)"] || [fromString isEqualToString:@"<null>"] || [fromString isEqualToString:@"null"] || fromString==nil) {
-        return nullStr;
-    }else{
-        return fromString;
-    }
-}
-
-+ (NSString *)xl_htmlShuangyinhao:(NSString *)values {
-    if (values == nil) {
-        return @"";
-    }
-    /*
-     字符串的替换
-     注：将字符串中的参数进行替换
-     参数1：目标替换值
-     参数2：替换成为的值
-     参数3：类型为默认：NSLiteralSearch
-     参数4：替换的范围
-     */
-    NSMutableString *temp = [NSMutableString stringWithString:values];
-    [temp replaceOccurrencesOfString:@"\"" withString:@"'" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
-    [temp replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
-    [temp replaceOccurrencesOfString:@"\r" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [temp length])];
-    return temp;
-}
-
-+ (UIColor *)xl_colorWithHexString:(NSString *)stringToConvert {
-    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) return [UIColor colorWithWhite:1.0 alpha:0.5];
-    
-    // strip 0X if it appears
-    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"]) cString = [cString substringFromIndex:1];
-    if ([cString length] != 6) return [UIColor colorWithWhite:1.0 alpha:0.5];
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:1.0f];
-}
-
-
-
-
-#pragma 正则匹配邮箱号
-+ (BOOL)checkMailAccount:(NSString *)mail {
-    
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:mail];
-}
-
-#pragma 正则匹配手机号
-+ (BOOL)checkPhoneNumber:(NSString *)phoneNumber {
-    /**
-     * 手机号码
-     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     * 联通：130,131,132,152,155,156,185,186
-     * 电信：133,1349,153,180,189
-     */
-    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
-    /**
-     10         * 中国移动：China Mobile
-     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     12         */
-    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
-    /**
-     15         * 中国联通：China Unicom
-     16         * 130,131,132,152,155,156,183,185,186
-     17         */
-    NSString * CU = @"^1(3[0-2]|5[256]|8[356])\\d{8}$";
-    /**
-     20         * 中国电信：China Telecom
-     21         * 133,1349,153,180,189
-     22         */
-    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
-    /**
-     25         * 大陆地区固话及小灵通
-     26         * 区号：010,020,021,022,023,024,025,027,028,029
-     27         * 号码：七位或八位
-     28         */
-    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
-    
-    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
-    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
-    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
-    
-    if (([regextestmobile evaluateWithObject:phoneNumber] == YES)
-        || ([regextestcm evaluateWithObject:phoneNumber] == YES)
-        || ([regextestct evaluateWithObject:phoneNumber] == YES)
-        || ([regextestcu evaluateWithObject:phoneNumber] == YES))
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-    
-}
-
-
-#pragma 正则匹配用户密码6-18位数字和字母组合
-+ (BOOL)checkPassword:(NSString *)password {
-    NSString *pattern = @"^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:password];
-    return isMatch;
-    
-}
-
-#pragma 正则匹配用户姓名,20位的中文或英文
-+ (BOOL)checkUserName:(NSString *)userName {
-    NSString *pattern = @"^[a-zA-Z\u4E00-\u9FA5]{1,20}";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:userName];
-    return isMatch;
-}
-
-
-#pragma 正则匹配用户身份证号15或18位
-+ (BOOL)checkUserIDCard:(NSString *)IDCard {
-    BOOL flag;
-    if (IDCard.length <= 0) {
-        flag = NO;
-        return flag;
-    }
-    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
-    BOOL isMatch = [pred evaluateWithObject:IDCard];
-    return isMatch;
-}
-
-#pragma 正则匹配URL
-+ (BOOL)checkURL:(NSString *)url {
-    NSString *pattern = @"^[0-9A-Za-z]{1,50}";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:url];
-    return isMatch;
-    
-}
-
-#pragma 正则匹员工号,12位的数字
-+ (BOOL)checkEmployeeNumber:(NSString *)number {
-    NSString *pattern = @"^[0-9]{12}";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:number];
-    return isMatch;
-    
-}
-
-#pragma 正则匹配昵称
-+ (BOOL)checkNickname:(NSString *)nickname {
-    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{4,8}$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
-    BOOL isMatch = [pred evaluateWithObject:nickname];
-    return isMatch;
-}
-
-#pragma 正则匹配以C开头的18位字符
-+ (BOOL)checkCtooNumberTo18:(NSString *)nickNumber {
-    NSString *nickNum=@"^C{1}[0-9]{18}$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nickNum];
-    BOOL isMatch = [pred evaluateWithObject:nickNumber];
-    return isMatch;
-}
-
-#pragma 正则匹配以C开头字符
-+ (BOOL)checkCtooNumber:(NSString *) nickNumber {
-    NSString *nickNum=@"^C{1}[0-9]+$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nickNum];
-    BOOL isMatch = [pred evaluateWithObject:nickNumber];
-    return isMatch;
-}
-
-#pragma 正则匹配银行卡号是否正确
-+ (BOOL)checkBankNumber:(NSString *)bankNumber {
-    NSString *bankNum=@"^([0-9]{16}|[0-9]{19})$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
-    BOOL isMatch = [pred evaluateWithObject:bankNumber];
-    return isMatch;
-}
-#pragma 正则匹配17位车架号
-+ (BOOL)checkCheJiaNumber:(NSString *) CheJiaNumber {
-    NSString *bankNum=@"^(\\d{17})$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
-    BOOL isMatch = [pred evaluateWithObject:CheJiaNumber];
-    return isMatch;
-}
-
-#pragma 正则只能输入数字和字母
-+ (BOOL)checkTeshuZifuNumber:(NSString *)cheJiaNumber {
-    NSString *bankNum=@"^[A-Za-z0-9]+$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
-    BOOL isMatch = [pred evaluateWithObject:cheJiaNumber];
-    return isMatch;
-}
-#pragma 车牌号验证
-+ (BOOL)checkCarNumber:(NSString *)carNumber {
-    NSString *bankNum = @"^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",bankNum];
-    BOOL isMatch = [pred evaluateWithObject:carNumber];
-    return isMatch;
-}
-
-@end
-
-/*****************************************************************************************/
-
-@implementation XLFileManager
-
 /// 把对象归档存到沙盒里
 +(void)saveObject:(id)object byFileName:(NSString*)fileName
 {
@@ -2529,12 +1851,6 @@ static char       *const YGPCacheMemoryIOQueue          = "YGPCacheMemoryIOQueue
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
 }
 
-
-@end
-
-
-@implementation LocalPush
-
 + (NSDate *)fireDateWithWeek:(NSInteger)week
                         hour:(NSInteger)hour
                       minute:(NSInteger)minute
@@ -2582,16 +1898,16 @@ static char       *const YGPCacheMemoryIOQueue          = "YGPCacheMemoryIOQueue
     
     [self cancleLocalPushWithKey:key];
     
-//    NSUInteger notificationType; //UIUserNotificationType(>= iOS8) and UIRemoteNotificatioNType(< iOS8) use same value
-//    UIApplication *application = [UIApplication sharedApplication];
-//    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
-//        notificationType = [[application currentUserNotificationSettings] types];
-//    } else {
-//        notificationType = [application enabledRemoteNotificationTypes];
-//    }
-//    if (notificationType == UIRemoteNotificationTypeNone) {
-//        return;
-//    }
+    //    NSUInteger notificationType; //UIUserNotificationType(>= iOS8) and UIRemoteNotificatioNType(< iOS8) use same value
+    //    UIApplication *application = [UIApplication sharedApplication];
+    //    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+    //        notificationType = [[application currentUserNotificationSettings] types];
+    //    } else {
+    //        notificationType = [application enabledRemoteNotificationTypes];
+    //    }
+    //    if (notificationType == UIRemoteNotificationTypeNone) {
+    //        return;
+    //    }
     
     // ios8后，需要添加这个注册，才能得到授权
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -2618,10 +1934,10 @@ static char       *const YGPCacheMemoryIOQueue          = "YGPCacheMemoryIOQueue
     }
     
     //Badge
-//    if ((notificationType & UIRemoteNotificationTypeBadge) != UIRemoteNotificationTypeBadge) {
-//    } else {
-//        localNotification.applicationIconBadgeNumber = badgeCount;
-//    }
+    //    if ((notificationType & UIRemoteNotificationTypeBadge) != UIRemoteNotificationTypeBadge) {
+    //    } else {
+    //        localNotification.applicationIconBadgeNumber = badgeCount;
+    //    }
     
     if (!fireDate) {
         [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
@@ -2654,8 +1970,6 @@ static char       *const YGPCacheMemoryIOQueue          = "YGPCacheMemoryIOQueue
     }
 }
 
-@end
-
 //数组存入阴历1900年到2100年每年中的月天数信息，
 //阴历每月只能是29或30天，一年用12（或13）个二进制位表示，对应位为1表30天，否则为29天
 int LunarCalendarInfo[] = {
@@ -2683,8 +1997,6 @@ int LunarCalendarInfo[] = {
     0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x04b55,0x04b6f,0x0a570,0x054e4,0x0d260,
     0x0e968,0x0d520,0x0daa0,0x06aa6,0x056df,0x04ae0,0x0a9d4,0x0a4d0,0x0d150,0x0f252,
     0x0d520};
-
-@implementation XLCalendar
 
 -(id)init {
     self = [super init];
@@ -3300,7 +2612,7 @@ int LunarCalendarInfo[] = {
     if (opt == 1)
     {
         if (y > 1582 || (y == 1582 && m > 10) || (y == 1582 && m == 10 && d > 14))
-            return (1);	 //Gregorian
+            return (1);     //Gregorian
         else
             if (y == 1582 && m == 10 && d >= 5 && d <= 14)
                 return (-1);  //空
@@ -3309,9 +2621,9 @@ int LunarCalendarInfo[] = {
     }
     
     if (opt == 2)
-        return (1);	 //Gregorian
+        return (1);     //Gregorian
     if (opt == 3)
-        return (0);	 //Julian
+        return (0);     //Julian
     return (-1);
 }
 
@@ -3441,28 +2753,6 @@ int LunarCalendarInfo[] = {
         return @"摩羯座";
 }
 
-@end
-
-
-//方法获取农历数具包的方法
-@implementation NSDate (XLCalendar)
-
-/****************************************************
- *@Description:获得NSDate对应的中国日历（农历）的NSDate
- *@Params:nil
- *@Return:NSDate对应的中国日历（农历）的LunarCalendar
- ****************************************************/
-- (XLCalendar *)chineseCalendarDate {
-    XLCalendar *lunarCalendar = [[XLCalendar alloc] init];
-    [lunarCalendar loadWithDate:self];
-    [lunarCalendar InitializeValue];
-    return lunarCalendar;
-}
-
-@end
-
-@implementation XLDateTime
-
 - (NSDate *)convertDate {
     NSDateComponents *components = [[NSDateComponents alloc] init];
     components.year = self.year;
@@ -3473,3 +2763,46 @@ int LunarCalendarInfo[] = {
 }
 
 @end
+
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+
+//方法获取农历数具包的方法
+@implementation NSDate (chineseCalendarDate)
+
+/****************************************************
+ *@Description:获得NSDate对应的中国日历（农历）的NSDate
+ *@Params:nil
+ *@Return:NSDate对应的中国日历（农历）的LunarCalendar
+ ****************************************************/
+- (XLsn0w *)chineseCalendarDate {
+    XLsn0w *lunarCalendar = [[XLsn0w alloc] init];
+    [lunarCalendar loadWithDate:self];
+    [lunarCalendar InitializeValue];
+    return lunarCalendar;
+}
+
+@end
+
