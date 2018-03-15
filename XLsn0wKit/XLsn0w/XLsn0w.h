@@ -636,6 +636,7 @@ struct SolarTerm {
 }
 
 + (instancetype _Nullable)shared;
++ (NSString *_Nullable)deviceModel;
 
 -(void)loadWithDate:(NSDate *_Nullable)date;//加载数据
 
