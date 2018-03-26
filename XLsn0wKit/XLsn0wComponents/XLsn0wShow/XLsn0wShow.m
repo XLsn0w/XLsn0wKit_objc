@@ -159,12 +159,10 @@
 
 @end
 
-
 @implementation UIView (XHToast)
 
 #pragma mark-中间显示
-- (void)showXHToastCenterWithText:(NSString *)text
-{
+- (void)showXHToastCenterWithText:(NSString *)text {
     [self showXHToastCenterWithText:text duration:ToastDispalyDuration];
 }
 
@@ -175,18 +173,15 @@
 }
 
 #pragma mark-上方显示
-- (void)showXHToastTopWithText:(NSString *)text
-{
+- (void)showXHToastTopWithText:(NSString *)text {
     [self showXHToastTopWithText:text topOffset:ToastSpace duration:ToastDispalyDuration];
 }
 
-- (void)showXHToastTopWithText:(NSString *)text duration:(CGFloat)duration
-{
+- (void)showXHToastTopWithText:(NSString *)text duration:(CGFloat)duration {
     [self showXHToastTopWithText:text topOffset:ToastSpace duration:duration];
 }
 
-- (void)showXHToastTopWithText:(NSString *)text topOffset:(CGFloat)topOffset
-{
+- (void)showXHToastTopWithText:(NSString *)text topOffset:(CGFloat)topOffset {
     [self showXHToastTopWithText:text topOffset:topOffset duration:ToastDispalyDuration];
 }
 
@@ -197,23 +192,19 @@
 }
 
 #pragma mark-下方显示
-- (void)showXHToastBottomWithText:(NSString *)text
-{
+- (void)showXHToastBottomWithText:(NSString *)text {
     [self showXHToastBottomWithText:text bottomOffset:ToastSpace duration:ToastDispalyDuration];
 }
 
-- (void)showXHToastBottomWithText:(NSString *)text duration:(CGFloat)duration
-{
+- (void)showXHToastBottomWithText:(NSString *)text duration:(CGFloat)duration {
     [self showXHToastBottomWithText:text bottomOffset:ToastSpace duration:duration];
 }
 
-- (void)showXHToastBottomWithText:(NSString *)text bottomOffset:(CGFloat)bottomOffset
-{
+- (void)showXHToastBottomWithText:(NSString *)text bottomOffset:(CGFloat)bottomOffset {
     [self showXHToastBottomWithText:text bottomOffset:bottomOffset duration:ToastDispalyDuration];
 }
 
-- (void)showXHToastBottomWithText:(NSString *)text bottomOffset:(CGFloat)bottomOffset duration:(CGFloat)duration
-{
+- (void)showXHToastBottomWithText:(NSString *)text bottomOffset:(CGFloat)bottomOffset duration:(CGFloat)duration {
     XLsn0wShow *toast = [[XLsn0wShow alloc] initWithText:text];
     toast.duration = duration;
     [toast showIn:self fromBottomOffset:bottomOffset];

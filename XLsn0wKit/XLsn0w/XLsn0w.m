@@ -297,9 +297,9 @@
 
 + (UIImage *)getCustomBundleWithFileName:(NSString *)fileName bundleImageName:(NSString *)bundleImageName {
     NSBundle *customBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:fileName ofType :@"bundle"]];
-    UIImage *bundleImage  = [UIImage imageWithContentsOfFile: [customBundle pathForResource:bundleImageName ofType: @"png"]];
-    //UIImage *image = [UIImage imageWithContentsOfFile: [[customBundle resourcePath] stringByAppendingPathComponent:bundleImageName]];//绝对路径
-    //UIImage *image = [UIImage imageNamed:@"XLsn0wKit_objc.bundle/placeholder.png"];//写死纯路径
+    UIImage *bundleImage  = [UIImage imageWithContentsOfFile: [customBundle pathForResource:bundleImageName ofType: @"png"]];///⭐️推荐 相对路径
+    //UIImage *image = [UIImage imageWithContentsOfFile: [[customBundle resourcePath] stringByAppendingPathComponent:bundleImageName]];//绝对路径 不推荐
+    //UIImage *image = [UIImage imageNamed:@"XLsn0wKit_objc.bundle/placeholder.png"];//绝对路径 不推荐
     return bundleImage;
 }
 

@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLsn0wHUD : UIView
+@interface XLsn0wHUD : UIView <CAAnimationDelegate>
 
 @property (nonatomic, weak) UIView *selfView;
 
@@ -35,6 +35,12 @@
 
 // 取消
 - (void)dismiss:(BOOL)animated;
+
+///支付成功
++ (XLsn0wHUD *)showPayIn:(UIView*)view;
++ (XLsn0wHUD *)hidePayIn:(UIView*)view;
+- (void)startPay;
+- (void)hidePay;
 
 @end
 

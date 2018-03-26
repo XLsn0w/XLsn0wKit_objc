@@ -30,7 +30,7 @@
 }
 
 - (void)deviceOrientationDidChange {
-    NSLog(@"NAV deviceOrientationDidChange:%ld",(long)[UIDevice currentDevice].orientation);
+    NSLog(@"NavigationController deviceOrientationDidChange:%ld", (long)[UIDevice currentDevice].orientation);
     if([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
         [self orientationChange:NO];
