@@ -19,13 +19,18 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
 #import "NSDate+XL.h"
 #import "NSString+XL.h"
-
-static NSString *logString = @"";
-static NSString *logDetailedString = @"";
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 @implementation XLsn0wLog
 
 void ExtendNSLog(const char * _Nonnull file, int lineNumber, const char * _Nonnull function, NSString *format, ...) {
@@ -52,37 +57,16 @@ void ExtendNSLog(const char * _Nonnull file, int lineNumber, const char * _Nonnu
     }
     
     NSString *fileName = [[NSString stringWithUTF8String:file] lastPathComponent].stringByDeletingPathExtension;
-    NSString *log = [NSString stringWithFormat:@" %s %d %s %s ", [fileName UTF8String], lineNumber, [functionName UTF8String], [body UTF8String]];
     /*
      -----------XLsn0wLog-----------
-     Time : 2017-06-14 09:24:36:002
+     Time : 2006-06-06 06:06:06:006
      File : ViewController
-     Line : 23
+     Line : 66
      Func : [ViewController viewDidLoad]
-     Logs : log
+     Logs : 666
      -----------XLsn0wLog-----------
      *///自定义格式化输出
     fprintf(stderr, "\n-----------XLsn0wLog-----------\n Time : %s\n File : %s\n Line : %d\n Func : %s\n Logs : %s-----------XLsn0wLog-----------\n\n", [[NSDate dateInformationDescriptionWithInformation:[[NSDate date] dateInformation] dateSeparator:@"-" usFormat:YES nanosecond:YES] UTF8String], [fileName UTF8String], lineNumber, [functionName UTF8String], [body UTF8String]);
-    
-    logString = [logString stringByAppendingString:[NSString stringWithFormat:@"%@", body]];
-    logDetailedString = [logDetailedString stringByAppendingString:[NSString stringWithFormat:@"%@", log]];
-}
-
-+ (NSString * _Nonnull)logString {
-    return logString;
-}
-
-+ (NSString * _Nonnull)detailedLogString {
-    return logDetailedString;
-}
-
-+ (NSString * _Nonnull)logDetailedString {
-    return logDetailedString;
-}
-
-+ (void)clearLog {
-    logString = @"";
-    logDetailedString = @"";
 }
 
 @end

@@ -1,6 +1,24 @@
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 #import "XLsn0wGestureLocker.h"
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 #import "XLsn0wNineSquarer.h"
 #import "XLsn0wNineSquarerIndicator.h"
 #import "XLsn0w.h"
@@ -30,7 +48,7 @@
 // 创建的手势密码
 @property (nonatomic, copy) NSString *lastGesturePsw;
 
-@property (nonatomic) UnlockType unlockType;
+@property (nonatomic) GestureType type;
 
 @end
 
@@ -38,7 +56,7 @@
 
 #pragma mark - 类方法
 
-+ (void)deleteGestureLocker {
++ (void)deleteGesture {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:GesturesPassword];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -48,15 +66,15 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSString *)getGesturePassword {
++ (NSString *)getGesture {
     return [[NSUserDefaults standardUserDefaults] objectForKey:GesturesPassword];
 }
 
 #pragma mark - inint
 ///初始化
-- (instancetype)initWithUnlockType:(UnlockType)unlockType {
+- (instancetype)initWithGestureType:(GestureType)gestureType {
     if (self = [super init]) {
-        _unlockType = unlockType;
+        _type = gestureType;
     }
     return self;
 }
@@ -67,19 +85,20 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupMainUI];
+    [self drawUI];
     
     self.gestureLockView.delegate = self;
     
     self.resetPswBtn.hidden = YES;
-    switch (_unlockType) {
-        case ZLUnlockTypeCreatePsw:
+    switch (_type) {
+        case CreateGesture:
         {
             self.gestureLockIndicator.hidden = NO;
             self.otherAcountBtn.hidden = self.forgetPswBtn.hidden = self.nameLabel.hidden = self.headIcon.hidden = YES;
         }
             break;
-        case ZLUnlockTypeValidatePsw:
+            
+        case CheckGesture:
         {
             self.gestureLockIndicator.hidden = YES;
             self.otherAcountBtn.hidden = self.forgetPswBtn.hidden = self.nameLabel.hidden = self.headIcon.hidden = NO;
@@ -93,7 +112,7 @@
 }
 
 // 创建界面
-- (void)setupMainUI {
+- (void)drawUI {
 
     CGFloat maginX = 15;
     CGFloat magin = 5;
@@ -213,7 +232,7 @@
     
     static NSInteger errorCount = 3;
     
-    if ([gesturesPassword isEqualToString:[XLsn0wGestureLocker getGesturePassword]]) {
+    if ([gesturesPassword isEqualToString:[XLsn0wGestureLocker getGesture]]) {
         
         [self dismissViewControllerAnimated:YES completion:^{
             errorCount = 3;
@@ -278,13 +297,13 @@
 
 - (void)gestureLockView:(XLsn0wNineSquarer *)lockView drawRectFinished:(NSMutableString *)gesturePassword {
     
-    switch (_unlockType) {
-        case ZLUnlockTypeCreatePsw: // 创建手势密码
+    switch (_type) {
+        case CreateGesture: // 创建手势密码
         {
             [self createGesturesPassword:gesturePassword];
         }
             break;
-        case ZLUnlockTypeValidatePsw: // 校验手势密码
+        case CheckGesture: // 校验手势密码
         {
             [self validateGesturesPassword:gesturePassword];
         }

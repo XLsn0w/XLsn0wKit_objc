@@ -8,10 +8,18 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 /**
  *  Exented NSLog
  *
@@ -21,75 +29,58 @@
  *  @param format       Format
  */
 void ExtendNSLog(const char * _Nonnull file, int lineNumber, const char * _Nonnull function, NSString * _Nonnull format, ...);
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 /**
  *  This class adds some useful methods to NSLog
  *
  *  XLsn0wLog(): Exented NSLog
- *
- *  XLsn0wLogString: Log string
- *
- *  XLsn0wLogDetailedString: Detailed log string
- *
- *  XLsn0wLogClear: Clear the log string
  */
 @interface XLsn0wLog : NSObject
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 /**
- *  XLsn0wLog only if in DEBUG mode
+ *  XLsn0wLog only available if in DEBUG mode
  */
-#ifdef DEBUG
-    /**
-     *  Exented NSLog
-     */
+#ifdef DEBUG /// 调试模式开启打印
     #define XLsn0wLog(args ...) ExtendNSLog(__FILE__, __LINE__, __PRETTY_FUNCTION__, args);
-    /**
-     *  Log string
-     */
-    #define XLsn0wLogString [XLsn0wLog logString]
-    /**
-     *  Detailed log string
-     */
-    #define XLsn0wLogDetailedString [XLsn0wLog logDetailedString]
-    /**
-     *  Clear the log string
-     */
-    #define XLsn0wLogClear [XLsn0wLog clearLog]
-#else
+#else        /// 正式模式关闭打印
     #define XLsn0wLog(args ...)
-    #define XLsn0wLogString
-    #define XLsn0wLogDetailedString
-    #define XLsn0wLogClear
 #endif
-
-/**
- *  Clear the log string.
- *  You can call it with the BFLogClear macro   
- */
-+ (void)clearLog;
-
-/**
- *  Get the log string.
- *  You can call it with the BFLogString macro
- *
- *  @return Returns the log string
- */
-+ (NSString * _Nonnull)logString;
-
-/**
- *  Get the detailed log string.
- *  You can call it with the BFLogDetailedString macro
- *
- *  @return Returns the detailed log string
- */
-+ (NSString * _Nonnull)detailedLogString;
-
-/**
- *  Get the detailed log string.
- *  You can call it with the BFLogDetailedString macro
- *
- *  @return Returns the detailed log string
- */
-+ (NSString * _Nonnull)logDetailedString DEPRECATED_MSG_ATTRIBUTE("Use -detailedLogString");
-
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 @end
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *    \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
