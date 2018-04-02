@@ -2,7 +2,7 @@
 #import "XLsn0wDatabase.h"
 
 #import "FMDatabase.h"
-#import "User.h"
+#import "XLsn0wDBUser.h"
 
 @implementation XLsn0wDatabase
 
@@ -16,8 +16,8 @@ static XLsn0wDatabase *instance = nil;
     return instance;
 }
 
-//Create XLDatabase With TableName
-- (void)createXLDatabaseWithTableName:(NSString *)tableName {
+//Create Database With TableName
+- (void)createDatabaseWithTableName:(NSString *)tableName {
     if (!_fmdb) {
         NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
         NSString *dbFileName = [NSString stringWithFormat:@"%@.db", tableName];
@@ -25,20 +25,20 @@ static XLsn0wDatabase *instance = nil;
         _fmdb = [FMDatabase databaseWithPath:databasePath];
        }
     if ([_fmdb open]) {
-        BOOL result = [_fmdb executeUpdate:@"create table XLDatabase (primaryKeyId text primary key not null, imageData blob, userName text, password text, age text, birthday text, height text, weight text, phoneNumber text, address text, userId text, imageUrl text, userToken text, token text, trueName text, estateId text, gender text, accountId text, accountType text, propertyId text)"];
+        BOOL result = [_fmdb executeUpdate:@"create table XLsn0wDatabase (primaryKeyId text primary key not null, imageData blob, userName text, password text, age text, birthday text, height text, weight text, phoneNumber text, address text, userId text, imageUrl text, userToken text, token text, trueName text, estateId text, gender text, accountId text, accountType text, propertyId text)"];
         if (result) {
-            NSLog(@"<创建XLDatabase成功>");
+            NSLog(@"创建XLsn0wDatabase成功");
         } else {
-            NSLog(@"[创建XLDatabase失败]|[本地XLDatabase存在]");
+            NSLog(@"创建XLsn0wDatabase失败 / 本地XLsn0wDatabase已存在");
         }
         [_fmdb close];
     }
 }
 
-/*******insert user into XLDatabase****************************************************************/
-- (void)insertUser:(User *)user {
+/*******<增>insert****************************************************************/
+- (void)insertUser:(XLsn0wDBUser *)user {
     if ([_fmdb open]) {
-        NSString *insertCommand = [NSString stringWithFormat:@"insert into XLDatabase (primaryKeyId, imageData, userName, password, age, birthday, height, weight, phoneNumber, address, userId, imageUrl, userToken, token, trueName, estateId, gender, accountId, accountType, propertyId) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"];
+        NSString *insertCommand = [NSString stringWithFormat:@"insert into XLsn0wDatabase (primaryKeyId, imageData, userName, password, age, birthday, height, weight, phoneNumber, address, userId, imageUrl, userToken, token, trueName, estateId, gender, accountId, accountType, propertyId) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"];
         BOOL result = [_fmdb executeUpdate:insertCommand,
                        user.primaryKeyId,
                        user.imageData,
@@ -61,34 +61,32 @@ static XLsn0wDatabase *instance = nil;
                        user.accountType,
                        user.propertyId];
         if (result) {
-            NSLog(@"插入User成功");
+            NSLog(@"插入XLsn0wDBUser成功");
         } else {
-            NSLog(@"插入User失败");
+            NSLog(@"插入XLsn0wDBUser失败");
         }
         [_fmdb close];
     }
 }
 
-/*******delete user from XLDatabase****************************************************************/
+/*******<删>delete****************************************************************/
 - (void)deleteUserWithPrimaryKeyId:(NSString *)primaryKeyId {
     if ([_fmdb open]) {
-        NSString *deleteCommand = [NSString stringWithFormat:@"delete from XLDatabase where primaryKeyId = ?"];
+        NSString *deleteCommand = [NSString stringWithFormat:@"delete from XLsn0wDatabase where primaryKeyId = ?"];
         BOOL result = [_fmdb executeUpdate:deleteCommand, primaryKeyId];
         if (result) {
-            NSLog(@"删除User成功");
+            NSLog(@"删除XLsn0wDBUser成功");
         } else {
-            NSLog(@"删除User失败");
+            NSLog(@"删除XLsn0wDBUser失败");
         }
         [_fmdb close];
     }
 }
 
-/*******update XLDatabase**************************************************************************/
-
-//update XLDatabase imageData Of User
-- (void)updateImageDataOfUser:(User *)user {
+/*******<改>update**************************************************************************/
+- (void)updateImageDataOfUser:(XLsn0wDBUser *)user {
     if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set imageData = ? where primaryKeyId = ?;"];
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set imageData = ? where primaryKeyId = ?;"];
         BOOL result = [_fmdb executeUpdate:updateCommand, user.imageData, user.primaryKeyId];
         if (result) {
             NSLog(@"更新imageData成功");
@@ -99,136 +97,9 @@ static XLsn0wDatabase *instance = nil;
     }
 }
 
-//update XLDatabase userName Of User
-- (void)updateUserNameOfUser:(User *)user {
+- (void)updateImageUrlOfUser:(XLsn0wDBUser *)user {
     if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set userName = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.userName, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新userName成功");
-        } else {
-            NSLog(@"更新userName失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase password Of User
-- (void)updatePasswordOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set password = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.password, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新password成功");
-        } else {
-            NSLog(@"更新password失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase age Of User
-- (void)updateAgeOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set age = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.age, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新age成功");
-        } else {
-            NSLog(@"更新age失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase birthday Of User
-- (void)updateBirthdayOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set birthday = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.birthday, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新birthday成功");
-        } else {
-            NSLog(@"更新birthday失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase height Of User
-- (void)updateHeightOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set height = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.height, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新height成功");
-        } else {
-            NSLog(@"更新height失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase weight Of User
-- (void)updateWeightOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set weight = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.weight, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新weight成功");
-        } else {
-            NSLog(@"更新weight失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase phoneNumber Of User
-- (void)updatePhoneNumberOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set phoneNumber = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.phoneNumber, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新phoneNumber成功");
-        } else {
-            NSLog(@"更新phoneNumber失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase address Of User
-- (void)updateAddressOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set address = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.address, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新address成功");
-        } else {
-            NSLog(@"更新address失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase userId Of User
-- (void)updateUserIdOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set userId = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.userId, user.primaryKeyId];
-        if (result) {
-            NSLog(@"更新userId成功");
-        } else {
-            NSLog(@"更新userId失败");
-        }
-        [_fmdb close];
-    }
-}
-
-//update XLDatabase imageUrl Of User
-- (void)updateImageUrlOfUser:(User *)user {
-    if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set imageUrl = ? where primaryKeyId = ?;"];
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set imageUrl = ? where primaryKeyId = ?;"];
         BOOL result = [_fmdb executeUpdate:updateCommand, user.imageUrl, user.primaryKeyId];
         if (result) {
             NSLog(@"更新imageUrl成功");
@@ -239,46 +110,70 @@ static XLsn0wDatabase *instance = nil;
     }
 }
 
-//update XLDatabase userToken Of User
-- (void)updateUserTokenWithUser:(User *)user {
+- (void)updateUserNameOfUser:(XLsn0wDBUser *)user {
     if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set userToken = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.userToken, user.primaryKeyId];
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set userName = ? where primaryKeyId = ?;"];
+        BOOL result = [_fmdb executeUpdate:updateCommand, user.userName, user.primaryKeyId];
         if (result) {
-            NSLog(@"更新userToken成功");
+            NSLog(@"更新userName成功");
         } else {
-            NSLog(@"更新userToken失败");
+            NSLog(@"更新userName失败");
         }
         [_fmdb close];
     }
 }
 
-//update XLDatabase gender Of User
-- (void)updateGenderOfUser:(User *)user {
+- (void)updatePasswordOfUser:(XLsn0wDBUser *)user {
     if ([_fmdb open]) {
-        NSString *updateCommand = [NSString stringWithFormat:@"update XLDatabase set gender = ? where primaryKeyId = ?;"];
-        BOOL result = [_fmdb executeUpdate:updateCommand, user.gender, user.primaryKeyId];
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set password = ? where primaryKeyId = ?;"];
+        BOOL result = [_fmdb executeUpdate:updateCommand, user.password, user.primaryKeyId];
         if (result) {
-            NSLog(@"更新gender成功");
+            NSLog(@"更新password成功");
         } else {
-            NSLog(@"更新gender失败");
+            NSLog(@"更新password失败");
         }
         [_fmdb close];
     }
 }
 
-/*******************select userArray from XLDatabase***********************************************/
-- (NSMutableArray *)selectUserArrayFromXLDatabase {
+- (void)updatePhoneNumberOfUser:(XLsn0wDBUser *)user {
+    if ([_fmdb open]) {
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set phoneNumber = ? where primaryKeyId = ?;"];
+        BOOL result = [_fmdb executeUpdate:updateCommand, user.phoneNumber, user.primaryKeyId];
+        if (result) {
+            NSLog(@"更新phoneNumber成功");
+        } else {
+            NSLog(@"更新phoneNumber失败");
+        }
+        [_fmdb close];
+    }
+}
+
+- (void)updateUserIdOfUser:(XLsn0wDBUser *)user {
+    if ([_fmdb open]) {
+        NSString *updateCommand = [NSString stringWithFormat:@"update XLsn0wDatabase set userId = ? where primaryKeyId = ?;"];
+        BOOL result = [_fmdb executeUpdate:updateCommand, user.userId, user.primaryKeyId];
+        if (result) {
+            NSLog(@"更新userId成功");
+        } else {
+            NSLog(@"更新userId失败");
+        }
+        [_fmdb close];
+    }
+}
+
+/*******<查>select********************************************************************/
+- (NSMutableArray *)selectUserArrayFromDatabase {
     // create userArray
     NSMutableArray *userArray = [[NSMutableArray alloc] init];
     if ([_fmdb  open]) {
         // 执行查询语句
-        NSString *selectCommand = @"select * from XLDatabase";
+        NSString *selectCommand = @"select * from XLsn0wDatabase";
         FMResultSet *resultSet = [_fmdb executeQuery:selectCommand];
         // 遍历结果
         while ([resultSet next]) {
             //create user
-            User *user = [[User alloc] init];
+            XLsn0wDBUser *user = [[XLsn0wDBUser alloc] init];
             
             // Primary Key ID
             user.primaryKeyId = [resultSet stringForColumn:@"primaryKeyId"];
@@ -314,7 +209,7 @@ static XLsn0wDatabase *instance = nil;
         }
         [_fmdb close];
     }
-    NSLog(@"[查询XLDatabase成功|Select UserArray Success]");
+    NSLog(@"查询XLsn0wDatabase成功");
     return userArray;
 }
 

@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface XLsn0wDBUser : NSObject
 
 /*! 主键ID 检索用户索引 */
 @property (nonatomic, copy) NSString *primaryKeyId;

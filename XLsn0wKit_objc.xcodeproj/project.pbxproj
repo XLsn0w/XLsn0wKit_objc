@@ -91,7 +91,7 @@
 		35F80EB31EF4B87700031CDA /* UIViewController+XLsn0wKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80DB21EF4B87700031CDA /* UIViewController+XLsn0wKit.m */; };
 		35F80F1D1EF4B87E00031CDA /* XLsn0wDisplayImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EC21EF4B87E00031CDA /* XLsn0wDisplayImageCell.m */; };
 		35F80F1E1EF4B87E00031CDA /* XLsn0wUploadImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EC41EF4B87E00031CDA /* XLsn0wUploadImageCell.m */; };
-		35F80F201EF4B87E00031CDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECA1EF4B87E00031CDA /* User.m */; };
+		35F80F201EF4B87E00031CDA /* XLsn0wDBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECA1EF4B87E00031CDA /* XLsn0wDBUser.m */; };
 		35F80F211EF4B87E00031CDA /* XLsn0wDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ECC1EF4B87E00031CDA /* XLsn0wDatabase.m */; };
 		35F80F231EF4B87E00031CDA /* XLsn0wGuidePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ED21EF4B87E00031CDA /* XLsn0wGuidePager.m */; };
 		35F80F241EF4B87E00031CDA /* XLsn0wNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80ED51EF4B87E00031CDA /* XLsn0wNavViewController.m */; };
@@ -284,8 +284,8 @@
 		35F80EC21EF4B87E00031CDA /* XLsn0wDisplayImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wDisplayImageCell.m; sourceTree = "<group>"; };
 		35F80EC31EF4B87E00031CDA /* XLsn0wUploadImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wUploadImageCell.h; sourceTree = "<group>"; };
 		35F80EC41EF4B87E00031CDA /* XLsn0wUploadImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wUploadImageCell.m; sourceTree = "<group>"; };
-		35F80EC91EF4B87E00031CDA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		35F80ECA1EF4B87E00031CDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		35F80EC91EF4B87E00031CDA /* XLsn0wDBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wDBUser.h; sourceTree = "<group>"; };
+		35F80ECA1EF4B87E00031CDA /* XLsn0wDBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wDBUser.m; sourceTree = "<group>"; };
 		35F80ECB1EF4B87E00031CDA /* XLsn0wDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wDatabase.h; sourceTree = "<group>"; };
 		35F80ECC1EF4B87E00031CDA /* XLsn0wDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wDatabase.m; sourceTree = "<group>"; };
 		35F80ED11EF4B87E00031CDA /* XLsn0wGuidePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wGuidePager.h; sourceTree = "<group>"; };
@@ -980,7 +980,7 @@
 			children = (
 				35F80ECB1EF4B87E00031CDA /* XLsn0wDatabase.h */,
 				35F80ECC1EF4B87E00031CDA /* XLsn0wDatabase.m */,
-				CD5270BD2068DB3C005913C2 /* Model */,
+				CD5270BD2068DB3C005913C2 /* XLsn0wDBUser */,
 			);
 			path = XLsn0wDatabase;
 			sourceTree = "<group>";
@@ -1190,13 +1190,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CD5270BD2068DB3C005913C2 /* Model */ = {
+		CD5270BD2068DB3C005913C2 /* XLsn0wDBUser */ = {
 			isa = PBXGroup;
 			children = (
-				35F80EC91EF4B87E00031CDA /* User.h */,
-				35F80ECA1EF4B87E00031CDA /* User.m */,
+				35F80EC91EF4B87E00031CDA /* XLsn0wDBUser.h */,
+				35F80ECA1EF4B87E00031CDA /* XLsn0wDBUser.m */,
 			);
-			path = Model;
+			path = XLsn0wDBUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1356,7 +1356,7 @@
 				35E2427E1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m in Sources */,
 				35F80F2C1EF4B87E00031CDA /* XLsn0wLoadingToast.m in Sources */,
 				35F80F261EF4B87E00031CDA /* XLsn0wNetworkManager.m in Sources */,
-				35F80F201EF4B87E00031CDA /* User.m in Sources */,
+				35F80F201EF4B87E00031CDA /* XLsn0wDBUser.m in Sources */,
 				3594D4F21EFD39CE00DF291D /* XLsn0wKitNavigationController.m in Sources */,
 				35F80F1E1EF4B87E00031CDA /* XLsn0wUploadImageCell.m in Sources */,
 				35F80E131EF4B87700031CDA /* NSObject+XLsn0w.m in Sources */,

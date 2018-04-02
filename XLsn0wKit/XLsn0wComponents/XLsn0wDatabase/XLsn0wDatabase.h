@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 
 @class FMDatabase;
-@class User;
+@class XLsn0wDBUser;
 
 @interface XLsn0wDatabase : NSObject
 
@@ -12,32 +12,24 @@
 + (XLsn0wDatabase *)shared;
 
 //创建数据库表
-- (void)createXLDatabaseWithTableName:(NSString *)tableName;
+- (void)createDatabaseWithTableName:(NSString *)tableName;
 
 //(增)插入
-- (void)insertUser:(User *)user;
+- (void)insertUser:(XLsn0wDBUser *)user;
 
 //(删)删除
 - (void)deleteUserWithPrimaryKeyId:(NSString *)primaryKeyId;
 
 //(改)更新
-- (void)updateImageDataOfUser:(User *)user;
-- (void)updateUserNameOfUser:(User *)user;
-- (void)updatePasswordOfUser:(User *)user;
-- (void)updateAgeOfUser:(User *)user;
-- (void)updateBirthdayOfUser:(User *)user;
-- (void)updateHeightOfUser:(User *)user;
-- (void)updateWeightOfUser:(User *)user;
-- (void)updatePhoneNumberOfUser:(User *)user;
-- (void)updateAddressOfUser:(User *)user;
-- (void)updateUserIdOfUser:(User *)user;
-- (void)updateImageUrlOfUser:(User *)user;
-- (void)updateGenderOfUser:(User *)user;
-
-- (void)updateUserTokenWithUser:(User *)user;
+- (void)updateImageDataOfUser:(XLsn0wDBUser *)user;  ///image data
+- (void)updateImageUrlOfUser:(XLsn0wDBUser *)user;   ///image url
+- (void)updateUserNameOfUser:(XLsn0wDBUser *)user;   ///用户名
+- (void)updatePasswordOfUser:(XLsn0wDBUser *)user;   ///密码
+- (void)updatePhoneNumberOfUser:(XLsn0wDBUser *)user;///手机号
+- (void)updateUserIdOfUser:(XLsn0wDBUser *)user;     ///用户ID
 
 //(查)取值
-- (NSMutableArray *)selectUserArrayFromXLDatabase;
+- (NSMutableArray *)selectUserArrayFromDatabase;
 
 @end
 

@@ -1,7 +1,7 @@
 
-#import "User.h"
+#import "XLsn0wDBUser.h"
 
-@implementation User
+@implementation XLsn0wDBUser
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
    //空实现
