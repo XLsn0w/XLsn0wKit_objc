@@ -50,11 +50,12 @@
  @WeakObj(<#obj#>);
  @WeakObj(< #obj# >);
 *********************************************************************************************/
-#define WeakObj(obj)   autoreleasepool{} __weak typeof(obj) obj##Weak = obj;
-#define WeakObject(o)     try{}@finally{} __weak typeof(o) o##Weak = o;
-#define StrongObj(obj) autoreleasepool{} __strong typeof(obj) obj = obj##Weak;
+#define XLsn0wWeakObj(obj)    try{}@finally{}   __weak typeof(obj) obj##Weak = obj;
+#define WeakObj(obj)          autoreleasepool{} __weak typeof(obj) obj##Weak = obj;
+#define StrongObj(obj)        autoreleasepool{} __strong typeof(obj) obj = obj##Weak;
+#define XLsn0wStrongObj(obj)  try{}@finally{}   __strong typeof(obj) obj = obj##Weak;
 //@WeakObj(self);
-//[selfWeak doSomething];
+//[selfWeak methodName];
 /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
