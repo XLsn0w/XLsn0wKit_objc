@@ -81,10 +81,10 @@ typedef struct BFDateInformation BFDateInformation;
 
 @interface XLDateItem : NSObject
 
-@property (nonatomic, assign) NSInteger day;
-@property (nonatomic, assign) NSInteger hour;
-@property (nonatomic, assign) NSInteger minute;
-@property (nonatomic, assign) NSInteger second;
+@property (nonatomic, assign) long day;
+@property (nonatomic, assign) long hour;
+@property (nonatomic, assign) long minute;
+@property (nonatomic, assign) long second;
 
 @end
 

@@ -10,6 +10,7 @@
  *********************************************************************************************/
 
 #import "XLsn0wCacher.h"
+#import "XLsn0wMacro.h"
 
 @interface XLsn0wCacher ()
 
@@ -69,7 +70,6 @@ static XLsn0wCacher *cacher = nil;
 }
 
 - (void)performWithImageData:(NSData *)imgData andKey:(NSString *)key {
-    
     if (_memoryCacheEnabled) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             if (imgData) {

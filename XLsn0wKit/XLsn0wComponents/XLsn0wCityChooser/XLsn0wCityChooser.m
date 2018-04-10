@@ -10,6 +10,7 @@
  *********************************************************************************************/
 
 #import "XLsn0wCityChooser.h"
+#import "XLsn0wMacro.h"
 
 #import "XLsn0wCityTableViewCell.h"
 #import "XLsn0wCityHeaderView.h"
@@ -77,15 +78,16 @@
         _sectionMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:[KCURRENTCITYINFODEFAULTS objectForKey:@"sectionData"]];
         [_rootTableView reloadData];
     }else {
+        @WeakObj(self)
         //在子线程中异步执行汉字转拼音再转汉字耗时操作
         dispatch_queue_t serialQueue = dispatch_queue_create("com.city.www", DISPATCH_QUEUE_SERIAL);
         dispatch_async(serialQueue, ^{
-            [self processData:^(id success) {
+            [selfWeak processData:^(id success) {
                 //回到主线程刷新UI
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_rootTableView reloadData];
-                    self.locationManager = [[XLsn0wCityLocation alloc] init];
-                    _locationManager.delegate = self;
+                    selfWeak.locationManager = [[XLsn0wCityLocation alloc] init];
+                    _locationManager.delegate = selfWeak;
                 });
             }];
         });
@@ -97,9 +99,10 @@
 /// 初始化数据库，获取所有“市”级城市名称
 - (void)initWithJFAreaDataManaager {
     XLsn0wCityAreaDataManager *manager = [XLsn0wCityAreaDataManager shareManager];
+    @WeakObj(self)
     [manager areaSqliteDBData];
     [manager cityData:^(NSMutableArray *dataArray) {
-        _cityMutableArray = dataArray;
+        selfWeak.cityMutableArray = dataArray;
     }];
 }
 
@@ -158,14 +161,15 @@
         
 #pragma mark-- headerView的JFCityHeaderViewSearchBlock
         //获取当前城市的所有辖区
-        [_headerView cityNameBlock:^(BOOL selected) {
+        @WeakObj(self)
+        [selfWeak.headerView cityNameBlock:^(BOOL selected) {
             if (selected) {
-                [_manager areaData:[KCURRENTCITYINFODEFAULTS objectForKey:@"cityNumber"] areaData:^(NSMutableArray *areaData) {
-                    [self.areaMutableArray addObjectsFromArray:areaData];
-                    if (0 == (self.areaMutableArray.count % 3)) {
-                        _cellHeight = self.areaMutableArray.count / 3 * 50;
+                [selfWeak.manager areaData:[KCURRENTCITYINFODEFAULTS objectForKey:@"cityNumber"] areaData:^(NSMutableArray *areaData) {
+                    [selfWeak.areaMutableArray addObjectsFromArray:areaData];
+                    if (0 == (selfWeak.areaMutableArray.count % 3)) {
+                        _cellHeight = selfWeak.areaMutableArray.count / 3 * 50;
                     }else {
-                        _cellHeight = (self.areaMutableArray.count / 3 + 1) * 50;
+                        _cellHeight = (selfWeak.areaMutableArray.count / 3 + 1) * 50;
                     }
                     if (_cellHeight > 300) {
                         _cellHeight = 300;
@@ -174,11 +178,11 @@
                 
                 
                 //添加一行cell
-                [_rootTableView endUpdates];
-                [_characterMutableArray insertObject:@"*" atIndex:0];
+                [selfWeak.rootTableView endUpdates];
+                [selfWeak.characterMutableArray insertObject:@"*" atIndex:0];
                 _HeaderSectionTotal = 4;
                 NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:0];
-                [self.rootTableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+                [selfWeak.rootTableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
                 [_rootTableView endUpdates];
             }else {
                 //清空区县名称数组
@@ -200,7 +204,7 @@
         }];
         
         [_headerView didSearchBlock:^{
-            [self deleteSearchView];
+            [weakSelf deleteSearchView];
         }];
         
         [_headerView searchResultBlock:^(NSString *result) {

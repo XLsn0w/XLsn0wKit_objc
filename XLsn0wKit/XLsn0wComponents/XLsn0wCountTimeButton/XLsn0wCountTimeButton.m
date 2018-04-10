@@ -9,6 +9,7 @@
  *                                                                                           *
  *********************************************************************************************/
 #import "XLsn0wCountTimeButton.h"
+#import "XLsn0wMacro.h"
 
 @interface XLsn0wCountTimeButton(){
     NSInteger _second;
