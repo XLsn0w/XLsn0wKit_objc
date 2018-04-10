@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    XLsn0wLog(@"XLsn0wKit_objc");
+    XLsn0wLog(@"XLsn0wKit For Objective-C");
 }
 
 - (void)didReceiveMemoryWarning {

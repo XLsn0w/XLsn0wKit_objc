@@ -8,15 +8,6 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-
-/*! Third-Party Framework */
-//#import "AFNetworking.h"
-//#import "FMDB.h"
-//#import "MBProgressHUD.h"
-//#import "UIImageView+WebCache.h"
-//#import "Masonry.h"
-//#import "MJRefresh.h"
-
 /* Apple Framework */
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
@@ -46,10 +37,23 @@
 #define kFitBottom ([UIScreen mainScreen].bounds.size.height / 736)
 
 /*! 根据屏幕高度判断真机设备 */
-#define iPhone_4      ([[UIScreen mainScreen] bounds].size.height == 480)
-#define iPhone_5      ([[UIScreen mainScreen] bounds].size.height == 568)
-#define iPhone_6      ([[UIScreen mainScreen] bounds].size.height == 667)
-#define iPhone_6_Plus ([[UIScreen mainScreen] bounds].size.height == 736)
+#define iPhone_4       ([[UIScreen mainScreen] bounds].size.height == 480)
+#define iPhone_5       ([[UIScreen mainScreen] bounds].size.height == 568)
+#define iPhone_6       ([[UIScreen mainScreen] bounds].size.height == 667)
+#define iPhone_6_Plus  ([[UIScreen mainScreen] bounds].size.height == 736)
+#define iPhone_X_BOOL  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+/*********************************************************************************************/
+/*********************************************************************************************/
+#define WeakSelf __weak typeof(self) weakSelf = self;
+/*********************************************************************************************/
+#define WeakObj(obj)   autoreleasepool{} __weak typeof(obj) obj##Weak = obj;
+#define WeakObject(o)     try{}@finally{} __weak typeof(o) o##Weak = o;
+#define StrongObj(obj) autoreleasepool{} __strong typeof(obj) obj = obj##Weak;
+//@WeakObj(self);
+//[selfWeak doSomething];
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*********************************************************************************************/
 
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行
