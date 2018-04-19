@@ -62,6 +62,9 @@
  */
 + (UIColor *)xlsn0w_hexString:(NSString *)hexString;
 
++ (UIColor *)xlsn0w_hexString:(NSString *)hexString
+                        alpha:(CGFloat)alpha;
+
 /**
  * The Method is deprecated, Use xlsn0w_hexString | 此方法已经被弃用, 请使用 xlsn0w_hexString
  */

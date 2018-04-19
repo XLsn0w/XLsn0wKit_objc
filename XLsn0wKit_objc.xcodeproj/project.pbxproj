@@ -806,10 +806,10 @@
 		35F80CCC1EF4B87700031CDA /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				35F80CCF1EF4B87700031CDA /* UIColor+BgColor.h */,
-				35F80CD01EF4B87700031CDA /* UIColor+BgColor.m */,
 				35F80CDB1EF4B87700031CDA /* UIColor+XLsn0w.h */,
 				35F80CDC1EF4B87700031CDA /* UIColor+XLsn0w.m */,
+				35F80CCF1EF4B87700031CDA /* UIColor+BgColor.h */,
+				35F80CD01EF4B87700031CDA /* UIColor+BgColor.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
