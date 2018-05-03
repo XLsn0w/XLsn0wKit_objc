@@ -20,15 +20,22 @@
  *1. iPhone 5      分辨率: 320x568，像素640x1136， @2x
  *2. iPhone 6      分辨率: 375x667，像素750x1334， @2x
  *3. iPhone 6 Plus 分辨率: 414x736，像素1242x2208，@3x
+ 
+ iPhone 7 设备渲染后分辨率为 750 x 1334，逻辑分辨率只有 375 x 667。
+ 
+ iPhone X 设备渲染后分辨率为 1125 x 2436，逻辑分辨率是为 375 x 812。 竖屏尺寸：1125px × 2436px(375pt × 812pt @3x)
  */
 
 /*! 当前设备屏幕 宽/高 */
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
-/*! 屏幕比率 以iPhone 6 Plus为基准 */
-#define kFitWidth  ([UIScreen mainScreen].bounds.size.width / 414)
-#define kFitHeight ([UIScreen mainScreen].bounds.size.height / 736)
+/*! 屏幕比率 以iPhone 7 | 375x667为基准 */
+#define kFitWidth  ([UIScreen mainScreen].bounds.size.width / 375)
+#define kFitHeight ([UIScreen mainScreen].bounds.size.height / 667)
+
+#define mas_width  ([UIScreen mainScreen].bounds.size.width  / 375)
+#define mas_height ([UIScreen mainScreen].bounds.size.height / 667)
 
 /*! Masonry相关比率 以iPhone 6 Plus为基准 */
 #define kFitLeft   ([UIScreen mainScreen].bounds.size.width / 414)
