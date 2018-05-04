@@ -56,6 +56,10 @@
 #import "XLsn0wMiddleTabBarController.h"
 #import "XLsn0wKitNavigationController.h"
 #import "XLsn0wCollectionViewFlowLayout.h"
+#import "XLsn0wUnderlineButton.h"
+#import "XLsn0wTypeBarView.h"
+#import "XLsn0wBeelineProgressar.h"
+#import "XLsn0wLineProgressView.h"
 /*********************************************************************************************
  *   __      __   _         _________     _ _     _    _________   __         _         __   *
  *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *

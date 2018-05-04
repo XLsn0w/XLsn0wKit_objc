@@ -296,6 +296,12 @@
     self.layer.masksToBounds = YES;
 }
 
+- (void)xlsn0w_addBorderColor:(UIColor *)borderColor
+                  borderWidth:(CGFloat)borderWidth {
+    self.layer.borderColor = borderColor.CGColor;
+    self.layer.borderWidth = borderWidth;
+}
+
 - (void)xlsn0w_addCornerRadius:(CGFloat)radius lineColor:(UIColor *)lineColor {
     self.layer.cornerRadius = radius;
     self.clipsToBounds = YES;

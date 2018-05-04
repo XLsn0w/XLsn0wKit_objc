@@ -175,6 +175,9 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
  */
 - (void)xlsn0w_addCornerRadius:(CGFloat)radius;
 
+- (void)xlsn0w_addBorderColor:(UIColor *)borderColor
+                  borderWidth:(CGFloat)borderWidth;
+
 /**
  *  Add corner radius layer on the view with line color
  *
