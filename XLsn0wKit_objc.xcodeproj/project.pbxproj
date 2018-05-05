@@ -116,7 +116,7 @@
 		CD19A998209C6688002C6EB6 /* XLsn0wUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A990209C6687002C6EB6 /* XLsn0wUnderlineButton.m */; };
 		CD19A999209C6688002C6EB6 /* XLsn0wLineProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */; };
 		CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressar.m */; };
-		CD19A99B209C6688002C6EB6 /* XLsn0wTypeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A997209C6688002C6EB6 /* XLsn0wTypeBarView.m */; };
+		CD19A99B209C6688002C6EB6 /* XLsn0wTypeBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */; };
 		CD5270BA2068D026005913C2 /* XLsn0wGestureLocker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5270AF2068D026005913C2 /* XLsn0wGestureLocker.m */; };
 		CD5270BB2068D026005913C2 /* XLsn0wNineSquarer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5270B12068D026005913C2 /* XLsn0wNineSquarer.m */; };
 		CD5270BC2068D026005913C2 /* XLsn0wNineSquarerIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5270B22068D026005913C2 /* XLsn0wNineSquarerIndicator.m */; };
@@ -339,10 +339,10 @@
 		CD19A991209C6687002C6EB6 /* XLsn0wBeelineProgressar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wBeelineProgressar.h; sourceTree = "<group>"; };
 		CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wLineProgressView.m; sourceTree = "<group>"; };
 		CD19A993209C6688002C6EB6 /* XLsn0wLineProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wLineProgressView.h; sourceTree = "<group>"; };
-		CD19A994209C6688002C6EB6 /* XLsn0wTypeBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTypeBarView.h; sourceTree = "<group>"; };
+		CD19A994209C6688002C6EB6 /* XLsn0wTypeBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTypeBarButton.h; sourceTree = "<group>"; };
 		CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wBeelineProgressar.m; sourceTree = "<group>"; };
 		CD19A996209C6688002C6EB6 /* XLsn0wUnderlineButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wUnderlineButton.h; sourceTree = "<group>"; };
-		CD19A997209C6688002C6EB6 /* XLsn0wTypeBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTypeBarView.m; sourceTree = "<group>"; };
+		CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTypeBarButton.m; sourceTree = "<group>"; };
 		CD5270AE2068D026005913C2 /* XLsn0wGestureLocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wGestureLocker.h; sourceTree = "<group>"; };
 		CD5270AF2068D026005913C2 /* XLsn0wGestureLocker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wGestureLocker.m; sourceTree = "<group>"; };
 		CD5270B12068D026005913C2 /* XLsn0wNineSquarer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNineSquarer.m; sourceTree = "<group>"; };
@@ -1188,8 +1188,8 @@
 		CD19A99D209C673C002C6EB6 /* XLsn0wTypeBarView */ = {
 			isa = PBXGroup;
 			children = (
-				CD19A994209C6688002C6EB6 /* XLsn0wTypeBarView.h */,
-				CD19A997209C6688002C6EB6 /* XLsn0wTypeBarView.m */,
+				CD19A994209C6688002C6EB6 /* XLsn0wTypeBarButton.h */,
+				CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */,
 			);
 			path = XLsn0wTypeBarView;
 			sourceTree = "<group>";
@@ -1404,7 +1404,7 @@
 				35F80DCD1EF4B87700031CDA /* CALayer+XLsn0w.m in Sources */,
 				35F80F231EF4B87E00031CDA /* XLsn0wGuidePager.m in Sources */,
 				35F80E761EF4B87700031CDA /* UIImageView+XLsn0wKit.m in Sources */,
-				CD19A99B209C6688002C6EB6 /* XLsn0wTypeBarView.m in Sources */,
+				CD19A99B209C6688002C6EB6 /* XLsn0wTypeBarButton.m in Sources */,
 				30D682621F580ED000720E97 /* XLsn0wFileManager.m in Sources */,
 				35F80E411EF4B87700031CDA /* UIButton+ImageTitleLayout.m in Sources */,
 				35F80F3C1EF4B87E00031CDA /* XLsn0wTopSlider.m in Sources */,

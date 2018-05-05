@@ -638,6 +638,11 @@ struct SolarTerm {
 + (instancetype _Nullable)shared;
 + (NSString *_Nullable)deviceModel;
 
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                         textColor:(UIColor *)textColor
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len;
+
 -(void)loadWithDate:(NSDate *_Nullable)date;//加载数据
 
 -(void)InitializeValue;//添加数据

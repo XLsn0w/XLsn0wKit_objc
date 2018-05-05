@@ -6,10 +6,10 @@
 //  Copyright © 2018年 ginlong. All rights reserved.
 //
 
-#import "XLsn0wTypeBarView.h"
+#import "XLsn0wTypeBarButton.h"
 #import <Masonry.h>
 
-@implementation XLsn0wTypeBarView
+@implementation XLsn0wTypeBarButton
 
 - (instancetype)init {
     if (self = [super init]) {

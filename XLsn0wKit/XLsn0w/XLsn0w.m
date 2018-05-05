@@ -103,6 +103,18 @@
     return singleton;
 }
 
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                         textColor:(UIColor *)textColor
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:textColor
+                             range:NSMakeRange(loc, len)];
+//  self.label.attributedText= attributedString;
+    return attributedString;
+}
+
 ///需要导入头文件：#import <sys/utsname.h>
 + (NSString*)deviceModel {
 
