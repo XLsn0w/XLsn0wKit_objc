@@ -1,12 +1,12 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{
-    NZProgressTypeDefault = 0,
-    NZProgressTypeRing,
-}NZProgressType;
+typedef enum {
+    XLsn0wProgressBarType_Beeline = 0,
+    XLsn0wProgressBarType_Ring,
+} XLsn0wBeelineProgressBarType;
 
-@interface XLsn0wBeelineProgressar : UIView
+@interface XLsn0wBeelineProgressBar : UIView
 
 /*
  *进度文字颜色
@@ -23,7 +23,7 @@ typedef enum{
 /*
  *进度条类型
  */
-@property (nonatomic,assign) NZProgressType type;
+@property (nonatomic,assign) XLsn0wBeelineProgressBarType type;
 
 /*
  *默认风格进度条是否为圆角，默认为YES

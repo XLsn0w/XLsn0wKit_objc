@@ -1,11 +1,11 @@
 
-#import "XLsn0wBeelineProgressar.h"
+#import "XLsn0wBeelineProgressBar.h"
 #import "Masonry.h"
 #import "XLsn0wKit_objc.h"
 
 #define CW_PROGRESS_BG_COLOR [UIColor colorWithRed:218/255.0 green:221/255.0 blue:221/255.0 alpha:1]
 
-@interface XLsn0wBeelineProgressar () {
+@interface XLsn0wBeelineProgressBar () {
     UILabel *_progressText;
     
     NSTimer *_vTimer;
@@ -13,14 +13,14 @@
 }
 @end
 
-@implementation XLsn0wBeelineProgressar
+@implementation XLsn0wBeelineProgressBar
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         _isRect = YES;
         _isAnimation = YES;
-        _type = NZProgressTypeDefault;
+        _type = XLsn0wProgressBarType_Beeline;
     }
     return self;
 }
@@ -52,10 +52,9 @@
     [self addSubview:_progressText];
 }
 
-- (void)setType:(NZProgressType)type
-{
+- (void)setType:(XLsn0wBeelineProgressBarType)type {
     _type = type;
-    if (_type == NZProgressTypeDefault) {
+    if (_type == XLsn0wProgressBarType_Beeline) {
         [self addDefaultLabel];
     }else{
         [self addRingLabel];
@@ -95,7 +94,7 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
-    if (_type == NZProgressTypeDefault) {
+    if (_type == XLsn0wProgressBarType_Beeline) {
         [self drawBackground:contextRef Rect:CGRectMake(0, 0, rect.size.width-60, rect.size.height)];
     }
     else
@@ -105,7 +104,7 @@
     
     if (_progress) {
         //绘制进度条
-        if (_type == NZProgressTypeDefault) {
+        if (_type == XLsn0wProgressBarType_Beeline) {
             [self drawProgress:contextRef WithRect:CGRectMake(0, 0, rect.size.width-60, rect.size.height)];
         }
         else
@@ -118,7 +117,7 @@
 //1、绘制进度条背景
 - (void)drawBackground:(CGContextRef)context Rect:(CGRect)rect
 {
-    if (_type == NZProgressTypeDefault) {
+    if (_type == XLsn0wProgressBarType_Beeline) {
         //直线
         //绘制基础背景区域
         float cornerRadius = 0;
@@ -130,17 +129,17 @@
         [bgPath fill];
         
 //        //绘制背景阴影
-//        UIBezierPath *negativePath = [UIBezierPath bezierPathWithRect:CGRectMake(-10, -10, rect.size.width + 10, rect.size.height +10)];
-//        [negativePath appendPath:bgPath];
-//        [negativePath setUsesEvenOddFillRule:YES];
-//        CGContextSaveGState(context);
-//        CGContextSetShadowWithColor(context, CGSizeMake(0.5, 0.5), 5, [[UIColor blackColor] colorWithAlphaComponent:0.7].CGColor);
-//        [bgPath addClip];
-//        CGAffineTransform transform = CGAffineTransformMakeTranslation(0.1, 0.1);
-//        [negativePath applyTransform:transform];
-//        [negativePath fill];
-//        CGContextRestoreGState(context);
-//        [bgPath addClip];
+        UIBezierPath *negativePath = [UIBezierPath bezierPathWithRect:CGRectMake(-10, -10, rect.size.width + 10, rect.size.height +10)];
+        [negativePath appendPath:bgPath];
+        [negativePath setUsesEvenOddFillRule:YES];
+        CGContextSaveGState(context);
+        CGContextSetShadowWithColor(context, CGSizeMake(0.5, 0.5), 5, [[UIColor blackColor] colorWithAlphaComponent:0.7].CGColor);
+        [bgPath addClip];
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0.1, 0.1);
+        [negativePath applyTransform:transform];
+        [negativePath fill];
+        CGContextRestoreGState(context);
+        [bgPath addClip];
     }else{
         //圆环
         CGPoint center = CGPointMake(rect.size.width / 2, rect.size.height / 2);
@@ -157,7 +156,7 @@
 {
     CGColorRef color = (_progressColor == nil)?[UIColor blueColor].CGColor:_progressColor.CGColor;
     CGContextSaveGState(context);
-    if (_type == NZProgressTypeDefault) {
+    if (_type == XLsn0wProgressBarType_Beeline) {
         float cornerRadius = 0;
         if (_isRect) {
             cornerRadius = rect.size.height/2.0;
@@ -171,17 +170,17 @@
         [progressPath addClip];
         
         //Y 轴渐变
-//        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-//        CGFloat locations[] = {0.1, 1.0};//Y轴位置
-//        NSArray *colors = @[(__bridge id)[[self.progressColor lighterColor] lighterColor].CGColor, (__bridge id)self.progressColor.CGColor];
-//        CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-//
-//        CGContextDrawLinearGradient(context, gradient, CGPointMake(insetRect.size.width / 2, 0), CGPointMake(insetRect.size.width / 2, insetRect.size.height), 0);
-//        CGContextRestoreGState(context);
-//        CGGradientRelease(gradient);
-//        CGColorSpaceRelease(colorSpace);
-//        CGContextStrokePath(context);
-//        CGContextFillPath(context);
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGFloat locations[] = {0.1, 1.0};//Y轴位置
+        NSArray *colors = @[(__bridge id)self.progressColor.CGColor];
+        CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
+
+        CGContextDrawLinearGradient(context, gradient, CGPointMake(insetRect.size.width / 2, 0), CGPointMake(insetRect.size.width / 2, insetRect.size.height), 0);
+        CGContextRestoreGState(context);
+        CGGradientRelease(gradient);
+        CGColorSpaceRelease(colorSpace);
+        CGContextStrokePath(context);
+        CGContextFillPath(context);
     }else{
         float ringWidth = _ringWidth>0?_ringWidth:5;
         if (_progress == 1) {

@@ -115,7 +115,7 @@
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
 		CD19A998209C6688002C6EB6 /* XLsn0wUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A990209C6687002C6EB6 /* XLsn0wUnderlineButton.m */; };
 		CD19A999209C6688002C6EB6 /* XLsn0wLineProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */; };
-		CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressar.m */; };
+		CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m */; };
 		CD19A99B209C6688002C6EB6 /* XLsn0wTypeBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */; };
 		CD5270BA2068D026005913C2 /* XLsn0wGestureLocker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5270AF2068D026005913C2 /* XLsn0wGestureLocker.m */; };
 		CD5270BB2068D026005913C2 /* XLsn0wNineSquarer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5270B12068D026005913C2 /* XLsn0wNineSquarer.m */; };
@@ -336,11 +336,11 @@
 		911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.release.xcconfig"; sourceTree = "<group>"; };
 		CD19A990209C6687002C6EB6 /* XLsn0wUnderlineButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wUnderlineButton.m; sourceTree = "<group>"; };
-		CD19A991209C6687002C6EB6 /* XLsn0wBeelineProgressar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wBeelineProgressar.h; sourceTree = "<group>"; };
+		CD19A991209C6687002C6EB6 /* XLsn0wBeelineProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wBeelineProgressBar.h; sourceTree = "<group>"; };
 		CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wLineProgressView.m; sourceTree = "<group>"; };
 		CD19A993209C6688002C6EB6 /* XLsn0wLineProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wLineProgressView.h; sourceTree = "<group>"; };
 		CD19A994209C6688002C6EB6 /* XLsn0wTypeBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTypeBarButton.h; sourceTree = "<group>"; };
-		CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wBeelineProgressar.m; sourceTree = "<group>"; };
+		CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wBeelineProgressBar.m; sourceTree = "<group>"; };
 		CD19A996209C6688002C6EB6 /* XLsn0wUnderlineButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wUnderlineButton.h; sourceTree = "<group>"; };
 		CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTypeBarButton.m; sourceTree = "<group>"; };
 		CD5270AE2068D026005913C2 /* XLsn0wGestureLocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wGestureLocker.h; sourceTree = "<group>"; };
@@ -1197,10 +1197,10 @@
 		CD19A99E209C67F6002C6EB6 /* XLsn0wBeelineProgressar */ = {
 			isa = PBXGroup;
 			children = (
+				CD19A991209C6687002C6EB6 /* XLsn0wBeelineProgressBar.h */,
+				CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m */,
 				CD19A993209C6688002C6EB6 /* XLsn0wLineProgressView.h */,
 				CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */,
-				CD19A991209C6687002C6EB6 /* XLsn0wBeelineProgressar.h */,
-				CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressar.m */,
 			);
 			path = XLsn0wBeelineProgressar;
 			sourceTree = "<group>";
@@ -1386,7 +1386,7 @@
 				35E242811EFA1D7600D0572A /* XLNetManager.m in Sources */,
 				35F80F211EF4B87E00031CDA /* XLsn0wDatabase.m in Sources */,
 				35E2430E1EFA612500D0572A /* XLsn0wCityButton.m in Sources */,
-				CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressar.m in Sources */,
+				CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m in Sources */,
 				35F80F3E1EF4B87E00031CDA /* XLsn0wVersionManager.m in Sources */,
 				35F80E751EF4B87700031CDA /* UIImageView+XLsn0w.m in Sources */,
 				35F80F2B1EF4B87E00031CDA /* XLsn0wLoadingToast+Extension.m in Sources */,
