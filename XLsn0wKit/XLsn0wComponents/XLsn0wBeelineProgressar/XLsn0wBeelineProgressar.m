@@ -1,6 +1,6 @@
 
 #import "XLsn0wBeelineProgressar.h"
-#import <Masonry.h>
+#import "Masonry.h"
 #import "XLsn0wKit_objc.h"
 
 #define CW_PROGRESS_BG_COLOR [UIColor colorWithRed:218/255.0 green:221/255.0 blue:221/255.0 alpha:1]

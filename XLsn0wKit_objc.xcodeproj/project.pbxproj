@@ -935,7 +935,7 @@
 			children = (
 				35F80EE31EF4B87E00031CDA /* XLsn0wComponents.h */,
 				CD19A99C209C671D002C6EB6 /* XLsn0wUnderlineButton */,
-				CD19A99D209C673C002C6EB6 /* XLsn0wTypeBarView */,
+				CD19A99D209C673C002C6EB6 /* XLsn0wTypeBarButton */,
 				CD19A99E209C67F6002C6EB6 /* XLsn0wBeelineProgressar */,
 				CD5270A62068D025005913C2 /* XLsn0wGestureLocker */,
 				3017C5DC1F59086F003F06D3 /* XLsn0wCountTimeButton */,
@@ -1185,13 +1185,13 @@
 			path = XLsn0wUnderlineButton;
 			sourceTree = "<group>";
 		};
-		CD19A99D209C673C002C6EB6 /* XLsn0wTypeBarView */ = {
+		CD19A99D209C673C002C6EB6 /* XLsn0wTypeBarButton */ = {
 			isa = PBXGroup;
 			children = (
 				CD19A994209C6688002C6EB6 /* XLsn0wTypeBarButton.h */,
 				CD19A997209C6688002C6EB6 /* XLsn0wTypeBarButton.m */,
 			);
-			path = XLsn0wTypeBarView;
+			path = XLsn0wTypeBarButton;
 			sourceTree = "<group>";
 		};
 		CD19A99E209C67F6002C6EB6 /* XLsn0wBeelineProgressar */ = {
