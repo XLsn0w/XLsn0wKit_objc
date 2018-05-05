@@ -115,6 +115,30 @@
     return attributedString;
 }
 
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                          textFont:(UIFont *)textFont
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:textFont///[UIFont systemFontOfSize:21.0]
+                             range:NSMakeRange(loc, len)];
+    //  self.label.attributedText= attributedString;
+    return attributedString;
+}
+
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                   textStyleNumber:(NSNumber *)textStyleNumber
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:textStyleNumber///value:[NSNumber numberWithInteger:NSUnderlineStyleSingle]
+                             range:NSMakeRange(loc, len)];
+    //  self.label.attributedText= attributedString;
+    return attributedString;
+}
+
 ///需要导入头文件：#import <sys/utsname.h>
 + (NSString*)deviceModel {
 

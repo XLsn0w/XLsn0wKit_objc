@@ -638,8 +638,21 @@ struct SolarTerm {
 + (instancetype _Nullable)shared;
 + (NSString *_Nullable)deviceModel;
 
+///截取字符串显示不同颜色
 + (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
                                          textColor:(UIColor *)textColor
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len;
+
+///截取字符串显示不同字体
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                          textFont:(UIFont *)textFont
+                                               loc:(NSUInteger)loc
+                                               len:(NSUInteger)len;
+
+///截取字符串显示下划线样式
++ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
+                                   textStyleNumber:(NSNumber *)textStyleNumber
                                                loc:(NSUInteger)loc
                                                len:(NSUInteger)len;
 
