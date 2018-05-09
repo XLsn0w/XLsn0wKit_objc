@@ -110,8 +110,10 @@
 
  @param navigationController 同一个NavigationController
  */
-+ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController {
-    NSUInteger index = navigationController.viewControllers.count - 2;///2为上一层的view，上上一层为3
++ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController
+                                          viewIndex:(NSUInteger)viewIndex {
+//    NSUInteger index = navigationController.viewControllers.count - 2;///2为上一层的view，上上一层为3
+    NSUInteger index = navigationController.viewControllers.count - viewIndex;
     UIViewController *vc = [navigationController.viewControllers objectAtIndex:index];
     [navigationController popToViewController:vc animated:YES];
 }

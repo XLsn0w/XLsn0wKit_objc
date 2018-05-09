@@ -638,7 +638,8 @@ struct SolarTerm {
 + (instancetype _Nullable)shared;
 + (NSString *_Nullable)deviceModel;
 
-+ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController;
++ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController
+                                          viewIndex:(NSUInteger)viewIndex;
 
 ///截取字符串显示不同颜色
 + (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
