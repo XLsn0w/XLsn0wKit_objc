@@ -103,6 +103,19 @@
     return singleton;
 }
 
+/**
+ 有时候我们的NavigationController下面会有好几层，
+ 进到里面的view之后又想返回到上面的几层view，
+ 只要是同一个NavigationController父类下的view都可以用用下面这句代码。
+
+ @param navigationController 同一个NavigationController
+ */
++ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController {
+    NSUInteger index = navigationController.viewControllers.count - 2;///2为上一层的view，上上一层为3
+    UIViewController *vc = [navigationController.viewControllers objectAtIndex:index];
+    [navigationController popToViewController:vc animated:YES];
+}
+
 + (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
                                          textColor:(UIColor *)textColor
                                                loc:(NSUInteger)loc
