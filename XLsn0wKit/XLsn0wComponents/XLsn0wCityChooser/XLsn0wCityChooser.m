@@ -85,9 +85,9 @@
             [selfWeak processData:^(id success) {
                 //回到主线程刷新UI
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [_rootTableView reloadData];
+                    [self->_rootTableView reloadData];
                     selfWeak.locationManager = [[XLsn0wCityLocation alloc] init];
-                    _locationManager.delegate = selfWeak;
+                    self->_locationManager.delegate = selfWeak;
                 });
             }];
         });
@@ -160,6 +160,7 @@
         self.manager = [XLsn0wCityAreaDataManager shareManager];
         
 #pragma mark-- headerView的JFCityHeaderViewSearchBlock
+        
         //获取当前城市的所有辖区
         @WeakObj(self)
         [selfWeak.headerView cityNameBlock:^(BOOL selected) {
@@ -167,12 +168,12 @@
                 [selfWeak.manager areaData:[KCURRENTCITYINFODEFAULTS objectForKey:@"cityNumber"] areaData:^(NSMutableArray *areaData) {
                     [selfWeak.areaMutableArray addObjectsFromArray:areaData];
                     if (0 == (selfWeak.areaMutableArray.count % 3)) {
-                        _cellHeight = selfWeak.areaMutableArray.count / 3 * 50;
+                        self->_cellHeight = selfWeak.areaMutableArray.count / 3 * 50;
                     }else {
-                        _cellHeight = (selfWeak.areaMutableArray.count / 3 + 1) * 50;
+                        self->_cellHeight = (selfWeak.areaMutableArray.count / 3 + 1) * 50;
                     }
-                    if (_cellHeight > 300) {
-                        _cellHeight = 300;
+                    if (self->_cellHeight > 300) {
+                        self->_cellHeight = 300;
                     }
                 }];
                 
@@ -180,20 +181,20 @@
                 //添加一行cell
                 [selfWeak.rootTableView endUpdates];
                 [selfWeak.characterMutableArray insertObject:@"*" atIndex:0];
-                _HeaderSectionTotal = 4;
+                self->_HeaderSectionTotal = 4;
                 NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:0];
                 [selfWeak.rootTableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
-                [_rootTableView endUpdates];
+                [self->_rootTableView endUpdates];
             }else {
                 //清空区县名称数组
                 self.areaMutableArray = nil;
                 //删除一行cell
-                [_rootTableView endUpdates];
-                [_characterMutableArray removeObjectAtIndex:0];
-                _HeaderSectionTotal = 3;
+                [self->_rootTableView endUpdates];
+                [self->_characterMutableArray removeObjectAtIndex:0];
+                self->_HeaderSectionTotal = 3;
                 NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:0];
                 [self.rootTableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
-                [_rootTableView endUpdates];
+                [self->_rootTableView endUpdates];
             }
         }];
 
@@ -210,8 +211,8 @@
         [_headerView searchResultBlock:^(NSString *result) {
             [weakSelf.manager searchCityData:result result:^(NSMutableArray *result) {
                 if ([result count] > 0) {
-                    _searchView.backgroundColor = [UIColor whiteColor];
-                    _searchView.resultMutableArray = result;
+                    self->_searchView.backgroundColor = [UIColor whiteColor];
+                    self->_searchView.resultMutableArray = result;
                 }
             }];
         }];
