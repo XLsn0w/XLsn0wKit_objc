@@ -455,7 +455,7 @@
     for (int i = 0; i < _numOfMenu; i++) {
         if (i != tapIndex) {
             [self animateIndicator:_indicators[i] Forward:NO complete:^{
-                [self animateTitle:_titles[i] show:NO complete:^{
+                [self animateTitle:self->_titles[i] show:NO complete:^{
                     
                 }];
             }];
@@ -464,8 +464,8 @@
     
     if (tapIndex == _currentSelectedMenudIndex && _show) {
         [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
-            _currentSelectedMenudIndex = tapIndex;
-            _show = NO;
+            self->_currentSelectedMenudIndex = tapIndex;
+            self->_show = NO;
         }];
     } else {
         _currentSelectedMenudIndex = tapIndex;
@@ -475,7 +475,7 @@
         }
         
         [self animateIdicator:_indicators[tapIndex] background:_backGroundView tableView:_leftTableView title:_titles[tapIndex] forward:YES complecte:^{
-            _show = YES;
+            self->_show = YES;
         }];
     }
 }
@@ -483,7 +483,7 @@
 - (void)backgroundTapped:(UITapGestureRecognizer *)paramSender
 {
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
-        _show = NO;
+        self->_show = NO;
     }];
 }
 
@@ -569,30 +569,30 @@
         
         [UIView animateWithDuration:0.2 animations:^{
             if (haveItems) {
-                _leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, tableViewHeight);
+                self->_leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, tableViewHeight);
                 
-                _rightTableView.frame = CGRectMake(self.origin.x + self.frame.size.width/2, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, tableViewHeight);
+                self->_rightTableView.frame = CGRectMake(self.origin.x + self.frame.size.width/2, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, tableViewHeight);
             } else {
-                _leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, tableViewHeight);
+                self->_leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, tableViewHeight);
             }
-            _buttomImageView.frame = CGRectMake(self.origin.x, CGRectGetMaxY(_leftTableView.frame)-2, self.frame.size.width, kButtomImageViewHeight);
+            self->_buttomImageView.frame = CGRectMake(self.origin.x, CGRectGetMaxY(self->_leftTableView.frame)-2, self.frame.size.width, kButtomImageViewHeight);
         }];
     } else {
         [UIView animateWithDuration:0.2 animations:^{
             if (haveItems) {
-                _leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, 0);
+                self->_leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, 0);
                 
-                _rightTableView.frame = CGRectMake(self.origin.x + self.frame.size.width/2, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, 0);
+                self->_rightTableView.frame = CGRectMake(self.origin.x + self.frame.size.width/2, self.frame.origin.y + self.frame.size.height, self.frame.size.width/2, 0);
             } else {
-                _leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0);
+                self->_leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0);
             }
-            _buttomImageView.frame = CGRectMake(self.origin.x, CGRectGetMaxY(_leftTableView.frame)-2, self.frame.size.width, kButtomImageViewHeight);
+            self->_buttomImageView.frame = CGRectMake(self.origin.x, CGRectGetMaxY(self->_leftTableView.frame)-2, self.frame.size.width, kButtomImageViewHeight);
         } completion:^(BOOL finished) {
-            if (_rightTableView.superview) {
-                [_rightTableView removeFromSuperview];
+            if (self->_rightTableView.superview) {
+                [self->_rightTableView removeFromSuperview];
             }
-            [_leftTableView removeFromSuperview];
-            [_buttomImageView removeFromSuperview];
+            [self->_leftTableView removeFromSuperview];
+            [self->_buttomImageView removeFromSuperview];
         }];
     }
     complete();
@@ -792,7 +792,7 @@
         if (self.isClickHaveItemValid) {
             title.string = [_dataSource menu:self titleForRowAtIndexPath:[XLsn0wFilterMenuIndexPath indexPathWithCol:_currentSelectedMenudIndex row:row]];
             [self animateTitle:title show:YES complete:^{
-                [_rightTableView reloadData];
+                [self->_rightTableView reloadData];
             }];
         } else {
             [_rightTableView reloadData];
@@ -804,7 +804,7 @@
         title.string = [_dataSource menu:self titleForRowAtIndexPath:
                         [XLsn0wFilterMenuIndexPath indexPathWithCol:_currentSelectedMenudIndex row:self.isRemainMenuTitle ? 0 : row]];
         [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
-            _show = NO;
+            self->_show = NO;
         }];
         return YES;
     }
@@ -815,7 +815,7 @@
     NSInteger currentSelectedMenudRow = [_currentSelectRowArray[_currentSelectedMenudIndex] integerValue];
     title.string = [_dataSource menu:self titleForItemsInRowAtIndexPath:[XLsn0wFilterMenuIndexPath indexPathWithCol:_currentSelectedMenudIndex row:currentSelectedMenudRow item:item]];
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
-        _show = NO;
+        self->_show = NO;
     }];
     
 }

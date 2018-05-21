@@ -10,10 +10,6 @@
 		3017C5DF1F59086F003F06D3 /* XLsn0wCountTimeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3017C5DE1F59086F003F06D3 /* XLsn0wCountTimeButton.m */; };
 		30D682611F580ED000720E97 /* XLsn0wCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6824E1F580ED000720E97 /* XLsn0wCacher.m */; };
 		30D682621F580ED000720E97 /* XLsn0wFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682511F580ED000720E97 /* XLsn0wFileManager.m */; };
-		30D682631F580ED000720E97 /* UIImageView+XLsn0wWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682541F580ED000720E97 /* UIImageView+XLsn0wWebImage.m */; };
-		30D682641F580ED000720E97 /* XLsn0wFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682561F580ED000720E97 /* XLsn0wFileDownload.m */; };
-		30D682651F580ED000720E97 /* XLsn0wFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682581F580ED000720E97 /* XLsn0wFileHandle.m */; };
-		30D682661F580ED000720E97 /* XLsn0wImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6825A1F580ED000720E97 /* XLsn0wImageCache.m */; };
 		30D682671F580ED000720E97 /* XLsn0wImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6825D1F580ED000720E97 /* XLsn0wImageLoader.m */; };
 		30D682681F580ED000720E97 /* XLsn0wWebImager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D682601F580ED000720E97 /* XLsn0wWebImager.m */; };
 		351420641EF0DF1C005C3846 /* XLsn0wKit_objc.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 351420631EF0DF1C005C3846 /* XLsn0wKit_objc.bundle */; };
@@ -102,7 +98,6 @@
 		35F80F2B1EF4B87E00031CDA /* XLsn0wLoadingToast+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EE91EF4B87E00031CDA /* XLsn0wLoadingToast+Extension.m */; };
 		35F80F2C1EF4B87E00031CDA /* XLsn0wLoadingToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EEB1EF4B87E00031CDA /* XLsn0wLoadingToast.m */; };
 		35F80F2D1EF4B87E00031CDA /* XLsn0wLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EEE1EF4B87E00031CDA /* XLsn0wLog.m */; };
-		35F80F2E1EF4B87E00031CDA /* XLsn0wMapGeoCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EF31EF4B87E00031CDA /* XLsn0wMapGeoCoder.m */; };
 		35F80F2F1EF4B87E00031CDA /* XLsn0wNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80EF61EF4B87E00031CDA /* XLsn0wNavigationController.m */; };
 		35F80F381EF4B87E00031CDA /* XLsn0wSegmentedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F071EF4B87E00031CDA /* XLsn0wSegmentedBar.m */; };
 		35F80F391EF4B87E00031CDA /* XLsn0wShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F0A1EF4B87E00031CDA /* XLsn0wShow.m */; };
@@ -129,14 +124,6 @@
 		30D6824E1F580ED000720E97 /* XLsn0wCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCacher.m; sourceTree = "<group>"; };
 		30D682501F580ED000720E97 /* XLsn0wFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileManager.h; sourceTree = "<group>"; };
 		30D682511F580ED000720E97 /* XLsn0wFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileManager.m; sourceTree = "<group>"; };
-		30D682531F580ED000720E97 /* UIImageView+XLsn0wWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLsn0wWebImage.h"; sourceTree = "<group>"; };
-		30D682541F580ED000720E97 /* UIImageView+XLsn0wWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLsn0wWebImage.m"; sourceTree = "<group>"; };
-		30D682551F580ED000720E97 /* XLsn0wFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileDownload.h; sourceTree = "<group>"; };
-		30D682561F580ED000720E97 /* XLsn0wFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileDownload.m; sourceTree = "<group>"; };
-		30D682571F580ED000720E97 /* XLsn0wFileHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wFileHandle.h; sourceTree = "<group>"; };
-		30D682581F580ED000720E97 /* XLsn0wFileHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wFileHandle.m; sourceTree = "<group>"; };
-		30D682591F580ED000720E97 /* XLsn0wImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wImageCache.h; sourceTree = "<group>"; };
-		30D6825A1F580ED000720E97 /* XLsn0wImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wImageCache.m; sourceTree = "<group>"; };
 		30D6825C1F580ED000720E97 /* XLsn0wImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wImageLoader.h; sourceTree = "<group>"; };
 		30D6825D1F580ED000720E97 /* XLsn0wImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wImageLoader.m; sourceTree = "<group>"; };
 		30D6825F1F580ED000720E97 /* XLsn0wWebImager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wWebImager.h; sourceTree = "<group>"; };
@@ -312,8 +299,6 @@
 		35F80EED1EF4B87E00031CDA /* XLsn0wLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wLog.h; sourceTree = "<group>"; };
 		35F80EEE1EF4B87E00031CDA /* XLsn0wLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wLog.m; sourceTree = "<group>"; };
 		35F80EF01EF4B87E00031CDA /* XLsn0wMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wMacro.h; sourceTree = "<group>"; };
-		35F80EF21EF4B87E00031CDA /* XLsn0wMapGeoCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wMapGeoCoder.h; sourceTree = "<group>"; };
-		35F80EF31EF4B87E00031CDA /* XLsn0wMapGeoCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wMapGeoCoder.m; sourceTree = "<group>"; };
 		35F80EF51EF4B87E00031CDA /* XLsn0wNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wNavigationController.h; sourceTree = "<group>"; };
 		35F80EF61EF4B87E00031CDA /* XLsn0wNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wNavigationController.m; sourceTree = "<group>"; };
 		35F80F061EF4B87E00031CDA /* XLsn0wSegmentedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wSegmentedBar.h; sourceTree = "<group>"; };
@@ -397,21 +382,6 @@
 				30D682511F580ED000720E97 /* XLsn0wFileManager.m */,
 			);
 			path = XLsn0wFileManager;
-			sourceTree = "<group>";
-		};
-		30D682521F580ED000720E97 /* XLsn0wImageCache */ = {
-			isa = PBXGroup;
-			children = (
-				30D682531F580ED000720E97 /* UIImageView+XLsn0wWebImage.h */,
-				30D682541F580ED000720E97 /* UIImageView+XLsn0wWebImage.m */,
-				30D682551F580ED000720E97 /* XLsn0wFileDownload.h */,
-				30D682561F580ED000720E97 /* XLsn0wFileDownload.m */,
-				30D682571F580ED000720E97 /* XLsn0wFileHandle.h */,
-				30D682581F580ED000720E97 /* XLsn0wFileHandle.m */,
-				30D682591F580ED000720E97 /* XLsn0wImageCache.h */,
-				30D6825A1F580ED000720E97 /* XLsn0wImageCache.m */,
-			);
-			path = XLsn0wImageCache;
 			sourceTree = "<group>";
 		};
 		30D6825B1F580ED000720E97 /* XLsn0wImageLoader */ = {
@@ -941,7 +911,6 @@
 				3017C5DC1F59086F003F06D3 /* XLsn0wCountTimeButton */,
 				30D6824C1F580ED000720E97 /* XLsn0wCacher */,
 				30D6824F1F580ED000720E97 /* XLsn0wFileManager */,
-				30D682521F580ED000720E97 /* XLsn0wImageCache */,
 				30D6825B1F580ED000720E97 /* XLsn0wImageLoader */,
 				30D6825E1F580ED000720E97 /* XLsn0wWebImager */,
 				353594A91F1F5DC700678022 /* XLsn0wDrawQRCoder */,
@@ -966,7 +935,6 @@
 				35F80EE01EF4B87E00031CDA /* XLsn0wCollectionViewFlowLayout */,
 				35F80EE41EF4B87E00031CDA /* XLsn0wFilterMenu */,
 				35F80EE71EF4B87E00031CDA /* XLsn0wLoadingToast */,
-				35F80EF11EF4B87E00031CDA /* XLsn0wMapGeoCoder */,
 				35F80EF41EF4B87E00031CDA /* XLsn0wNavigationController */,
 				35F80F051EF4B87E00031CDA /* XLsn0wSegmentedBar */,
 				35F80F081EF4B87E00031CDA /* XLsn0wShow */,
@@ -1076,15 +1044,6 @@
 				35E242971EFA228000D0572A /* XLsn0wConfigMacro.h */,
 			);
 			path = XLsn0wMacro;
-			sourceTree = "<group>";
-		};
-		35F80EF11EF4B87E00031CDA /* XLsn0wMapGeoCoder */ = {
-			isa = PBXGroup;
-			children = (
-				35F80EF21EF4B87E00031CDA /* XLsn0wMapGeoCoder.h */,
-				35F80EF31EF4B87E00031CDA /* XLsn0wMapGeoCoder.m */,
-			);
-			path = XLsn0wMapGeoCoder;
 			sourceTree = "<group>";
 		};
 		35F80EF41EF4B87E00031CDA /* XLsn0wNavigationController */ = {
@@ -1382,7 +1341,6 @@
 				35E2431C1EFA617300D0572A /* XLsn0wHUD.m in Sources */,
 				3594D4FD1EFD3B8300DF291D /* UIFont+Extension.m in Sources */,
 				35E2431D1EFA617300D0572A /* XLsn0wLoadHUD.m in Sources */,
-				30D682651F580ED000720E97 /* XLsn0wFileHandle.m in Sources */,
 				35E242811EFA1D7600D0572A /* XLNetManager.m in Sources */,
 				35F80F211EF4B87E00031CDA /* XLsn0wDatabase.m in Sources */,
 				35E2430E1EFA612500D0572A /* XLsn0wCityButton.m in Sources */,
@@ -1399,7 +1357,6 @@
 				35F80DE91EF4B87700031CDA /* NSDate+XL.m in Sources */,
 				35F80F3B1EF4B87E00031CDA /* XLsn0wTextView.m in Sources */,
 				35F80F2D1EF4B87E00031CDA /* XLsn0wLog.m in Sources */,
-				30D682641F580ED000720E97 /* XLsn0wFileDownload.m in Sources */,
 				3594D4EA1EFD394E00DF291D /* XLsn0wMiddleTabBar.m in Sources */,
 				35F80DCD1EF4B87700031CDA /* CALayer+XLsn0w.m in Sources */,
 				35F80F231EF4B87E00031CDA /* XLsn0wGuidePager.m in Sources */,
@@ -1418,8 +1375,6 @@
 				35F80DF51EF4B87700031CDA /* NSDictionary+XLsn0w.m in Sources */,
 				CD5270BB2068D026005913C2 /* XLsn0wNineSquarer.m in Sources */,
 				35F80E4D1EF4B87700031CDA /* UIColor+BgColor.m in Sources */,
-				30D682631F580ED000720E97 /* UIImageView+XLsn0wWebImage.m in Sources */,
-				35F80F2E1EF4B87E00031CDA /* XLsn0wMapGeoCoder.m in Sources */,
 				30D682671F580ED000720E97 /* XLsn0wImageLoader.m in Sources */,
 				35F80E6D1EF4B87700031CDA /* UIImage+XLsn0w.m in Sources */,
 				35E243261EFA64D000D0572A /* XLsn0wUdpSocket.m in Sources */,
@@ -1439,7 +1394,6 @@
 				35E2430B1EFA612500D0572A /* XLsn0wCityAreaDataManager.m in Sources */,
 				35F80F381EF4B87E00031CDA /* XLsn0wSegmentedBar.m in Sources */,
 				35F80E901EF4B87700031CDA /* UITabBarController+XLsn0w.m in Sources */,
-				30D682661F580ED000720E97 /* XLsn0wImageCache.m in Sources */,
 				35E2428A1EFA202300D0572A /* UIBezierPath+curved.m in Sources */,
 				35E2432A1EFA66D100D0572A /* XLsn0wLocation.m in Sources */,
 				35F80F1D1EF4B87E00031CDA /* XLsn0wDisplayImageCell.m in Sources */,

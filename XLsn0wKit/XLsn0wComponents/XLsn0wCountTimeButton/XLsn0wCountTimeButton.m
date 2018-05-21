@@ -66,8 +66,8 @@
         if (_countDownChanging)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self setTitle:_countDownChanging(self,_second) forState:UIControlStateNormal];
-                [self setTitle:_countDownChanging(self,_second) forState:UIControlStateDisabled];
+                [self setTitle:self->_countDownChanging(self,self->_second) forState:UIControlStateNormal];
+                [self setTitle:self->_countDownChanging(self,self->_second) forState:UIControlStateDisabled];
             });
         }
         else
@@ -91,8 +91,8 @@
                 if (_countDownFinished)
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self setTitle:_countDownFinished(self,_totalSecond)forState:UIControlStateNormal];
-                        [self setTitle:_countDownFinished(self,_totalSecond)forState:UIControlStateDisabled];
+                        [self setTitle:self->_countDownFinished(self,self->_totalSecond)forState:UIControlStateNormal];
+                        [self setTitle:self->_countDownFinished(self,self->_totalSecond)forState:UIControlStateDisabled];
                     });
                 }
                 else

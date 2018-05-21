@@ -33,7 +33,6 @@
 #import "XLsn0wDrawQRCoder.h"
 #import "XLsn0wImageLoader.h"
 #import "XLsn0wNineSquarer.h"
-#import "XLsn0wMapGeoCoder.h"
 #import "XLsn0wCityChooser.h"
 #import "XLsn0wSegmentedBar.h"
 #import "XLsn0wLoadingToast.h"

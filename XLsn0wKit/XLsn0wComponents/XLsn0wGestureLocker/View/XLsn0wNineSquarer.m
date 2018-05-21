@@ -144,7 +144,7 @@
         // 注意：我们在密码判定过程中是通过根据先前布局按钮的时候定义的按钮tag值进行字符串拼接，密码传值是通过代理实现。
         NSMutableString *gesturePwd = @"".mutableCopy;
         for (UIButton *button in self.selectBtns) {
-            [gesturePwd appendFormat:@"%ld",button.tag-1];
+            [gesturePwd appendFormat:@"%ld",(long)(button.tag-1)];
             button.selected = NO;
         }
         [self.selectBtns removeAllObjects];

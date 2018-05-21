@@ -33,7 +33,7 @@
         
         //Click XLsn0wSegmentedBar Event
         _xlsn0wSegmentedView=[[XLsn0wSegmentedView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, 35) titles:titleArray clickBlick:^void(NSInteger index) {
-            [_bottomScrollView setContentOffset:CGPointMake(MainScreen_W * (index-1), 0)];
+            [self->_bottomScrollView setContentOffset:CGPointMake(MainScreen_W * (index-1), 0)];
             [self.xlsn0wDelegate segmentedBar:self didSelectAtIndex:(index-1)];
         }];
         [self addSubview:_xlsn0wSegmentedView];
@@ -183,8 +183,8 @@
     [UIView animateWithDuration:.2 animations:^{
         
         CGFloat lineW = [self.titlesStrWidthArray[btn.tag-1] floatValue];
-        [_backScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-        _selectLine.frame=CGRectMake(btn.frame.origin.x+(_btn_w-lineW)/2, self.frame.size.height-2, lineW, 2);
+        [self->_backScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+        self->_selectLine.frame=CGRectMake(btn.frame.origin.x+(self->_btn_w-lineW)/2, self.frame.size.height-2, lineW, 2);
         
     } completion:^(BOOL finished) {
         
