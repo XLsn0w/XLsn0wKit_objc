@@ -35,7 +35,7 @@
 - (void)touched:(XLsn0wCountTimeButton *)sender{
     if (_touchedCountDownButtonHandler) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            _touchedCountDownButtonHandler(sender,sender.tag);
+            self->_touchedCountDownButtonHandler(sender,sender.tag);
         });
     }
 }

@@ -257,7 +257,7 @@
     [visibleSections enumerateIndexesUsingBlock:^(NSUInteger sectionIdx, BOOL *stop) {
         
         //# items
-        for (UICollectionViewLayoutAttributes *itemAttr in layoutItemAttributes[sectionIdx]) {
+        for (UICollectionViewLayoutAttributes *itemAttr in self->layoutItemAttributes[sectionIdx]) {
             CGRect itemRect = itemAttr.frame;
             itemAttr.zIndex = 1;
             BOOL isVisible = CGRectIntersectsRect(rect, itemRect);
@@ -266,19 +266,19 @@
         }
         
         //# footer
-        if([headerFooterItemAttributes[UICollectionElementKindSectionFooter] count] > sectionIdx){
-            UICollectionViewLayoutAttributes *footerAttribute = headerFooterItemAttributes[UICollectionElementKindSectionFooter][sectionIdx];
+        if([self->headerFooterItemAttributes[UICollectionElementKindSectionFooter] count] > sectionIdx){
+            UICollectionViewLayoutAttributes *footerAttribute = self->headerFooterItemAttributes[UICollectionElementKindSectionFooter][sectionIdx];
             BOOL isVisible = CGRectIntersectsRect(rect, footerAttribute.frame);
             if (isVisible && footerAttribute)
                 [itemAttrs addObject:footerAttribute];
-            currentEdgeInsets = UIEdgeInsetsZero;
+            self->currentEdgeInsets = UIEdgeInsetsZero;
         }else{
-            currentEdgeInsets = [sectionInsetses[sectionIdx] UIEdgeInsetsValue];
+            self->currentEdgeInsets = [self->sectionInsetses[sectionIdx] UIEdgeInsetsValue];
         }
         
         //# header
-        if([headerFooterItemAttributes[UICollectionElementKindSectionHeader] count] > sectionIdx){
-            UICollectionViewLayoutAttributes *headerAttribute = headerFooterItemAttributes[UICollectionElementKindSectionHeader][sectionIdx];
+        if([self->headerFooterItemAttributes[UICollectionElementKindSectionHeader] count] > sectionIdx){
+            UICollectionViewLayoutAttributes *headerAttribute = self->headerFooterItemAttributes[UICollectionElementKindSectionHeader][sectionIdx];
             
             if(!self.enableStickyHeaders){
                 BOOL isVisibleHeader = CGRectIntersectsRect(rect, headerAttribute.frame);

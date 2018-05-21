@@ -270,10 +270,10 @@
             _titleBtn=btn;
             btn.selected=YES;
             CGFloat lineW = [self.titlesStrWidthArray[btn.tag-1] floatValue];
-            
+    
             [UIView animateWithDuration:0.3 animations:^{
-                _selectLine.layer.left=btn.frame.origin.x+(_btn_w-lineW)/2;
-                _selectLine.layer.width=lineW;
+                self->_selectLine.layer.left=btn.frame.origin.x+(self->_btn_w-lineW)/2;
+                self->_selectLine.layer.width=lineW;
             }];
             
         }else{

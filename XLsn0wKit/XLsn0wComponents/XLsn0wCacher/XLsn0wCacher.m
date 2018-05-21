@@ -60,10 +60,11 @@ static XLsn0wCacher *cacher = nil;
 
 - (void)performWithImage:(UIImage *)image andKey:(NSString *)key
 {
+    @WeakObj(self);
     if (_memoryCacheEnabled) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             if (image) {
-                [_cache setObject:image forKey:key];
+                [selfWeak.cache setObject:image forKey:key];
             }
         });
     }
@@ -71,9 +72,10 @@ static XLsn0wCacher *cacher = nil;
 
 - (void)performWithImageData:(NSData *)imgData andKey:(NSString *)key {
     if (_memoryCacheEnabled) {
+        @WeakObj(self);
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             if (imgData) {
-                [_cache setObject:imgData forKey:key];
+                [selfWeak.cache setObject:imgData forKey:key];
             }
         });
     }

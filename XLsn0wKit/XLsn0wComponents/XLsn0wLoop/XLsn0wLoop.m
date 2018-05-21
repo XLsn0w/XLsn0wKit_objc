@@ -305,10 +305,11 @@ static NSString *cache;
         self.nextIndex = (self.currIndex + 1) % _loopImageArray.count;
         self.otherImageView.image = _loopImageArray[_nextIndex];
         
+        @WeakObj(self);
         [UIView animateWithDuration:1.2 animations:^{
             self.currImageView.alpha = 0;
             self.otherImageView.alpha = 1;
-            self.pageControl.currentPage = _nextIndex;
+            self.pageControl.currentPage = selfWeak.nextIndex;
         } completion:^(BOOL finished) {
             [self changeToNext];
         }];
@@ -363,9 +364,10 @@ static NSString *cache;
         //取到的data有可能不是图片
         if (image) {
             self.loopImageArray[index] = image;
+            @WeakObj(self);
             //如果下载的图片为当前要显示的图片，直接到主线程给imageView赋值，否则要等到下一轮才会显示
-            if (_currIndex == index) [_currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
-            if (_autoCache) [data writeToFile:path atomically:YES];
+            if (selfWeak.currIndex == index) [selfWeak.currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+            if (selfWeak.autoCache) [data writeToFile:path atomically:YES];
         }
     }];
     [self.queue addOperation:download];

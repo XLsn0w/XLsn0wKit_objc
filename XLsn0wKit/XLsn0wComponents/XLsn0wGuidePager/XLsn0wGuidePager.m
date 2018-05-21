@@ -391,13 +391,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
     [UIView animateWithDuration:0.3 animations:^{
-        for (int idx = 0; idx < pageViews.count; idx++) {
+        for (int idx = 0; idx < self->pageViews.count; idx++) {
             if (idx == panelIndex) {
-                [pageViews[idx] setAlpha:1];
+                [self->pageViews[idx] setAlpha:1];
             }
             else {
                 if(!self.hideOffscreenPages) {
-                    [pageViews[idx] setAlpha:0];
+                    [self->pageViews[idx] setAlpha:0];
                 }
             }
         }
