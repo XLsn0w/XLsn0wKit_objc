@@ -246,7 +246,7 @@
             return;
         }
         
-        self.statusLabel.text = [NSString stringWithFormat:@"密码错误，还可以再输入%ld次",--errorCount];
+        self.statusLabel.text = [NSString stringWithFormat:@"密码错误，还可以再输入%ld次", (long)--errorCount];
         [self shakeAnimationForView:self.statusLabel];
     }
 }
