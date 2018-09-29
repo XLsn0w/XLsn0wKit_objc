@@ -1,6 +1,7 @@
 
 #import "UIImage+XLsn0w.h"
 #import <UIKit/UIKit.h>
+#import "XLsn0wLog.h"
 
 @implementation UIImage (XLsn0w)
 
@@ -88,7 +89,7 @@
     // 这里调用imageWithName，相当于调用imageName
     UIImage *image = [UIImage wg_imageWithName:imageName];
     if (!image) {
-        NSLog(@"imageNamed对应图片名称不符或者不存在");
+        XLsn0wLog(@"imageNamed图片->名称不符或者不存在");
     }
     return image;
 }
