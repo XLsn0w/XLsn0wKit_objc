@@ -77,19 +77,19 @@
     Method imageNameMethod = class_getClassMethod(self, @selector(imageNamed:));
     
     // 获取wg_imageWithName:方法的地址
-    Method wg_imageWithNameMethod = class_getClassMethod(self, @selector(wg_imageWithName:));
+    Method custom_imageWithNameMethod = class_getClassMethod(self, @selector(wg_imageWithName:));
     
     // 交换方法地址，相当于交换实现方式
-    method_exchangeImplementations(imageNameMethod, wg_imageWithNameMethod);
+    method_exchangeImplementations(imageNameMethod, custom_imageWithNameMethod);
     
 }
 
 // 加载图片, 判断是否为空
-+ (UIImage *)wg_imageWithName:(NSString *)imageName {
++ (UIImage *)log_imageWithName:(NSString *)imageName {
     // 这里调用imageWithName，相当于调用imageName
-    UIImage *image = [UIImage wg_imageWithName:imageName];
+    UIImage *image = [UIImage log_imageWithName:imageName];
     if (!image) {
-        XLsn0wLog(@"imageNamed图片->名称不符或者不存在");
+        XLsn0wLog(@"imageNamed->图片名称不符/不存在");
     }
     return image;
 }
