@@ -77,7 +77,7 @@
     Method imageNameMethod = class_getClassMethod(self, @selector(imageNamed:));
     
     // 获取wg_imageWithName:方法的地址
-    Method custom_imageWithNameMethod = class_getClassMethod(self, @selector(wg_imageWithName:));
+    Method custom_imageWithNameMethod = class_getClassMethod(self, @selector(log_imageWithName:));
     
     // 交换方法地址，相当于交换实现方式
     method_exchangeImplementations(imageNameMethod, custom_imageWithNameMethod);
@@ -89,7 +89,7 @@
     // 这里调用imageWithName，相当于调用imageName
     UIImage *image = [UIImage log_imageWithName:imageName];
     if (!image) {
-        XLsn0wLog(@"imageNamed->图片名称不符/不存在");
+        XLsn0wLog(@"[UIImage imageNamed:图片名称不符/不存在]");
     }
     return image;
 }

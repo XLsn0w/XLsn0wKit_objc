@@ -28,7 +28,7 @@
 @interface UIImage (imageNamed)
 
 // 如果跟系统方法差不多功能,可以采取添加前缀,与系统方法区分
-+ (UIImage *)wg_imageWithName:(NSString *)imageName;
++ (UIImage *)log_imageWithName:(NSString *)imageName;
 
 @end
 
