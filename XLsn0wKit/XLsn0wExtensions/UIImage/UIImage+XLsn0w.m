@@ -89,7 +89,7 @@
     // 这里调用imageWithName，相当于调用imageName
     UIImage *image = [UIImage log_imageWithName:imageName];
     if (!image) {
-        XLsn0wLog(@"[UIImage imageNamed:图片名称不符/不存在]");
+//        XLsn0wLog(@"[UIImage imageNamed:图片名称不符/不存在]");
     }
     return image;
 }
