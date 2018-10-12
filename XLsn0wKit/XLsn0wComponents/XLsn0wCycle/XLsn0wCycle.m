@@ -12,6 +12,7 @@
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#import "Masonry.h"
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
@@ -113,6 +114,8 @@ NSString * const ID = @"cycleCell";
     mainView.scrollsToTop = NO;
     [self addSubview:mainView];
     _mainView = mainView;
+    
+    [self addPageNumber];
 }
 
 
@@ -284,6 +287,7 @@ NSString * const ID = @"cycleCell";
         }
     }];
     self.imagePathsGroup = [temp copy];
+    _pageNumber.text = [NSString stringWithFormat:@"%d/%ld", 1, _imageURLStringArray.count];
 }
 
 - (void)setLocalizationImageNamesGroup:(NSArray *)localizationImageNamesGroup
@@ -333,7 +337,8 @@ NSString * const ID = @"cycleCell";
     switch (self.pageControlStyle) {
             
         case PageContolStyleAnimated: {
-            
+            _pageNumber.hidden = YES;
+            _isShowPage = NO;
             TAPageControl *pageControl = [[TAPageControl alloc] init];
             pageControl.numberOfPages = self.imagePathsGroup.count;
             pageControl.dotColor = self.currentPageDotColor;
@@ -345,7 +350,8 @@ NSString * const ID = @"cycleCell";
             break;
             
         case PageContolStyleClassic: {
-            
+            _pageNumber.hidden = YES;
+            _isShowPage = NO;
             UIPageControl *pageControl = [[UIPageControl alloc] init];
             pageControl.numberOfPages = self.imagePathsGroup.count;
             pageControl.currentPageIndicatorTintColor = self.currentPageDotColor;
@@ -354,6 +360,12 @@ NSString * const ID = @"cycleCell";
             pageControl.currentPage = indexOnPageControl;
             [self addSubview:pageControl];
             _pageControl = pageControl;
+        }
+            break;
+            
+        case PageContolStylePageNumber : {
+            _pageNumber.hidden = NO;
+            _isShowPage = YES;
         }
             break;
             
@@ -371,8 +383,7 @@ NSString * const ID = @"cycleCell";
 }
 
 
-- (void)automaticScroll
-{
+- (void)automaticScroll {
     if (0 == _totalItemsCount) return;
     int currentIndex = [self currentIndex];
     int targetIndex = currentIndex + 1;
@@ -389,6 +400,20 @@ NSString * const ID = @"cycleCell";
         return;
     }
     [_mainView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+}
+
+- (void)addPageNumber {
+    _pageNumber = [[UILabel alloc] init];
+    [self addSubview:_pageNumber];
+    [_pageNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-5);
+        make.bottom.mas_equalTo(-10);
+        make.height.mas_equalTo(13);
+    }];
+}
+
+- (void)showPageLabel:(NSInteger)index {
+    _pageNumber.text = [NSString stringWithFormat:@"%ld/%ld", index+1, _imageURLStringArray.count];
 }
 
 - (int)currentIndex
@@ -599,6 +624,10 @@ NSString * const ID = @"cycleCell";
     int itemIndex = [self currentIndex];
     int indexOnPageControl = [self pageControlIndexWithCurrentCellIndex:itemIndex];
     
+    if (_isShowPage == YES) {
+        [self showPageLabel:indexOnPageControl];///添加右侧页码显示
+    }
+
     if ([self.delegate respondsToSelector:@selector(cycle:didScrollToIndex:)]) {
         [self.delegate cycle:self didScrollToIndex:indexOnPageControl];
     } else if (self.itemDidScrollOperationBlock) {

@@ -18,6 +18,7 @@ typedef enum {
 typedef enum {
     PageContolStyleClassic,        // 系统自带经典样式
     PageContolStyleAnimated,       // 动画效果pagecontrol
+    PageContolStylePageNumber,           // 右侧数字页码
     PageContolStyleNone            // 不显示pagecontrol
 } PageContolStyle;
 
@@ -49,6 +50,8 @@ typedef enum {
 /** 本地图片轮播初始化方式2,infiniteLoop:是否无限循环 */
 + (instancetype)cycleWithFrame:(CGRect)frame shouldInfiniteLoop:(BOOL)infiniteLoop imageNamesGroup:(NSArray *)imageNamesGroup;
 
+@property (nonatomic, strong) UILabel *pageNumber;
+@property (nonatomic, assign) BOOL isShowPage;
 
 //////////////////////  数据源接口  //////////////////////
 

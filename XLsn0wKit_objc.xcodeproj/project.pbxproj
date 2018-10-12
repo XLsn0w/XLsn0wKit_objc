@@ -38,7 +38,6 @@
 		35E242901EFA20DC00D0572A /* UIView+Addbadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2428F1EFA20DC00D0572A /* UIView+Addbadge.m */; };
 		35E2429B1EFA22B700D0572A /* XLsn0wMaskBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2429A1EFA22B700D0572A /* XLsn0wMaskBlurView.m */; };
 		35E2429E1EFA241000D0572A /* UINavigationBar+BarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2429D1EFA241000D0572A /* UINavigationBar+BarStyle.m */; };
-		35E242EB1EFA5F9300D0572A /* XLsn0wCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */; };
 		35E2430B1EFA612500D0572A /* XLsn0wCityAreaDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242F61EFA612500D0572A /* XLsn0wCityAreaDataManager.m */; };
 		35E2430C1EFA612500D0572A /* XLsn0wCityLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242F91EFA612500D0572A /* XLsn0wCityLocation.m */; };
 		35E2430D1EFA612500D0572A /* XLsn0wCityChooser.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 35E242FB1EFA612500D0572A /* XLsn0wCityChooser.sqlite */; };
@@ -108,6 +107,7 @@
 		35F80F3F1EF4B87E00031CDA /* XLsn0wTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F80F1C1EF4B87E00031CDA /* XLsn0wTextField.m */; };
 		35FC05951EFB4C1F00DA1EF0 /* XLsn0wLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FC05931EFB4C1F00DA1EF0 /* XLsn0wLoop.m */; };
 		72504FC88DCD9DC42F2EE315 /* libPods-XLsn0wKit_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */; };
+		78DE281D2170AA9100903EFF /* XLsn0wCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DE281C2170AA9100903EFF /* XLsn0wCycle.m */; };
 		CD19A998209C6688002C6EB6 /* XLsn0wUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A990209C6687002C6EB6 /* XLsn0wUnderlineButton.m */; };
 		CD19A999209C6688002C6EB6 /* XLsn0wLineProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A992209C6688002C6EB6 /* XLsn0wLineProgressView.m */; };
 		CD19A99A209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19A995209C6688002C6EB6 /* XLsn0wBeelineProgressBar.m */; };
@@ -177,8 +177,6 @@
 		35E2429A1EFA22B700D0572A /* XLsn0wMaskBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wMaskBlurView.m; sourceTree = "<group>"; };
 		35E2429C1EFA241000D0572A /* UINavigationBar+BarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BarStyle.h"; sourceTree = "<group>"; };
 		35E2429D1EFA241000D0572A /* UINavigationBar+BarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BarStyle.m"; sourceTree = "<group>"; };
-		35E242E81EFA5F9300D0572A /* XLsn0wCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCycle.h; sourceTree = "<group>"; };
-		35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCycle.m; sourceTree = "<group>"; };
 		35E242F51EFA612500D0572A /* XLsn0wCityAreaDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCityAreaDataManager.h; sourceTree = "<group>"; };
 		35E242F61EFA612500D0572A /* XLsn0wCityAreaDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCityAreaDataManager.m; sourceTree = "<group>"; };
 		35E242F81EFA612500D0572A /* XLsn0wCityLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCityLocation.h; sourceTree = "<group>"; };
@@ -318,6 +316,8 @@
 		35FC05921EFB4C1F00DA1EF0 /* XLsn0wLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wLoop.h; sourceTree = "<group>"; };
 		35FC05931EFB4C1F00DA1EF0 /* XLsn0wLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wLoop.m; sourceTree = "<group>"; };
 		62EE01EE4AD66A8020783DBB /* libPods-XLsn0wKit_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wKit_objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78DE281B2170AA9100903EFF /* XLsn0wCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wCycle.h; sourceTree = "<group>"; };
+		78DE281C2170AA9100903EFF /* XLsn0wCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wCycle.m; sourceTree = "<group>"; };
 		911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wKit_objc.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wKit_objc/Pods-XLsn0wKit_objc.release.xcconfig"; sourceTree = "<group>"; };
 		CD19A990209C6687002C6EB6 /* XLsn0wUnderlineButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wUnderlineButton.m; sourceTree = "<group>"; };
@@ -550,8 +550,8 @@
 		35E242E61EFA5F9300D0572A /* XLsn0wCycle */ = {
 			isa = PBXGroup;
 			children = (
-				35E242E81EFA5F9300D0572A /* XLsn0wCycle.h */,
-				35E242E91EFA5F9300D0572A /* XLsn0wCycle.m */,
+				78DE281B2170AA9100903EFF /* XLsn0wCycle.h */,
+				78DE281C2170AA9100903EFF /* XLsn0wCycle.m */,
 			);
 			path = XLsn0wCycle;
 			sourceTree = "<group>";
@@ -1313,7 +1313,6 @@
 				30D682611F580ED000720E97 /* XLsn0wCacher.m in Sources */,
 				35F80EAB1EF4B87700031CDA /* UIView+XLsn0wKit.m in Sources */,
 				35F80E7F1EF4B87700031CDA /* UINavigationBar+XLsn0w.m in Sources */,
-				35E242EB1EFA5F9300D0572A /* XLsn0wCycle.m in Sources */,
 				35E2430C1EFA612500D0572A /* XLsn0wCityLocation.m in Sources */,
 				35F80F251EF4B87E00031CDA /* XLNetworkMonitor.m in Sources */,
 				35F80E4B1EF4B87700031CDA /* UIButton+XLsn0wBadge.m in Sources */,
@@ -1397,6 +1396,7 @@
 				35E2428A1EFA202300D0572A /* UIBezierPath+curved.m in Sources */,
 				35E2432A1EFA66D100D0572A /* XLsn0wLocation.m in Sources */,
 				35F80F1D1EF4B87E00031CDA /* XLsn0wDisplayImageCell.m in Sources */,
+				78DE281D2170AA9100903EFF /* XLsn0wCycle.m in Sources */,
 				35F80EAC1EF4B87700031CDA /* UIViewController+AddIsAutorotate.m in Sources */,
 				35F80F3F1EF4B87E00031CDA /* XLsn0wTextField.m in Sources */,
 				35F80DCC1EF4B87700031CDA /* CAAnimation+XLsn0w.m in Sources */,
