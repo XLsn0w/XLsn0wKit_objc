@@ -31,11 +31,11 @@
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
 /*! 屏幕比率 以iPhone 7 | 375x667为基准 */
-#define kFitWidth  ([UIScreen mainScreen].bounds.size.width / 375)
+#define kFitWidth  ([UIScreen mainScreen].bounds.size.width  / 375)
 #define kFitHeight ([UIScreen mainScreen].bounds.size.height / 667)
 
-#define mas_width  ([UIScreen mainScreen].bounds.size.width  / 375)
-#define mas_height ([UIScreen mainScreen].bounds.size.height / 667)
+#define scale_width  ([UIScreen mainScreen].bounds.size.width  / 375)
+#define scale_height ([UIScreen mainScreen].bounds.size.height / 667)
 
 /*! Masonry相关比率 以iPhone 6 Plus为基准 */
 #define kFitLeft   ([UIScreen mainScreen].bounds.size.width / 414)

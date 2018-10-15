@@ -35,7 +35,7 @@
     _progressText.font = [UIFont boldSystemFontOfSize:12];
     [self addSubview:_progressText];
     [_progressText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-20*mas_width);
+        make.right.mas_equalTo(-20*scale_width);
         make.height.mas_equalTo(15);
         make.centerY.mas_equalTo(self);
     }];
