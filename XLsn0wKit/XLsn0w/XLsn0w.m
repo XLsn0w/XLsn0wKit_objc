@@ -103,6 +103,43 @@
     return singleton;
 }
 
++ (NSString *)isStringNullOrEmpty:(NSString*)str {
+    if ([str isKindOfClass:[NSNull class]] || str == nil || [str isEqualToString:@""]) {
+        return @"";
+    }
+    return str;
+}
+
++ (NSMutableAttributedString *)firstString:(NSString *)firstString
+                                firstColor:(UIColor *)firstColor
+                              secondString:(NSString *)secondString
+                               secondColor:(UIColor *)secondColor {
+    
+    // 创建 firstAttributedString
+    NSMutableAttributedString * firstAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0w isStringNullOrEmpty:firstString]];
+    
+    // 设置 firstAttributes 属性 （字体、颜色）
+    NSDictionary * firstAttributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:firstColor};
+    
+    // 设置 firstAttributedString 长度范围
+    [firstAttributedString setAttributes:firstAttributes range:NSMakeRange(0,firstAttributedString.length)];
+    
+    // 创建 secondAttributedString
+    NSMutableAttributedString * secondAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0w isStringNullOrEmpty:secondString]];
+    
+    // 设置 secondAttributes 属性 （字体、颜色）
+    NSDictionary * secondAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:secondColor};
+    
+    // 设置 secondAttributedString 长度范围
+    [secondAttributedString setAttributes:secondAttributes range:NSMakeRange(0,secondAttributedString.length)];
+    
+    // 将两个firstAttributedString 和 secondAttributedString 进行字符串拼接
+    [firstAttributedString appendAttributedString:secondAttributedString];
+    
+    // 返回字符串
+    return firstAttributedString;
+}
+
 /**
  有时候我们的NavigationController下面会有好几层，
  进到里面的view之后又想返回到上面的几层view，

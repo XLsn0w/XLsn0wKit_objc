@@ -41,7 +41,7 @@ typedef enum {
 /** 初始轮播图（推荐使用） */
 + (instancetype)cycleWithFrame:(CGRect)frame delegate:(id<XLsn0wCycleDelegate>)delegate placeholderImage:(UIImage *)placeholderImage;
 
-+ (instancetype)cycleWithFrame:(CGRect)frame imageURLStringsGroup:(NSArray *)imageURLStringsGroup;
++ (instancetype)cycleWithFrame:(CGRect)frame imageURLs:(NSArray *)imageURLs;
 
 
 /** 本地图片轮播初始化方式 */
@@ -56,7 +56,7 @@ typedef enum {
 //////////////////////  数据源接口  //////////////////////
 
 /** 网络图片 url string 数组 */
-@property (nonatomic, strong) NSArray *imageURLStringArray;
+@property (nonatomic, strong) NSArray *imageURLs;
 
 /** 每张图片对应要显示的文字数组 */
 @property (nonatomic, strong) NSArray *titlesGroup;

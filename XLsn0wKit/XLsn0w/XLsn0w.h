@@ -10,6 +10,7 @@
  *********************************************************************************************/
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#define XLsn0wShared [XLsn0w shared]
 /*********************************************************************************************
  *   __      __   _         _________     _ _     _    _________   __         _         __   *
  *   \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
@@ -637,6 +638,12 @@ struct SolarTerm {
 
 + (instancetype _Nullable)shared;
 + (NSString *_Nullable)deviceModel;
+
++ (NSString *)isStringNullOrEmpty:(NSString*)str;
++ (NSMutableAttributedString *)firstString:(NSString *)firstString
+                                firstColor:(UIColor *)firstColor
+                              secondString:(NSString *)secondString
+                               secondColor:(UIColor *)secondColor;
 
 + (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController
                                           viewIndex:(NSUInteger)viewIndex;

@@ -82,9 +82,9 @@ NSString * const ID = @"cycleCell";
     return cycleScrollView;
 }
 
-+ (instancetype)cycleWithFrame:(CGRect)frame imageURLStringsGroup:(NSArray *)imageURLsGroup {
++ (instancetype)cycleWithFrame:(CGRect)frame imageURLs:(NSArray *)imageURLs {
     XLsn0wCycle *cycleScrollView = [[self alloc] initWithFrame:frame];
-    cycleScrollView.imageURLStringArray = [NSMutableArray arrayWithArray:imageURLsGroup];
+    cycleScrollView.imageURLs = [NSMutableArray arrayWithArray:imageURLs];
     return cycleScrollView;
 }
 
@@ -270,11 +270,11 @@ NSString * const ID = @"cycleCell";
     [self.mainView reloadData];
 }
 
-- (void)setImageURLStringArray:(NSArray *)imageURLStringArray{
-    _imageURLStringArray = imageURLStringArray;
+- (void)setImageURLs:(NSArray *)imageURLs {
+    _imageURLs = imageURLs;
     
     NSMutableArray *temp = [NSMutableArray new];
-    [_imageURLStringArray enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * stop) {
+    [_imageURLs enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * stop) {
         NSString *urlString;
         if ([obj isKindOfClass:[NSString class]]) {
             urlString = obj;
@@ -287,7 +287,6 @@ NSString * const ID = @"cycleCell";
         }
     }];
     self.imagePathsGroup = [temp copy];
-    _pageNumber.text = [NSString stringWithFormat:@"%d/%ld", 1, _imageURLStringArray.count];
 }
 
 - (void)setLocalizationImageNamesGroup:(NSArray *)localizationImageNamesGroup
@@ -305,7 +304,7 @@ NSString * const ID = @"cycleCell";
             [temp addObject:@""];
         }
         self.backgroundColor = [UIColor clearColor];
-        self.imageURLStringArray = [temp copy];
+        self.imageURLs = [temp copy];
     }
 }
 
@@ -366,6 +365,9 @@ NSString * const ID = @"cycleCell";
         case PageContolStylePageNumber : {
             _pageNumber.hidden = NO;
             _isShowPage = YES;
+            if (_isShowPage == YES) {
+                [self showPageNumber:0];///添加右侧页码显示
+            }
         }
             break;
             
@@ -412,8 +414,8 @@ NSString * const ID = @"cycleCell";
     }];
 }
 
-- (void)showPageLabel:(NSInteger)index {
-    _pageNumber.text = [NSString stringWithFormat:@"%ld/%ld", index+1, _imageURLStringArray.count];
+- (void)showPageNumber:(NSInteger)index {
+    _pageNumber.text = [NSString stringWithFormat:@"%ld/%ld", index+1, _imageURLs.count];
 }
 
 - (int)currentIndex
@@ -625,7 +627,7 @@ NSString * const ID = @"cycleCell";
     int indexOnPageControl = [self pageControlIndexWithCurrentCellIndex:itemIndex];
     
     if (_isShowPage == YES) {
-        [self showPageLabel:indexOnPageControl];///添加右侧页码显示
+        [self showPageNumber:indexOnPageControl];///添加右侧页码显示
     }
 
     if ([self.delegate respondsToSelector:@selector(cycle:didScrollToIndex:)]) {
