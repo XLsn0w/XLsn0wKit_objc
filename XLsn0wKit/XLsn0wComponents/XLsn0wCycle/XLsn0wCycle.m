@@ -13,6 +13,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "Masonry.h"
+#import "UIImageView+CenterClip.h"
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
@@ -142,6 +143,15 @@ NSString * const ID = @"cycleCell";
     if ([self.pageControl isKindOfClass:[TAPageControl class]]) {
         TAPageControl *pageContol = (TAPageControl *)_pageControl;
         pageContol.dotSize = pageControlDotSize;
+    }
+}
+
+- (void)setIsCenterClip:(BOOL)isCenterClip {
+    _isCenterClip = isCenterClip;
+    if (isCenterClip == YES) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"isCenterClip" object:@{@"isCenterClip":@(1)}];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"isCenterClip" object:@{@"isCenterClip":@(0)}];
     }
 }
 
@@ -655,15 +665,20 @@ NSString * const ID = @"cycleCell";
     __weak UILabel *_titleLabel;
 }
 
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isImageViewCenterClip:) name:@"isCenterClip" object:nil];
         [self setupImageView];
         [self setupTitleLabel];
     }
-    
     return self;
+}
+
+- (void)isImageViewCenterClip:(NSNotification*)notice {
+    NSNumber* isCenterClipNumber = [notice.object objectForKey:@"isCenterClip"];
+    if (isCenterClipNumber.integerValue == 1) {
+        [_imageView centerClip];
+    }
 }
 
 - (void)setTitleLabelBackgroundColor:(UIColor *)titleLabelBackgroundColor

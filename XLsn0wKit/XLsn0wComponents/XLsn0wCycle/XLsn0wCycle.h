@@ -52,6 +52,7 @@ typedef enum {
 
 @property (nonatomic, strong) UILabel *pageNumber;
 @property (nonatomic, assign) BOOL isShowPage;
+@property (nonatomic, assign) BOOL isCenterClip;
 
 //////////////////////  数据源接口  //////////////////////
 
