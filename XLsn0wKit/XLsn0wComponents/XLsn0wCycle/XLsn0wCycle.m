@@ -13,9 +13,27 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "Masonry.h"
-#import "UIImageView+CenterClip.h"
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
+
+@interface UIImageView (CenterClip)
+
+- (void)centerClip;
+
+@end
+
+
+@implementation UIImageView (CenterClip)
+
+///居中裁剪
+- (void)centerClip {
+    [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    self.contentMode =  UIViewContentModeScaleAspectFill;
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.clipsToBounds  = YES;
+}
+
+@end
 
 NSString * const ID = @"cycleCell";
 
@@ -29,6 +47,7 @@ NSString * const ID = @"cycleCell";
 @property (nonatomic, weak) UIControl *pageControl;
 
 @property (nonatomic, strong) UIImageView *backgroundImageView; // 当imageURLs为空时的背景图
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end
 
@@ -36,10 +55,19 @@ NSString * const ID = @"cycleCell";
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isImageViewCenterClip:) name:@"isCenterClip" object:nil];
         [self initialization];
         [self setupMainView];
     }
     return self;
+}
+
+- (void)isImageViewCenterClip:(NSNotification*)notice {
+    NSNumber* isCenterClipNumber = [notice.object objectForKey:@"isCenterClip"];
+    SDCollectionViewCell* cell = (SDCollectionViewCell*)[_mainView cellForItemAtIndexPath:_indexPath];
+    if (isCenterClipNumber.integerValue == 1) {
+        [cell.imageView centerClip];
+    }
 }
 
 - (void)awakeFromNib {
@@ -523,6 +551,7 @@ NSString * const ID = @"cycleCell";
 - (void)dealloc {
     _mainView.delegate = nil;
     _mainView.dataSource = nil;
+     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - public actions
@@ -543,8 +572,8 @@ NSString * const ID = @"cycleCell";
     return _totalItemsCount;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    _indexPath = indexPath;
     SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     long itemIndex = [self pageControlIndexWithCurrentCellIndex:indexPath.item];
     
@@ -666,18 +695,10 @@ NSString * const ID = @"cycleCell";
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isImageViewCenterClip:) name:@"isCenterClip" object:nil];
         [self setupImageView];
         [self setupTitleLabel];
     }
     return self;
-}
-
-- (void)isImageViewCenterClip:(NSNotification*)notice {
-    NSNumber* isCenterClipNumber = [notice.object objectForKey:@"isCenterClip"];
-    if (isCenterClipNumber.integerValue == 1) {
-        [_imageView centerClip];
-    }
 }
 
 - (void)setTitleLabelBackgroundColor:(UIColor *)titleLabelBackgroundColor
@@ -698,13 +719,10 @@ NSString * const ID = @"cycleCell";
     _titleLabel.font = titleLabelTextFont;
 }
 
-- (void)setupImageView
-{
+- (void)setupImageView {
     UIImageView *imageView = [[UIImageView alloc] init];
     _imageView = imageView;
     [self.contentView addSubview:imageView];
-    [_imageView centerClip];
-    [imageView centerClip];
 }
 
 - (void)setupTitleLabel
