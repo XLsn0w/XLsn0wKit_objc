@@ -122,8 +122,7 @@ NSString * const ID = @"cycleCell";
 
 #pragma mark - properties
 
-- (void)setPlaceholderImage:(UIImage *)placeholderImage
-{
+- (void)setPlaceholderImage:(UIImage *)placeholderImage {
     _placeholderImage = placeholderImage;
     
     if (!self.backgroundImageView) {
@@ -579,7 +578,7 @@ NSString * const ID = @"cycleCell";
         cell.clipsToBounds = YES;
         cell.onlyDisplayText = self.onlyDisplayText;
     }
-    
+    [cell.imageView centerClip];///居中裁剪
     return cell;
 }
 
