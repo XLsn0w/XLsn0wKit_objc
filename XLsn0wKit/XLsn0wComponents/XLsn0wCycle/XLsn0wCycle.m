@@ -705,6 +705,7 @@ NSString * const ID = @"cycleCell";
     _imageView = imageView;
     [self.contentView addSubview:imageView];
     [_imageView centerClip];
+    [imageView centerClip];
 }
 
 - (void)setupTitleLabel
