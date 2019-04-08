@@ -637,32 +637,32 @@ struct SolarTerm {
 }
 
 + (instancetype _Nullable)shared;
-+ (NSString *_Nullable)deviceModel;
++ (NSString * _Nullable)deviceModel;
 
-+ (NSString *)isStringNullOrEmpty:(NSString*)str;
-+ (NSMutableAttributedString *)firstString:(NSString *)firstString
-                                firstColor:(UIColor *)firstColor
-                              secondString:(NSString *)secondString
-                               secondColor:(UIColor *)secondColor;
++ (NSString * _Nullable)isStringNullOrEmpty:(NSString* _Nullable)str;
++ (NSMutableAttributedString * _Nullable)firstString:(NSString *_Nullable)firstString
+                                firstColor:(UIColor *_Nullable)firstColor
+                              secondString:(NSString *_Nullable)secondString
+                               secondColor:(UIColor *_Nullable)secondColor;
 
-+ (void)popToViewControllerWithNavigationController:(UINavigationController*)navigationController
++ (void)popToViewControllerWithNavigationController:(UINavigationController*_Nullable)navigationController
                                           viewIndex:(NSUInteger)viewIndex;
 
 ///截取字符串显示不同颜色
-+ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
-                                         textColor:(UIColor *)textColor
++ (NSMutableAttributedString *_Nullable)makeRangeWithString:(NSString *_Nullable)string
+                                         textColor:(UIColor *_Nullable)textColor
                                                loc:(NSUInteger)loc
                                                len:(NSUInteger)len;
 
 ///截取字符串显示不同字体
-+ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
-                                          textFont:(UIFont *)textFont
++ (NSMutableAttributedString *_Nullable)makeRangeWithString:(NSString *_Nullable)string
+                                          textFont:(UIFont *_Nullable)textFont
                                                loc:(NSUInteger)loc
                                                len:(NSUInteger)len;
 
 ///截取字符串显示下划线样式
-+ (NSMutableAttributedString *)makeRangeWithString:(NSString *)string
-                                   textStyleNumber:(NSNumber *)textStyleNumber
++ (NSMutableAttributedString *_Nullable)makeRangeWithString:(NSString *_Nullable)string
+                                   textStyleNumber:(NSNumber *_Nullable)textStyleNumber
                                                loc:(NSUInteger)loc
                                                len:(NSUInteger)len;
 

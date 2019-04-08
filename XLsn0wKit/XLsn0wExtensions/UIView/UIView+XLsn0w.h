@@ -4,8 +4,6 @@
 
 @interface UIView (XLsn0w)
 
-@end
-
 typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
     ViewSeparatorTypeTop             = 1 << 0,
     ViewSeparatorTypeLeft            = 1 << 1,
@@ -19,8 +17,6 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
 #ifndef SeparatorWidth
 #define SeparatorWidth (1.0/[UIScreen mainScreen].scale)
 #endif
-
-@interface UIView (XLSeparator)
 
 /**
  *  Add the separator line on the view
@@ -93,10 +89,6 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
 + (UIImageView *)xlsn0w_instanceVerticalLine:(CGFloat)height color:(UIColor *)color;
 + (UIImageView *)xlsn0w_instanceVerticalLine:(CGFloat)height andColor:(UIColor *)color;
 
-@end
-
-@interface UIView (XLMBProgressHUD)
-
 /**
  *  Show only text HUD View
  *
@@ -139,10 +131,6 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
  */
 + (void)xlsn0w_showDetailMessage:(NSString *)message onParentView:(UIView *)parentView;
 
-@end
-
-@interface UIView (XLScreenshot)
-
 /**
  *  Get a screenshot from a view with Y offset
  *
@@ -158,10 +146,6 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
  *  @return The screenshot image
  */
 - (UIImage *)xlsn0w_screenshot;
-
-@end
-
-@interface UIView (XLCornerRadius)
 
 /*
  * draw layer borderWidth, borderColor, cornerRadius.
@@ -186,10 +170,6 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
  */
 - (void)xlsn0w_addCornerRadius:(CGFloat)radius lineColor:(UIColor *)lineColor;
 - (void)xlsn0w_addCornerRadius:(CGFloat)radius andLineColor:(UIColor *)lineColor;
-
-@end
-
-@interface UIView (convenience)
 
 @property (nonatomic) CGPoint frameOrigin;
 @property (nonatomic) CGSize frameSize;

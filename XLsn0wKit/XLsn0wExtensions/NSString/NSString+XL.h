@@ -24,10 +24,6 @@
 
 + (NSString *_Nullable)xl_getMD5String16bitWithInputString:(NSString *_Nullable)string;
 
-@end
-
-@interface NSString (XLDate)
-
 /**
  *  Get date info string from a date type object
  *
@@ -45,10 +41,6 @@
  *  @return a date info string of sns
  */
 + (NSString *_Nullable)xl_formatDateFromDate:(NSDate *_Nullable)date;
-
-@end
-
-@interface NSString (XLPredicate)
 
 /**
  *  check the string is email
@@ -114,10 +106,6 @@
  */
 + (BOOL)xl_checkWithDrawMoney:(NSString *_Nullable)input;
 
-@end
-
-@interface NSString (XLSubString)
-
 /**
  *  Get substring from origin string with condition
  *
@@ -128,20 +116,11 @@
  */
 - (NSString *_Nullable)xl_getSubStringBeginKey:(NSString *_Nullable)bKey endKey:(NSString *_Nullable)eKey;
 
-@end
-
-@interface NSString (XLPrice)
 
 + (NSString *_Nullable)xl_formatPrice:(NSNumber *_Nullable)price;
 
-@end
-
 /*****************************************************************************/
 
-
-#import <Foundation/Foundation.h>
-
-@interface NSString (Extension)
 /**
  *  md5加密
  */
@@ -187,11 +166,8 @@
  */
 - (CGFloat)textWidthWithContentHeight:(CGFloat)height font:(UIFont *_Nullable)font;
 
-@end
 
 /********************************字符串转base64（包括DES加密）****************************************/
-
-@interface NSString (Base64)
 
 /************************************************************
  函数描述 : 将普通字符串转换为base64格式字符串
@@ -206,6 +182,7 @@
  返回参数 : (NSString *)字符串
  **********************************************************/
 + (NSString *_Nullable)xl_getStringWithInputBase64String:(NSString *_Nullable)base64String;
+
 
 @end
 

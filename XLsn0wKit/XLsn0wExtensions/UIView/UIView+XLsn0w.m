@@ -3,11 +3,13 @@
 #import "MBProgressHUD.h"
 #import <objc/runtime.h>
 
-@implementation UIView (XLsn0w)
+@interface UIView ()
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
-@implementation UIView (XLSeparator)
+@implementation UIView (XLsn0w)
 
 - (void)xlsn0w_addSeparatorWithType:(ViewSeparatorType)type {
     [self xlsn0w_addSeparatorWithType:type color:nil];
@@ -180,16 +182,6 @@
     return [self xlsn0w_instanceVerticalLine:height color:color];
 }
 
-@end
-
-@interface UIView ()
-
-@property (nonatomic, strong) MBProgressHUD *hud;
-
-@end
-
-@implementation UIView (XLMBProgressHUD)
-
 #pragma mark - runtime
 
 - (void)setHud:(MBProgressHUD *)hud {
@@ -254,10 +246,6 @@
     [messageHud hideAnimated:YES afterDelay:1.0f];
 }
 
-@end
-
-@implementation UIView (XLScreenshot)
-
 - (UIImage *)xlsn0w_screenshot {
     UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
     
@@ -279,10 +267,6 @@
     
     return screenshot;
 }
-
-@end
-
-@implementation UIView (XLCornerRadius)
 
 - (void)xlsn0w_layerBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor cornerRadius:(CGFloat)cornerRadius {
     self.layer.borderWidth = borderWidth;
@@ -314,11 +298,6 @@
 - (void)xlsn0w_addCornerRadius:(CGFloat)radius andLineColor:(UIColor *)lineColor {
     [self xlsn0w_addCornerRadius:radius lineColor:lineColor];
 }
-
-@end
-
-
-@implementation UIView (convenience)
 
 -(BOOL) containsSubView:(UIView *)subView
 {

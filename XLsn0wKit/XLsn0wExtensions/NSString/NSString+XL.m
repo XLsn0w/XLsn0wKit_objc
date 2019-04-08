@@ -1,6 +1,11 @@
 
 #import "NSString+XL.h"
 #import <CommonCrypto/CommonCrypto.h>
+//引入iOS自带密码库
+#import <CommonCrypto/CommonCryptor.h>
+#import <objc/runtime.h>
+#import <CommonCrypto/CommonDigest.h>
+#define  MD5_LENGTH   32
 
 @implementation NSString (XL)
 
@@ -54,10 +59,6 @@
     return md5String16bit;
 }
 
-@end
-
-@implementation NSString (XLDate)
-
 + (NSString *)xl_formatInfoFromDate:(NSDate *)date {
     NSString *returnString = @"";
     NSTimeInterval time = fabs([[NSDate date] timeIntervalSinceDate:date]);
@@ -95,11 +96,6 @@
     return returnString;
 }
 
-
-@end
-
-@implementation NSString (XLPredicate)
-
 + (BOOL)xl_checkEmail:(NSString *)input {
     return [[self class] input:input andRegex:@"\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"];
 }
@@ -133,10 +129,6 @@
     return [predicate evaluateWithObject:input];
 }
 
-@end
-
-@implementation NSString (XLSubString)
-
 - (NSString *)xl_getSubStringBeginKey:(NSString *)bKey endKey:(NSString *)eKey {
     if(bKey && eKey){
         NSRange rangeBegin = [self rangeOfString:bKey];
@@ -158,10 +150,6 @@
     }
 }
 
-@end
-
-@implementation NSString (XLPrice)
-
 + (NSString *)xl_formatPrice:(NSNumber *)price {
     price = @(price.floatValue);
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -169,17 +157,9 @@
     return [NSString stringWithFormat:@"￥%@",[formatter stringFromNumber:price]];
 }
 
-@end
 
-
-
-#import <objc/runtime.h>
-#import <CommonCrypto/CommonDigest.h>
 
 /*CC_MD5_DIGEST_LENGTH*/
-
-#define  MD5_LENGTH   32
-@implementation NSString (Extension)
 
 + (NSString*)md5HexDigest:(NSString*)inputStr {
     const char * str = [inputStr UTF8String];
@@ -287,16 +267,7 @@
     return [self textSizeWithContentSize:size font:font].width;
 }
 
-@end
-
-/**************************************************************************************************/
-
-//引入iOS自带密码库
-#import <CommonCrypto/CommonCryptor.h>
-
 static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
-@implementation NSString (Base64)
 
 + (NSString *)xl_getBase64StringWithInputString:(NSString *)string {
     if (string && ![string isEqualToString:@""]) {

@@ -3,8 +3,6 @@
 #import "XLsn0wMiddleTabBar.h"
 #import "XLsn0wKitNavigationController.h"
 
-#define kTabbarHeight 49
-
 @interface XLsn0wMiddleTabBarController () <XLsn0wMiddleTabBarDelegate>
 
 @end
