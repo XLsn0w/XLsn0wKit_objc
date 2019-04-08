@@ -452,11 +452,10 @@ NSString * const ID = @"cycleCell";
 }
 
 - (void)showPageNumber:(NSInteger)index {
-    _pageNumber.text = [NSString stringWithFormat:@"%ld/%ld", index+1, _imageURLs.count];
+    _pageNumber.text = [NSString stringWithFormat:@"%ld/%ld", (long)index+1, (long)_imageURLs.count];
 }
 
-- (int)currentIndex
-{
+- (int)currentIndex {
     if (_mainView.sd_width == 0 || _mainView.sd_height == 0) {
         return 0;
     }
