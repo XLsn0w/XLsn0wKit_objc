@@ -9,7 +9,7 @@
  *                                                                                           *
  *********************************************************************************************/
 #import "XLsn0wLoop.h"
-#import "XLsn0wKit_objc.h"
+#import "XLsn0w.h"
 #import <ImageIO/ImageIO.h>
 
 #define DEFAULTTIME 5
@@ -164,7 +164,7 @@ static NSString *cache;
                 [_loopImageArray addObject:_placeholderImage];
             } else {
                 ///创建占位符图片
-                UIImage *placeholderImage = [XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"placeholder"];
+                UIImage *placeholderImage = [XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"placeholder"];
                 ///把占位符图片添加到轮播的图片数组里面
                 [_loopImageArray addObject:placeholderImage];
             }

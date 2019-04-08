@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "XLsn0wKit_objc.h"
+#import "XLsn0w.h"
 
 @interface ViewController ()
 

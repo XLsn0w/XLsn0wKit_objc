@@ -1,10 +1,10 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "7.5.0"
+  s.version         = "8.0.0"
 
-  s.summary         = "XLsn0wKit For Objective-C"
-  s.author          = { "XLsn0w" => "xlsn0w@outlook.com" }
+  s.summary         = "XLsn0wKit Objective-C Version"
+  s.author          = { "XLsn0w" => "xlsn0wios@gmail.com" }
 
   s.name            = "XLsn0wKit_objc"
   s.homepage        = "https://github.com/XLsn0w/XLsn0wKit_objc"
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc    = true
   s.license         = 'MIT'
-  s.platform        = :ios, "8.0"
+  s.platform        = :ios, "9.0"
 
   s.dependency "CocoaAsyncSocket"
   s.dependency "MBProgressHUD"
@@ -30,7 +30,3 @@ Pod::Spec.new do |s|
   s.dependency "FMDB"
 
 end
-
-# ―――――――――――――――――――――――――――――――――――――  Pod Spec 注释  ――――――――――――――――――――――――――――――――――――――――――
-# use `--allow-warnings` to ignore warnings
-# ―――――――――――――――――――――――――――――――――――――  Pod Spec 注释  ――――――――――――――――――――――――――――――――――――――――――

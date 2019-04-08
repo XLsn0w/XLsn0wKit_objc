@@ -1,6 +1,6 @@
 
 #import "XLsn0wNineSquarer.h"
-#import "XLsn0w.h"
+#import "XLsn0wFunction.h"
 
 @interface XLsn0wNineSquarer ()
 
@@ -41,8 +41,8 @@
     for (NSInteger i = 0; i < 9; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.userInteractionEnabled = NO;
-        [btn setImage:[XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_normal"] forState:UIControlStateNormal];
-        [btn setImage:[XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_selected"] forState:UIControlStateSelected];
+        [btn setImage:[XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_normal"] forState:UIControlStateNormal];
+        [btn setImage:[XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_selected"] forState:UIControlStateSelected];
         [self addSubview:btn];
         btn.tag = i + 1;
     }

@@ -8,7 +8,7 @@
 
 #import "XLsn0wSocketManager.h"
 #import "GCDAsyncSocket.h"
-#import "XLsn0wKit_objc.h"
+#import "XLsn0w.h"
 
 @interface XLsn0wSocketManager () <GCDAsyncSocketDelegate>
 

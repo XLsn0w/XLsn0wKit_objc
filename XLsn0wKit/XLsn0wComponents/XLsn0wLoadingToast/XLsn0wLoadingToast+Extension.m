@@ -10,7 +10,7 @@
  *********************************************************************************************/
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wLoadingToast.h"
-#import "XLsn0wKit_objc.h"
+#import "XLsn0w.h"
 
 @implementation XLsn0wLoadingToast (Extension)
 
@@ -23,7 +23,7 @@
     hud.labelFont = [UIFont systemFontOfSize:14];
     
     // 设置图片
-    UIImage *customImage = [XLsn0w getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:icon];
+    UIImage *customImage = [XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:icon];
     hud.customView = [[UIImageView alloc] initWithImage:customImage];
 
     // 再设置模式
