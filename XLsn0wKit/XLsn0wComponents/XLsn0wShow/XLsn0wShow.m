@@ -42,7 +42,7 @@
         textLabel.numberOfLines = 0;
         
         self.contentView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textLabel.frame.size.width, textLabel.frame.size.height)];
-        self.contentView.layer.cornerRadius = 20.0f;
+        self.contentView.layer.cornerRadius = 5;
         self.contentView.backgroundColor = ToastBackgroundColor;
         [self.contentView addSubview:textLabel];
         self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;

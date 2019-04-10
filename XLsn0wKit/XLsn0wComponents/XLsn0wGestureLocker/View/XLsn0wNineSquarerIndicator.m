@@ -1,5 +1,5 @@
 #import "XLsn0wNineSquarerIndicator.h"
-#import "XLsn0wFunction.h"
+#import "XLsn0wer.h"
 
 @interface XLsn0wNineSquarerIndicator ()
 
@@ -33,8 +33,8 @@
     for (int i = 0; i < 9; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.userInteractionEnabled = NO;
-        [btn setImage:[XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_indicator_normal"] forState:UIControlStateNormal];
-        [btn setImage:[XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_indicator_selected"] forState:UIControlStateSelected];
+        [btn setImage:[XLsn0wer getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_indicator_normal"] forState:UIControlStateNormal];
+        [btn setImage:[XLsn0wer getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_indicator_selected"] forState:UIControlStateSelected];
         [self addSubview:btn];
         [self.btns addObject:btn];
     }

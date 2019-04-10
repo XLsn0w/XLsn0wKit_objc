@@ -23,7 +23,7 @@
     hud.labelFont = [UIFont systemFontOfSize:14];
     
     // 设置图片
-    UIImage *customImage = [XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:icon];
+    UIImage *customImage = [XLsn0wer getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:icon];
     hud.customView = [[UIImageView alloc] initWithImage:customImage];
 
     // 再设置模式
