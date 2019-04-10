@@ -44,10 +44,7 @@ if (indexPath.row == 0) { // 创建手势密码
         
         XLsn0wGestureLocker *vc = [[XLsn0wGestureLocker alloc] initWithUnlockType:CreateGesture];
         [self presentViewController:vc animated:YES completion:nil];
-    } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"还没有设置手势密码" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-        [alertView show];
-    }
+    } 
 } else if (indexPath.row == 2) { // 删除手势密码
     [CreateGesture deleteGesture];
 }

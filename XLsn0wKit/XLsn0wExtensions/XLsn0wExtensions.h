@@ -17,7 +17,6 @@
 #import "NSDate+Utilities.h"
 #import "NSDictionary+XLsn0w.h"
 #import "NSObject+XLsn0w.h"
-#import "NSObject+XLsn0wKit.h"
 #import "NSArray+XL.h"
 #import "NSMutableArray+XLsn0w.h"
 #import "UINavigationBar+XLsn0w.h"

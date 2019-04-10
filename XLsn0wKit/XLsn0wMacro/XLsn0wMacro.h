@@ -97,13 +97,6 @@
 
 /**************************************************************************************************/
 
-//DEBUG  模式下打印日志,当前行 并弹出一个警告
-#ifdef DEBUG
-#   define XLLog(FORMAT, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"\n ©XLsn0wLog© --->:%s \n", __PRETTY_FUNCTION__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]; [alert show]; }
-#else
-#   define XLLog(...)
-#endif
-
 /*!**!**!**!**!**!**!**!**!**!**!**!**!**!**!**!**!**!*/
 
 #define ITTDEBUG

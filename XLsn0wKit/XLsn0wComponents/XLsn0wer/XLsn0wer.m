@@ -1373,12 +1373,7 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
 
 
 + (void)showNotReachabileTips {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"与服务端连接已断开,请检查您的网络连接是否正常."
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"确定", nil];
-    [alertView show];
+    [XLsn0wer showTipsWithHUD:@"与服务端连接已断开,请检查您的网络连接是否正常"];
 }
 
 +(NSDate *)dateFromString:(NSString *)dateString usingFormat:(NSString*)format

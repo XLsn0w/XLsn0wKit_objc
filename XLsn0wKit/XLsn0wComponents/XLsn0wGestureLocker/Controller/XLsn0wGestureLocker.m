@@ -25,7 +25,7 @@
 
 #define GesturesPassword @"gesturespassword"
 
-@interface XLsn0wGestureLocker () <ZLGestureLockDelegate, UIAlertViewDelegate>
+@interface XLsn0wGestureLocker () <ZLGestureLockDelegate>
 
 @property (strong, nonatomic) XLsn0wNineSquarer *gestureLockView;
 @property (strong, nonatomic) XLsn0wNineSquarerIndicator *gestureLockIndicator;
@@ -240,8 +240,7 @@
     } else {
         
         if (errorCount - 1 == 0) { // 你已经输错五次了！ 退出重新登陆！
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"手势密码已失效" message:@"请重新登陆" delegate:self cancelButtonTitle:nil otherButtonTitles:@"重新登陆", nil];
-            [alertView show];
+            [XLsn0wer showTipsWithHUD:@"手势密码已失效, 请重新登陆"];
             errorCount = 3;
             return;
         }
@@ -313,18 +312,9 @@
     }
 }
 
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // 重新登陆
-    NSLog(@"重新登陆");
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end
