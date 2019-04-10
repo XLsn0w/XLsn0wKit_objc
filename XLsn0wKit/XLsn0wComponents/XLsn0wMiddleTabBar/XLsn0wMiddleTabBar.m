@@ -1,6 +1,6 @@
 
 #import "XLsn0wMiddleTabBar.h"
-#import "UIView+Extension.h"
+#import "UIView+XLsn0wKit.h"
 
 @implementation XLsn0wMiddleTabBar
 

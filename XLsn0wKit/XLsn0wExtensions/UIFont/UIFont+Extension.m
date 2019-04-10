@@ -3,6 +3,7 @@
 #import "XLsn0wMacro.h"
 
 @implementation UIFont (Extension)
+
 + (UIFont *)fontWithDevice:(CGFloat)fontSize {
     if (kScreenWidth > 375) {
         fontSize = fontSize + 3;

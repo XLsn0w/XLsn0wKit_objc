@@ -38,6 +38,7 @@
 #import "UIDevice+XLsn0wKit.h"
 #import "UITableView+Placeholder.h"
 #import "UIView+XLsn0w.h"
+#import "UIFont+Extension.h"
 #import "UIView+Addbadge.h"
 #import "UIViewController+XLsn0wKit.h"
 #import "UIViewController+AddIsAutorotate.h"

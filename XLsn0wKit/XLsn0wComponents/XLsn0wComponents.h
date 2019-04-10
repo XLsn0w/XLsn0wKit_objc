@@ -50,7 +50,6 @@
 #import "XLsn0wNineSquarerIndicator.h"
 #import "XLsn0wLoadingToast+Extension.h"
 #import "XLsn0wMiddleTabBarController.h"
-#import "XLsn0wKitNavigationController.h"
 #import "XLsn0wCollectionViewFlowLayout.h"
 #import "XLsn0wUnderlineButton.h"
 #import "XLsn0wTypeBarButton.h"

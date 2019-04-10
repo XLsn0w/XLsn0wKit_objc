@@ -1,7 +1,6 @@
 
 #import "XLsn0wMiddleTabBarController.h"
 #import "XLsn0wMiddleTabBar.h"
-#import "XLsn0wKitNavigationController.h"
 
 @interface XLsn0wMiddleTabBarController () <XLsn0wMiddleTabBarDelegate>
 
@@ -88,7 +87,7 @@
     childVc.tabBarItem.selectedImage = selectedImage;
     
     // 添加为tabbar控制器的子控制器
-    XLsn0wKitNavigationController *nav = [[XLsn0wKitNavigationController alloc] initWithRootViewController:childVc];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
 
