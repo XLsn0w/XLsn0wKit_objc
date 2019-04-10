@@ -21,7 +21,7 @@
  *********************************************************************************************/
 #import "XLsn0wNineSquarer.h"
 #import "XLsn0wNineSquarerIndicator.h"
-#import "XLsn0wFunction.h"
+#import "XLsn0wer.h"
 
 #define GesturesPassword @"gesturespassword"
 
@@ -122,7 +122,7 @@
     // 账户头像
     UIImageView *headIcon = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 56) * 0.5, 30, 56, 56)];
  ///headIcon.image = [UIImage imageNamed:@"gesture_headIcon"];
-    headIcon.image = [XLsn0wFunction getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_headIcon"];
+    headIcon.image = [XLsn0wer getCustomBundleWithFileName:@"XLsn0wKit_objc" bundleImageName:@"gesture_headIcon"];
     [self.view addSubview:headIcon];
     
     // 账户名

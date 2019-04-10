@@ -595,7 +595,7 @@ struct SolarTerm {
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-@interface XLsn0wFunction : NSObject {
+@interface XLsn0wer : NSObject {
     NSArray *HeavenlyStems;//天干表
     NSArray *EarthlyBranches;//地支表
     NSArray *LunarZodiac;//生肖表
@@ -1108,7 +1108,7 @@ struct SolarTerm {
  *@Params:nil
  *@Return:NSDate对应的中国日历（农历）的LunarCalendar
  ****************************************************/
-- (XLsn0wFunction * _Nullable)chineseCalendarDate;//加载中国农历
+- (XLsn0wer * _Nullable)chineseCalendarDate;//加载中国农历
 
 @end
 /*********************************************************************************************

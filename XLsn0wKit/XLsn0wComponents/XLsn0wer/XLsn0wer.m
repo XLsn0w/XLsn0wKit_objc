@@ -1,6 +1,6 @@
 /**************************************************************************************************/
 
-#import "XLsn0wFunction.h"
+#import "XLsn0wer.h"
 
 #import "XLsn0wLog.h"
 #import "MBProgressHUD.h"
@@ -70,7 +70,7 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-@interface XLsn0wFunction () {
+@interface XLsn0wer () {
     NSMutableArray *stack;
 }
 
@@ -85,7 +85,7 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
-@implementation XLsn0wFunction
+@implementation XLsn0wer
 
 ///解决 warning:
 ///Autosynthesized property 'year' will use synthesized instance variable '_year', not existing instance variable 'year'.
@@ -95,7 +95,7 @@
 
 ///单例 singleton
 + (instancetype)shared {
-    static XLsn0wFunction *singleton = nil;
+    static XLsn0wer *singleton = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singleton = [[self alloc] init];
@@ -116,7 +116,7 @@
                                secondColor:(UIColor *)secondColor {
     
     // 创建 firstAttributedString
-    NSMutableAttributedString * firstAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0wFunction isStringNullOrEmpty:firstString]];
+    NSMutableAttributedString * firstAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0wer isStringNullOrEmpty:firstString]];
     
     // 设置 firstAttributes 属性 （字体、颜色）
     NSDictionary * firstAttributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:firstColor};
@@ -125,7 +125,7 @@
     [firstAttributedString setAttributes:firstAttributes range:NSMakeRange(0,firstAttributedString.length)];
     
     // 创建 secondAttributedString
-    NSMutableAttributedString * secondAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0wFunction isStringNullOrEmpty:secondString]];
+    NSMutableAttributedString * secondAttributedString = [[NSMutableAttributedString alloc] initWithString:[XLsn0wer isStringNullOrEmpty:secondString]];
     
     // 设置 secondAttributes 属性 （字体、颜色）
     NSDictionary * secondAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:secondColor};
@@ -668,9 +668,9 @@
 
 - (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (!error) {
-        [XLsn0wFunction xl_showTipText:@"成功保存到相册"];
+        [XLsn0wer xl_showTipText:@"成功保存到相册"];
     } else {
-        [XLsn0wFunction xl_showTipText:@"保存图片失败"];
+        [XLsn0wer xl_showTipText:@"保存图片失败"];
     }
 }
 
@@ -1328,7 +1328,7 @@ static NSString *BFHasBeenOpenedForCurrentVersion = @"";
 
 + (void)showTipsWithHUD:(NSString*)labelText inView:(UIView *)inView
 {
-    [XLsn0wFunction showTipsWithView:inView labelText:labelText showTime:1.5];
+    [XLsn0wer showTipsWithView:inView labelText:labelText showTime:1.5];
 }
 
 + (void)showTipsWithView:(UIView *)uiview labelText:(NSString *)labelText showTime:(CGFloat)time
@@ -3077,8 +3077,8 @@ int LunarCalendarInfo[] = {
  *@Params:nil
  *@Return:NSDate对应的中国日历（农历）的LunarCalendar
  ****************************************************/
-- (XLsn0wFunction *)chineseCalendarDate {
-    XLsn0wFunction *lunarCalendar = [[XLsn0wFunction alloc] init];
+- (XLsn0wer *)chineseCalendarDate {
+    XLsn0wer *lunarCalendar = [[XLsn0wer alloc] init];
     [lunarCalendar loadWithDate:self];
     [lunarCalendar InitializeValue];
     return lunarCalendar;
