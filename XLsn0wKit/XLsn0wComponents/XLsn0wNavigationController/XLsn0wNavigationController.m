@@ -32,11 +32,11 @@
 - (void)deviceOrientationDidChange {
     NSLog(@"NavigationController deviceOrientationDidChange:%ld", (long)[UIDevice currentDevice].orientation);
     if([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
+        //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
         [self orientationChange:NO];
         //注意： UIDeviceOrientationLandscapeLeft 与 UIInterfaceOrientationLandscapeRight
     } else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+        //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
         [self orientationChange:YES];
     }
 }

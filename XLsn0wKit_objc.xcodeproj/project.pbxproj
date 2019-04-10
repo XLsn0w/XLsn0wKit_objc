@@ -28,7 +28,6 @@
 		3594D4F71EFD3A7E00DF291D /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F61EFD3A7E00DF291D /* UIBarButtonItem+Extension.m */; };
 		3594D4FA1EFD3AAC00DF291D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4F91EFD3AAC00DF291D /* UIView+Extension.m */; };
 		3594D4FD1EFD3B8300DF291D /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */; };
-		35E2427E1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E2427D1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m */; };
 		35E242811EFA1D7600D0572A /* XLNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242801EFA1D7600D0572A /* XLNetManager.m */; };
 		35E242841EFA1F5300D0572A /* NSString+calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242831EFA1F5300D0572A /* NSString+calculate.m */; };
 		35E2428A1EFA202300D0572A /* UIBezierPath+curved.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E242891EFA202300D0572A /* UIBezierPath+curved.m */; };
@@ -153,8 +152,6 @@
 		3594D4F91EFD3AAC00DF291D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		3594D4FB1EFD3B8300DF291D /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
 		3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
-		35E2427C1EFA1CF700D0572A /* XLsn0wAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wAuthorizationManager.h; sourceTree = "<group>"; };
-		35E2427D1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wAuthorizationManager.m; sourceTree = "<group>"; };
 		35E2427F1EFA1D7600D0572A /* XLNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNetManager.h; sourceTree = "<group>"; };
 		35E242801EFA1D7600D0572A /* XLNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLNetManager.m; sourceTree = "<group>"; };
 		35E242821EFA1F5300D0572A /* NSString+calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+calculate.h"; sourceTree = "<group>"; };
@@ -499,15 +496,6 @@
 				3594D4FC1EFD3B8300DF291D /* UIFont+Extension.m */,
 			);
 			path = XLsn0wKitNavigationController;
-			sourceTree = "<group>";
-		};
-		35E2427B1EFA1CF700D0572A /* XLsn0wAuthorizationManager */ = {
-			isa = PBXGroup;
-			children = (
-				35E2427C1EFA1CF700D0572A /* XLsn0wAuthorizationManager.h */,
-				35E2427D1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m */,
-			);
-			path = XLsn0wAuthorizationManager;
 			sourceTree = "<group>";
 		};
 		35E242981EFA22B700D0572A /* XLsn0wMaskBlurView */ = {
@@ -895,7 +883,6 @@
 				35E243151EFA617300D0572A /* XLsn0wHUD */,
 				35E242F31EFA612500D0572A /* XLsn0wCityChooser */,
 				35E242981EFA22B700D0572A /* XLsn0wMaskBlurView */,
-				35E2427B1EFA1CF700D0572A /* XLsn0wAuthorizationManager */,
 				35F80EC01EF4B87E00031CDA /* XLsn0wUploadImage */,
 				35F80EC81EF4B87E00031CDA /* XLsn0wDatabase */,
 				35F80ED01EF4B87E00031CDA /* XLsn0wGuidePager */,
@@ -1203,8 +1190,7 @@
 				TargetAttributes = {
 					352954911EEFD7FB004B717F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = YNZCYC8M4N;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1292,7 +1278,6 @@
 				35F80E6E1EF4B87700031CDA /* UIImage+XLsn0wKit.m in Sources */,
 				35E243221EFA61DC00D0572A /* XLsn0wKeychain.m in Sources */,
 				35F80F2A1EF4B87E00031CDA /* XLsn0wFilterMenu.m in Sources */,
-				35E2427E1EFA1CF700D0572A /* XLsn0wAuthorizationManager.m in Sources */,
 				35F80F2C1EF4B87E00031CDA /* XLsn0wLoadingToast.m in Sources */,
 				35F80F261EF4B87E00031CDA /* XLsn0wNetworkManager.m in Sources */,
 				35F80F201EF4B87E00031CDA /* XLsn0wDBUser.m in Sources */,
@@ -1505,12 +1490,14 @@
 			baseConfigurationReference = 911026C5361F23B1B593896F /* Pods-XLsn0wKit_objc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YNZCYC8M4N;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = XLsn0wKit_objc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = XLsn0wKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1519,12 +1506,14 @@
 			baseConfigurationReference = 9D5006AF24F7CE69C4DF1BC2 /* Pods-XLsn0wKit_objc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YNZCYC8M4N;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = XLsn0wKit_objc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = XLsn0wKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

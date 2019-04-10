@@ -46,7 +46,6 @@
 #import "XLsn0wDisplayImageCell.h"
 #import "XLsn0wNavViewController.h"
 #import "XLsn0wCityAreaDataManager.h"
-#import "XLsn0wAuthorizationManager.h"
 #import "XLsn0wNavigationController.h"
 #import "XLsn0wNineSquarerIndicator.h"
 #import "XLsn0wLoadingToast+Extension.h"
