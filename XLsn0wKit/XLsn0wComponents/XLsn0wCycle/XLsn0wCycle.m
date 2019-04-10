@@ -64,7 +64,7 @@ NSString * const ID = @"cycleCell";
 
 - (void)isImageViewCenterClip:(NSNotification*)notice {
     NSNumber* isCenterClipNumber = [notice.object objectForKey:@"isCenterClip"];
-    SDCollectionViewCell* cell = (SDCollectionViewCell*)[_mainView cellForItemAtIndexPath:_indexPath];
+    XLsn0wCycleCollectionViewCell* cell = (XLsn0wCycleCollectionViewCell*)[_mainView cellForItemAtIndexPath:_indexPath];
     if (isCenterClipNumber.integerValue == 1) {
         [cell.imageView centerClip];
     }
@@ -137,7 +137,7 @@ NSString * const ID = @"cycleCell";
     mainView.pagingEnabled = YES;
     mainView.showsHorizontalScrollIndicator = NO;
     mainView.showsVerticalScrollIndicator = NO;
-    [mainView registerClass:[SDCollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [mainView registerClass:[XLsn0wCycleCollectionViewCell class] forCellWithReuseIdentifier:ID];
     mainView.dataSource = self;
     mainView.delegate = self;
     mainView.scrollsToTop = NO;
@@ -572,7 +572,7 @@ NSString * const ID = @"cycleCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     _indexPath = indexPath;
-    SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    XLsn0wCycleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     long itemIndex = [self pageControlIndexWithCurrentCellIndex:indexPath.item];
     
     NSString *imagePath = self.imagePathsGroup[itemIndex];
@@ -687,7 +687,7 @@ NSString * const ID = @"cycleCell";
  *                                                                                           *
  *********************************************************************************************/
 
-@implementation SDCollectionViewCell {
+@implementation XLsn0wCycleCollectionViewCell {
     __weak UILabel *_titleLabel;
 }
 
