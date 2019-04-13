@@ -17,4 +17,10 @@
 
 - (UIImage *)scaleImage:(UIImage *)originImage;
 
+// 播放GIF
+- (void)xlsn0w_playGifAnimationImages:(NSArray *)animationImages;
+
+// 停止动画
+- (void)xlsn0w_stopGifAnimating;
+
 @end

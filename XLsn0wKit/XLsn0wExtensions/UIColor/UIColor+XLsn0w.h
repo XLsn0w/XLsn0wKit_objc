@@ -1,6 +1,5 @@
 
 #import <UIKit/UIKit.h>
-#define SUPPORTS_UNDOCUMENTED_API	0
 
 @interface UIColor (XLsn0w)
 
@@ -72,11 +71,3 @@
 
 @end
 
-#if SUPPORTS_UNDOCUMENTED_API
-// UIColor_Undocumented_Expanded
-// Methods which rely on undocumented methods of UIColor
-@interface UIColor (UIColor_Undocumented_Expanded)
-- (NSString *)fetchStyleString;
-- (UIColor *)rgbColor; // Via Poltras
-@end
-#endif // SUPPORTS_UNDOCUMENTED_API

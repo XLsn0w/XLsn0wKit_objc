@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version         = "8.0.5"
+  s.version         = "8.1.0"
 
   s.summary         = "XLsn0wKit Objective-C Version"
   s.author          = { "XLsn0w" => "xlsn0w@outlook.com" }
@@ -11,8 +11,6 @@ Pod::Spec.new do |s|
   s.source          = { :git => "https://github.com/XLsn0w/XLsn0wKit_objc.git", :tag => s.version.to_s }
 
   s.source_files    = "XLsn0wKit/**/*.{h,m}"
-
-  s.resources       = "XLsn0wKit/Resources/XLsn0wKit_objc.bundle"
 
   s.libraries       = "sqlite3", "z"
 

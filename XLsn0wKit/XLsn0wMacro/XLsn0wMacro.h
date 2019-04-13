@@ -27,8 +27,8 @@
  */
 
 /*! 当前设备屏幕 宽/高 */
-#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kDeviceWidth  [UIScreen mainScreen].bounds.size.width
+#define kDeviceHeight [UIScreen mainScreen].bounds.size.height
 
 /*! 屏幕比率 以iPhone 7 | 375x667为基准 */
 #define kFitWidth  ([UIScreen mainScreen].bounds.size.width  / 375)

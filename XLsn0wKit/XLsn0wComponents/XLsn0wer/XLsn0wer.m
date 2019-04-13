@@ -7,7 +7,7 @@
 
 #import <CommonCrypto/CommonCrypto.h>
 
-#import "NSString+XL.h"
+#import "NSString+XLsn0w.h"
 #define KFacialSizeWidth    32
 
 #define KFacialSizeHeight   32

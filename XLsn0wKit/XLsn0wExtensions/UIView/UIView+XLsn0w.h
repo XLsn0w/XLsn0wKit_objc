@@ -187,4 +187,53 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
 -(BOOL) containsSubView:(UIView *)subView;
 //-(BOOL) containsSubViewOfClassType:(Class)class;
 
+@property (strong, nonatomic) UILabel *badge;
+
+// Badge value to be display
+@property (nonatomic) NSString *badgeValue;
+// Badge background color
+@property (nonatomic) UIColor *badgeBGColor;
+// Badge text color
+@property (nonatomic) UIColor *badgeTextColor;
+// Badge font
+@property (nonatomic) UIFont *badgeFont;
+// Padding value for the badge
+@property (nonatomic) CGFloat badgePadding;
+// Minimum size badge to small
+@property (nonatomic) CGFloat badgeMinSize;
+// Values for offseting the badge over the BarButtonItem you picked
+@property (nonatomic) CGFloat badgeOriginX;
+@property (nonatomic) CGFloat badgeOriginY;
+// In case of numbers, remove the badge when reaching zero
+@property BOOL shouldHideBadgeAtZero;
+// Badge has a bounce animation when value changes
+@property BOOL shouldAnimateBadge;
+
+/** tag */
+@property (nonatomic, copy) NSString *tagStr;
+
+- (BOOL)isShowOnKeyWindow;
+
+/** X */
+@property (nonatomic, assign) CGFloat x;
+
+/** Y */
+@property (nonatomic, assign) CGFloat y;
+
+/** Width */
+@property (nonatomic, assign) CGFloat width;
+
+/** Height */
+@property (nonatomic, assign) CGFloat height;
+
+/** size */
+@property (nonatomic, assign) CGSize size;
+
+/** centerX */
+@property (nonatomic, assign) CGFloat centerX;
+
+/** centerY */
+@property (nonatomic, assign) CGFloat centerY;
+
+
 @end
